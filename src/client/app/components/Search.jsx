@@ -16,14 +16,14 @@ class Search extends React.Component {
         }
         value={this.props.currentStudent}
         onChange={(e) => {
-          this.props.setCurrentStudent(e.target.value);
+          this.props.setSelectedStudent(e.target.value);
         }
         }
         onSelect={(value) => {
           console.log(value);
           this.props.getStudentProject(value);
-          this.props.setCurrentStudent(value);
-          console.log(this.props.currentStudent);
+          this.props.setSelectedStudent(value);
+          console.log(this.props.selectedStudent);
         }
         }
       />
@@ -31,9 +31,9 @@ class Search extends React.Component {
   }
 }
 Search.propTypes = {
-  currentStudent: PropTypes.string.isRequired,
+  selectedStudent: PropTypes.string.isRequired,
   getStudentProject: PropTypes.func.isRequired,
-  setCurrentStudent: PropTypes.func.isRequired,
+  setSelectedStudent: PropTypes.func.isRequired,
   students: PropTypes.shape.isRequired,
 };
 

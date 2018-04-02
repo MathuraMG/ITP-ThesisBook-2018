@@ -5,16 +5,16 @@ class Project extends React.Component {
   render() {
     return (
       <section>
-        <h1>{this.props.currentProject.project}</h1>
-        <h2>{this.props.currentProject.name}</h2>
-        <p>{this.props.currentProject.short}</p>
+        <h1>{this.props.selectedProject.project}</h1>
+        <h2>{this.props.selectedProject.name}</h2>
+        <p>{this.props.selectedProject.short}</p>
       </section>
     );
   }
 }
 
 Project.propTypes = {
-  currentProject: PropTypes.shape.isRequired
+  selectedProject: PropTypes.shape.isRequired
 };
 
 export default Project;

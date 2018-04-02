@@ -21,7 +21,7 @@ class TagSearcher extends React.Component {
             <button
               className={`tag__button${this.props.selectedTags.includes(tag) ? '--selected' : '--unselected'}`}
               onClick={() => {
-                this.props.setCurrentTag(tag);
+                this.props.setSelectedTag(tag);
                 this.getPairedProjects(tag);
               }}
             >
@@ -39,7 +39,7 @@ TagSearcher.propTypes = {
   getTagProjects: PropTypes.func.isRequired,
   selectedTags: PropTypes.arrayOf.isRequired,
   setSelectedTags: PropTypes.func.isRequired,
-  setCurrentTag: PropTypes.func.isRequired,
+  setSelectedTag: PropTypes.func.isRequired,
   tags: PropTypes.arrayOf.isRequired,
 };
 
