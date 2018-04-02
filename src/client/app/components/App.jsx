@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Project from './Project.jsx';
+import Projects from './Projects.jsx';
 import Search from './Search.jsx';
 import TagSearcher from './TagSearcher.jsx';
 
@@ -42,7 +43,9 @@ class App extends React.Component {
       ]
     };
     this.getStudentProject = this.getStudentProject.bind(this);
+    this.getTagProjects = this.getTagProjects.bind(this);
     this.setCurrentProject = this.setCurrentProject.bind(this);
+    this.setCurrentProjects = this.setCurrentProjects.bind(this);
     this.setCurrentStudent = this.setCurrentStudent.bind(this);
     this.setCurrentTag = this.setCurrentTag.bind(this);
     this.setSelectedTags = this.setSelectedTags.bind(this);
@@ -66,6 +69,12 @@ class App extends React.Component {
     });
   }
 
+  setCurrentProjects(projects) {
+    this.setState({
+      currentProjects: projects
+    });
+  }
+
   setSelectedTags(tags) {
     this.setState({
       selectedTags: tags
@@ -81,10 +90,10 @@ class App extends React.Component {
   }
 
   getTagProjects(tag) {
-    console.log(tag);
     axios.get(`/api/tag/${tag}`)
       .then((res) => {
         console.log(res.data);
+        this.setCurrentProjects(res.data);
       });
   }
 
@@ -108,6 +117,9 @@ class App extends React.Component {
         />
         <Project
           currentProject={this.state.currentProject}
+        />
+        <Projects
+          currentProjects={this.state.currentProjects}
         />
       </div>
     );

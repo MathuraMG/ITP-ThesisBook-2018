@@ -24,7 +24,7 @@ const sampleStudentData = {
   "student2" : {
     name: "student2",
     project: "Project2",
-    tag: ["tag2","tag3"],
+    tag: ["tag2","tag6"],
     short: "This is a project that compares the growing rate of UFO sightings to the number of vegans",
   },
   "student3" : {
@@ -62,14 +62,16 @@ const sampleTagData = {
   ],
   "tag3" : [
     {
-      student : "student2",
-      project: "Project2",
-      tag: ["tag2","tag3"]
-    },
-    {
       student : "student3",
       project: "Project3",
       tag: ["tag3","tag1"]
+    }
+  ],
+  "tag6" : [
+    {
+      student : "student2",
+      project: "Project2",
+      tag: ["tag2","tag6"]
     }
   ],
 }
