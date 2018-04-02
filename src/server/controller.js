@@ -2,9 +2,9 @@ const express = require('express');
 const routes = express.Router();
 
 const sampleStudents = [
-  "st1",
-  "st2",
-  "st3"
+  "student1",
+  "student2",
+  "student3"
 ];
 
 const sampleTags = [
@@ -15,53 +15,59 @@ const sampleTags = [
 ];
 
 const sampleStudentData = {
-  "st1" : {
+  "student1" : {
+    name: "student1",
     project: "Project1",
-    tag: ["tag1","tag2"]
+    tag: ["tag1","tag2"],
+    short: "This is a project that compares the growing rate of bug infestations to the number of pet cats",
   },
-  "st2" : {
+  "student2" : {
+    name: "student2",
     project: "Project2",
-    tag: ["tag2","tag3"]
+    tag: ["tag2","tag3"],
+    short: "This is a project that compares the growing rate of UFO sightings to the number of vegans",
   },
-  "st3" : {
+  "student3" : {
+    name: "student3",
     project: "Project3",
-    tag: ["tag3","tag1"]
+    tag: ["tag3","tag1"],
+    short: "This is a project that compares the growing rate of snowstorms to the number of food carts",
   }
 }
 
 const sampleTagData = {
   "tag1" : [
     {
-      student : "st1",
+      student : "student1",
       project: "Project1",
       tag: ["tag1","tag2"]
     },
     {
-      student : "st3",
+      student : "student3",
       project: "Project3",
       tag: ["tag3","tag1"]
     }
   ],
   "tag2" : [
     {
-      student : "st1",
+      student : "student1",
       project: "Project1",
       tag: ["tag1","tag2"]
     },
     {
-      student : "st2",
+      student : "student2",
       project: "Project2",
-      tag: ["tag2","tag3"]
+      tag: ["tag6","tag2"]
     }
   ],
   "tag3" : [
     {
-      student : "st2",
+      student : "student2",
       project: "Project2",
       tag: ["tag2","tag3"]
     },
     {
-      student : "st3",
+      student : "student3",
       project: "Project3",
       tag: ["tag3","tag1"]
     }

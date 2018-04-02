@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import Project from './Project.jsx';
 import Search from './Search.jsx';
 import TagSearcher from './TagSearcher.jsx';
 
@@ -9,6 +11,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentProject: {},
+      currentProjects: [],
       currentStudent: '',
       currentTag: 'tag1',
       selectedTags: [],
@@ -38,7 +42,9 @@ class App extends React.Component {
       ]
     };
     this.getStudentProject = this.getStudentProject.bind(this);
+    this.setCurrentProject = this.setCurrentProject.bind(this);
     this.setCurrentStudent = this.setCurrentStudent.bind(this);
+    this.setCurrentTag = this.setCurrentTag.bind(this);
     this.setSelectedTags = this.setSelectedTags.bind(this);
   }
 
@@ -48,21 +54,35 @@ class App extends React.Component {
     });
   }
 
+  setCurrentTag(tag) {
+    this.setState({
+      currentTag: tag
+    });
+  }
+
+  setCurrentProject(project) {
+    this.setState({
+      currentProject: project
+    });
+  }
+
   setSelectedTags(tags) {
     this.setState({
       selectedTags: tags
     });
   }
 
-  getStudentProject() {
-    axios.get(`/api/student/${this.state.currentStudent}`)
+  getStudentProject(student) {
+    axios.get(`/api/student/${student}`)
       .then((res) => {
         console.log(res.data);
+        this.setCurrentProject(res.data);
       });
   }
 
-  getTagProjects() {
-    axios.get(`/api/tag/${this.state.currentTag}`)
+  getTagProjects(tag) {
+    console.log(tag);
+    axios.get(`/api/tag/${tag}`)
       .then((res) => {
         console.log(res.data);
       });
@@ -77,11 +97,17 @@ class App extends React.Component {
           currentStudent={this.state.currentStudent}
           students={this.state.students}
           setCurrentStudent={this.setCurrentStudent}
+          getStudentProject={this.getStudentProject}
         />
         <TagSearcher
           tags={this.state.tags}
           selectedTags={this.state.selectedTags}
           setSelectedTags={this.setSelectedTags}
+          setCurrentTag={this.setCurrentTag}
+          getTagProjects={this.getTagProjects}
+        />
+        <Project
+          currentProject={this.state.currentProject}
         />
       </div>
     );
