@@ -7,7 +7,7 @@ class Projects extends React.Component {
   render() {
     return (
       <section>
-        {this.props.currentProjects.map(project => (
+        {this.props.selectedProjects.map(project => (
           <div>
             <h1>{project.project}</h1>
             <h2>{project.name}</h2>
