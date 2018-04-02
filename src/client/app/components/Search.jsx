@@ -20,10 +20,8 @@ class Search extends React.Component {
         }
         }
         onSelect={(value) => {
-          console.log(value);
           this.props.getStudentProject(value);
           this.props.setSelectedStudent(value);
-          console.log(this.props.selectedStudent);
         }
         }
       />

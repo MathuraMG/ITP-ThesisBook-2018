@@ -24,7 +24,6 @@ class App extends React.Component {
   getStudentProject(student) {
     axios.get(`/api/student/${student}`)
       .then((res) => {
-        console.log(res.data);
         this.props.setSelectedProject(res.data);
       });
   }
@@ -32,7 +31,6 @@ class App extends React.Component {
   getTagProjects(tag) {
     axios.get(`/api/tag/${tag}`)
       .then((res) => {
-        console.log(res.data);
         this.props.setSelectedProjects(res.data);
       });
   }
@@ -83,7 +81,6 @@ App.propTypes = {
 };
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     selectedProject: state.projectReducer.selectedProject,
     selectedProjects: state.projectReducer.selectedProjects,

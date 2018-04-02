@@ -82,22 +82,17 @@ routes.route('/pair/:tag').get(getTagPairs);
 
 
 function getStudentProject(req, res) {
-  console.log(req.params.student);
   res.send(sampleStudentData[req.params.student]);
 }
 
 function getTagProjects(req, res) {
-  console.log(req.params.tag);
   res.send(sampleTagData[req.params.tag]);
 }
 
 function getTagPairs(req, res) {
-  console.log(req.params.tag);
   let tagPairs = [];
-  console.log(sampleTagData[req.params.tag]);
   if(sampleTagData[req.params.tag]) {
     sampleTagData[req.params.tag].forEach(function(tag) {
-      console.log(tag.tag);
       tagPairs = tagPairs.concat(tag.tag)
     });
   }

@@ -45,31 +45,3 @@ export function setSelectedTags(value) {
     });
   };
 }
-
-// export function getStudentProject(student) {
-//   const id = page.page.id;
-//   axios.get(`/api/student/${student}`)
-//     .then((res) => {
-//       console.log(res.data);
-//       this.setCurrentProject(res.data);
-//     });
-//   return (dispatch) => {
-//     dispatch({
-//       type: ActionTypes.GET_STUDENT_PROJECT
-//     });
-//   };
-// }
-//
-// export function getTagProjects(tag) {
-//   const id = page.page.id;
-//   axios.get(`/api/tag/${tag}`)
-//     .then((res) => {
-//       console.log(res.data);
-//       this.setCurrentProjects(res.data);
-//     });
-//   return (dispatch) => {
-//     dispatch({
-//       type: ActionTypes.GET_TAG_PROJECTS
-//     });
-//   };
-// }
