@@ -1,0 +1,10 @@
+.tag__button {
+  border: none;
+  background: lightslategray;
+  &--selected {
+    background: indianred;
+  }
+  &--unselected {
+    background: lightgray;
+  }
+}
