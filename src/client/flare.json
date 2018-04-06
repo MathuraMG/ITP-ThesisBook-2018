@@ -1,0 +1,17 @@
+[
+  {"name":"tags.Wearables","size":3938,"imports":["tags.Education1","tags.VR"]},
+  {"name":"tags.Behavior","size":3812,"imports":["tags.Education","tags.Wearables","tags.Politics"]},
+  {"name":"tags.IOT","size":6714,"imports":["tags.Performance","tags.Politics"]},
+  {"name":"tags.Education","size":743,"imports":["tags.Behavior1","tags.Wearables","tags.Politics1"]},
+  {"name":"tags.Performance","size":3534,"imports":["tags.Wearables","tags.Politics"]},
+  {"name":"tags.Politics","size":5731,"imports":["tags.Education1","tags.IOT","tags.VR"]},
+  {"name":"tags.VR","size":7840,"imports":["tags.Performance"]},
+  {"name":"tags.Wearables1","size":3938,"imports":["tags.Education1","tags.VR"]},
+  {"name":"tags.Behavior1","size":3812,"imports":["tags.Education","tags.Wearables1","tags.Politics1"]},
+  {"name":"tags.IOT1","size":6714,"imports":["tags.Performance1","tags.Politics"]},
+  {"name":"tags.Education1","size":743,"imports":["tags.Behavior","tags.Wearables1","tags.Politics"]},
+  {"name":"tags.Performance1","size":3534,"imports":["tags.Wearables","tags.Politics1"]},
+  {"name":"tags.Politics1","size":5731,"imports":["tags.Education","tags.IOT","tags.VR1"]},
+  {"name":"tags.VR1","size":7840,"imports":["tags.Performance1"]}
+
+]

@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import Project from './Project.jsx';
 import Projects from './Projects.jsx';
 import Search from './Search.jsx';
+import TagCircle from './TagCircle.jsx';
 import TagSearcher from './TagSearcher.jsx';
 
 import * as projectActions from '../action/project.jsx';
@@ -47,6 +48,7 @@ class App extends React.Component {
           setSelectedStudent={this.props.setSelectedStudent}
           getStudentProject={this.getStudentProject}
         />
+        <TagCircle />
         <TagSearcher
           tags={this.props.tags}
           selectedTags={this.props.selectedTags}
