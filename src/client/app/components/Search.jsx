@@ -14,14 +14,18 @@ class Search extends React.Component {
             {item.label}
           </div>)
         }
-        value={this.props.currentStudent}
+        value={this.props.selectedStudent}
         onChange={(e) => {
           this.props.setSelectedStudent(e.target.value);
         }
         }
         onSelect={(value) => {
+          console.log(value);
+
+
           this.props.getStudentProject(value);
           this.props.setSelectedStudent(value);
+          console.log(this.props);
         }
         }
       />

@@ -9,9 +9,9 @@ class Projects extends React.Component {
       <section>
         {this.props.selectedProjects.map(project => (
           <div>
-            <h1>{project.project}</h1>
-            <h2>{project.name}</h2>
-            <p>{project.short}</p>
+            <h1>{project.project_title}</h1>
+            <h2>{project.student_name}</h2>
+            <p>{project.project_question}</p>
           </div>
         ))}
 

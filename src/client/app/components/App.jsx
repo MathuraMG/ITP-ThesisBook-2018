@@ -30,6 +30,7 @@ class App extends React.Component {
 
   getTagProjects(tag) {
     axios.get(`/api/tag/${tag}`)
+
       .then((res) => {
         this.props.setSelectedProjects(res.data);
       });
@@ -93,8 +94,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Object.assign({},
-    projectActions),
-  dispatch);
+  return bindActionCreators(
+    Object.assign(
+      {},
+      projectActions
+    ),
+    dispatch
+  );
 }
 export default (connect(mapStateToProps, mapDispatchToProps)(App));

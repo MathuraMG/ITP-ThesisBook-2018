@@ -5,6 +5,7 @@ const axios = require('axios');
 
 class TagSearcher extends React.Component {
   getPairedProjects(tag) {
+    console.log('inside getPaired projects');
     axios.get(`/api/pair/${tag}`)
       .then((res) => {
         this.props.setSelectedTags(res.data);
