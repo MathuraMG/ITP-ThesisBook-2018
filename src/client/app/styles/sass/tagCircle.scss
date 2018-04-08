@@ -9,8 +9,8 @@
 }
 
 .link {
-  stroke: steelblue;
-  stroke-opacity: 0.4;
+  stroke: red;
+  stroke-opacity: 0.2;
   fill: none;
   pointer-events: none;
 }
@@ -31,14 +31,15 @@
 
 .link--source,
 .link--target {
+  stroke: yellow;
   stroke-opacity: 1;
   stroke-width: 2px;
 }
 
 .link--source {
-  stroke: #d62728;
+  stroke: red;
 }
 
 .link--target {
-  stroke: #2ca02c;
+  stroke:yellow;
 }

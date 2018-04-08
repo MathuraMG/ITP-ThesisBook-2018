@@ -1,35 +1,26 @@
 import React from 'react';
 import { withFauxDOM } from 'react-faux-dom';
 
+const axios = require('axios');
+
 class TagCircle extends React.Component {
-  mouseclick(d) {
-    console.log(d);
+  constructor(props) {
+    super(props);
+    this.state = {
+      dummy: 0
+    };
+  }
+  componentDidUpdate() {
+    // console.log('updates');
+  }
+  getPairedProjects(tag) {
+    axios.get(`/api/pair/${tag}`)
+      .then((res) => {
+        this.props.setSelectedTags(res.data);
+        this.props.getTagProjects(tag);
+      });
   }
 
-  mouseovered(node, link, d) {
-    node
-      .each((n) => { n.target = n.source = false; });
-
-    link
-      .classed('link--target', (l) => { if (l.target === d) return l.source.source = true; })
-      .classed('link--source', (l) => { if (l.source === d) return l.target.target = true; })
-      .filter(l => l.target === d || l.source === d)
-      .raise();
-
-    node
-      .classed('node--target', n => n.target)
-      .classed('node--source', n => n.source);
-  }
-
-  mouseouted(node, link, d) {
-    link
-      .classed('link--target', false)
-      .classed('link--source', false);
-
-    node
-      .classed('node--target', false)
-      .classed('node--source', false);
-  }
 
   packageImports(nodes) {
     let map = {},
@@ -76,6 +67,34 @@ class TagCircle extends React.Component {
     return d3.hierarchy(map['']);
   }
   componentDidMount() {
+
+  }
+
+  render() {
+    const mouseclick = function (node, link, d) {
+      // this.props.setSelectedTag(d.data.name);
+      // this.getPairedProjects(d.data.name);
+
+
+      node
+        .each((n) => { n.target = n.source = false; });
+
+      // Array.from(document.getElementsByClassName('link')).forEach((l) => {
+      //   l.classList.add('link--target');
+      //
+      // });
+      // debugger;//eslint-disable-line
+
+      link
+        .classed('link--target', true);
+
+      // console.log(document.getElementsByClassName('link--target'));
+
+      node
+        .classed('node--target', n => n.target)
+        .classed('node--source', n => n.source);
+    };
+
     const faux = this.props.connectFauxDOM('div', 'chart');
 
     // D3 Code to create the chart
@@ -105,8 +124,8 @@ class TagCircle extends React.Component {
     d3.json('flare.json', (error, classes) => {
       if (error) throw error;
 
-      const root = this.packageHierarchy(classes)
-        .sum(d => d.size);
+      const root = this.packageHierarchy(classes);
+
 
       cluster(root);
 
@@ -116,7 +135,7 @@ class TagCircle extends React.Component {
         .each((d) => { d.source = d[0], d.target = d[d.length - 1]; })
         .attr('class', 'link')
         .attr('d', line);
-
+      console.log(link);
       node = node
         .data(root.leaves())
         .enter().append('text')
@@ -125,13 +144,15 @@ class TagCircle extends React.Component {
         .attr('transform', d => `rotate(${d.x - 90})translate(${d.y + 8},0)${d.x < 180 ? '' : 'rotate(180)'}`)
         .attr('text-anchor', d => (d.x < 180 ? 'start' : 'end'))
         .text(d => d.data.key)
-        .on('mouseover', (d) => { this.mouseovered(node, link, d); })
-        .on('click', this.mouseclick)
-        .on('mouseout', (d) => { this.mouseouted(node, link, d); });
+        .on('click', (d) => {
+          this.getPairedProjects(d.data.name);
+          console.log(link);
+          link.classed('link--target', true);
+          this.setState({ dummy: this.state.dummy + 1 });
+        });
     });
-  }
 
-  render() {
+
     return (
       <div className="line-container">
         {this.props.chart}

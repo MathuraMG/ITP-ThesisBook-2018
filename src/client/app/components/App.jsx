@@ -48,14 +48,12 @@ class App extends React.Component {
           setSelectedStudent={this.props.setSelectedStudent}
           getStudentProject={this.getStudentProject}
         />
-        <TagCircle />
-        <TagSearcher
-          tags={this.props.tags}
-          selectedTags={this.props.selectedTags}
+        <TagCircle
           setSelectedTags={this.props.setSelectedTags}
           setSelectedTag={this.props.setSelectedTag}
           getTagProjects={this.getTagProjects}
         />
+
         <Project
           selectedProject={this.props.selectedProject}
         />
