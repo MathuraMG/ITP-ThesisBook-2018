@@ -1,17 +1,45 @@
 [
-  {"name":"tags.Wearables","size":3938,"imports":["tags.Education1","tags.VR"]},
-  {"name":"tags.Behavior","size":3812,"imports":["tags.Education","tags.Wearables","tags.Politics"]},
-  {"name":"tags.IOT","size":6714,"imports":["tags.Performance","tags.Politics"]},
-  {"name":"tags.Education","size":743,"imports":["tags.Behavior1","tags.Wearables","tags.Politics1"]},
-  {"name":"tags.Performance","size":3534,"imports":["tags.Wearables","tags.Politics"]},
-  {"name":"tags.Politics","size":5731,"imports":["tags.Education1","tags.IOT","tags.VR"]},
-  {"name":"tags.VR","size":7840,"imports":["tags.Performance"]},
-  {"name":"tags.Wearables1","size":3938,"imports":["tags.Education1","tags.VR"]},
-  {"name":"tags.Behavior1","size":3812,"imports":["tags.Education","tags.Wearables1","tags.Politics1"]},
-  {"name":"tags.IOT1","size":6714,"imports":["tags.Performance1","tags.Politics"]},
-  {"name":"tags.Education1","size":743,"imports":["tags.Behavior","tags.Wearables1","tags.Politics"]},
-  {"name":"tags.Performance1","size":3534,"imports":["tags.Wearables","tags.Politics1"]},
-  {"name":"tags.Politics1","size":5731,"imports":["tags.Education","tags.IOT","tags.VR1"]},
-  {"name":"tags.VR1","size":7840,"imports":["tags.Performance1"]}
+  {"name":"Art", "imports":["Art", "Education", "Performance", "Installation", "Behavior", "Product-Tool", "Machine Learning", "Music-Sound", "Storytelling", "Wearables", "Algorithms", "Games", "VR", "Politics", "Data Viz", "Mobile Apps", "Networking", "Privacy"]},
 
+  {"name":"Education", "imports":["Art", "Education", "Behavior", "Speculative Design", "Product-Tool", "Social Good", "Games", "Storytelling", "Politics", "Installation", "Data Viz", "UX-UI", "VR"]},
+
+  {"name":"Performance", "imports":["Art", "Performance", "Wearables", "Music-Sound", "Installation", "Games"]},
+
+  {"name":"Installation", "imports":["Art", "Installation", "Storytelling", "VR", "Music-Sound", "Wearables", "Behavior", "Social Good", "Education", "Networking", "Product-Tool", "Data Viz", "Internet of Things", "Performance", "Games"]},
+
+  {"name":"Storytelling", "imports":["Installation", "Storytelling", "Social Good", "Algorithms", "Art", "Music-Sound", "Wearables", "Education", "VR", "Games", "Speculative Design"]},
+
+  {"name":"Social Good", "imports":["Social Good", "Storytelling", "Politics", "Privacy", "Education", "Internet of Things", "Mobile Apps", "UX-UI", "Installation", "Data Viz", "Product-Tool"]},
+
+  {"name":"VR", "imports":["Installation", "VR", "Product-Tool", "Storytelling", "Art", "Games", "Politics", "Data Viz", "Education", "UX-UI", "Internet of Things", "Wearables", "Speculative Design"]},
+
+  {"name":"Behavior", "imports":["Art", "Behavior", "Product-Tool", "Music-Sound", "Education", "Mobile Apps", "UX-UI", "Installation", "Games", "Wearables", "Data Viz"]},
+
+  {"name":"Product-Tool", "imports":["Art", "Behavior", "Product-Tool", "UX-UI", "Education", "VR", "Data Viz", "Installation", "Networking", "Internet of Things", "Mobile Apps", "Social Good", "Wearables", "Speculative Design"]},
+
+  {"name":"Machine Learning", "imports":["Art", "Machine Learning", "Music-Sound", "Privacy"]},
+
+  {"name":"UX-UI", "imports":["Product-Tool", "UX-UI", "Behavior", "Games", "Mobile Apps", "Social Good", "Internet of Things", "Data Viz", "Education", "VR"]},
+
+  {"name":"Music-Sound", "imports":["Behavior", "Music-Sound", "Art", "Installation", "Storytelling", "Machine Learning", "Performance", "Wearables"]},
+
+  {"name":"Algorithms", "imports":["Algorithms", "Storytelling", "Art"]},
+
+  {"name":"Politics", "imports":["Politics", "Privacy", "Social Good", "Education", "Art", "VR", "Speculative Design", "Mobile Apps", "Networking"]},
+
+  {"name":"Privacy", "imports":["Politics", "Privacy", "Social Good", "Machine Learning", "Art", "Mobile Apps", "Networking"]},
+
+  {"name":"Mobile Apps", "imports":["Behavior", "Mobile Apps", "Social Good", "UX-UI", "Internet of Things", "Product-Tool", "Art", "Networking", "Politics", "Privacy"]},
+
+  {"name":"Wearables", "imports":["Art", "Installation", "Storytelling", "Wearables", "Data Viz", "Performance", "Behavior", "Games", "Internet of Things", "Product-Tool", "VR", "Music-Sound"]},
+
+  {"name":"Speculative Design", "imports":["Education", "Speculative Design", "Storytelling", "Product-Tool", "Data Viz", "VR", "Politics"]},
+
+  {"name":"Data Viz", "imports":["Data Viz", "Wearables", "Product-Tool", "Installation", "Internet of Things", "Social Good", "Education", "UX-UI", "VR", "Art", "Speculative Design", "Behavior"]},
+
+  {"name":"Games", "imports":["Games", "UX-UI", "Education", "Behavior", "Wearables", "Art", "Storytelling", "VR", "Installation", "Performance"]},
+
+  {"name":"Internet of Things", "imports":["Internet of Things", "Social Good", "Mobile Apps", "Product-Tool", "UX-UI", "Data Viz", "Installation", "VR", "Wearables"]},
+
+  {"name":"Networking", "imports":["Installation", "Networking", "Product-Tool", "Art", "Mobile Apps", "Politics", "Privacy"]}
 ]

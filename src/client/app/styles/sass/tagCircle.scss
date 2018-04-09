@@ -9,8 +9,7 @@
 }
 
 .link {
-  stroke: steelblue;
-  stroke-opacity: 0.4;
+  stroke: none;
   fill: none;
   pointer-events: none;
 }
@@ -35,10 +34,6 @@
   stroke-width: 2px;
 }
 
-.link--source {
-  stroke: #d62728;
-}
-
 .link--target {
-  stroke: #2ca02c;
+  stroke:yellow;
 }

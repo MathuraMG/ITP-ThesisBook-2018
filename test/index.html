@@ -13,7 +13,6 @@
 
 .link {
   stroke: steelblue;
-  stroke-opacity: 0.4;
   fill: none;
   pointer-events: none;
 }
@@ -66,11 +65,11 @@ var line = d3.radialLine()
 var svg = d3.select("body").append("svg")
     .attr("width", diameter)
     .attr("height", diameter)
-  .append("g")
+  .append("svg")
     .attr("transform", "translate(" + radius + "," + radius + ")");
 
-var link = svg.append("g").selectAll(".link"),
-    node = svg.append("g").selectAll(".node");
+var link = svg.append("svg").selectAll(".link"),
+    node = svg.append("svg").selectAll(".node");
 
 d3.json("flare.json", function(error, classes) {
   if (error) throw error;
@@ -95,34 +94,47 @@ d3.json("flare.json", function(error, classes) {
       .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + (d.y + 8) + ",0)" + (d.x < 180 ? "" : "rotate(180)"); })
       .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
       .text(function(d) { return d.data.key; })
-      .on("mouseover", mouseovered)
-      .on("click", mouseclick)
+      .on("mouseover", (d) =>{mouseovered(node,link,d)})
+      .on("click", (d) => {mouseclick(node,link,d)})
       .on("mouseout", mouseouted);
 });
 
-function mouseclick(d) {
-  console.log(d);
+function mouseclick(node, link1,d) {
+  console.log(link);
+
+
+  node
+    .each((n) => { n.target = n.source = false; });
+  console.log(link1);
+  debugger;
+  link1
+    .classed('link--target', true);
+
+  node
+    .classed('node--target', n => n.target)
+    .classed('node--source', n => n.source);
 }
 
-function mouseovered(d) {
-  node
-      .each(function(n) { n.target = n.source = false; });
+function mouseovered(node1, link, d) {
+  console.log(link);
+  // node1
+  //   .each((n) => { n.target = n.source = false; });
 
   link
-      .classed("link--target", function(l) { if (l.target === d) return l.source.source = true; })
-      .classed("link--source", function(l) { if (l.source === d) return l.target.target = true; })
-    .filter(function(l) { return l.target === d || l.source === d; })
-      .raise();
+    .classed('link--target', (l) => { if (l.target === d) return l.source.source = true; })
+    .classed('link--source', (l) => { if (l.source === d) return l.target.target = true; })
+    .filter(l => l.target === d || l.source === d)
+    .raise();
 
   node
-      .classed("node--target", function(n) { return n.target; })
-      .classed("node--source", function(n) { return n.source; });
+    .classed('node--target', n => n.target)
+    .classed('node--source', n => n.source);
 }
 
 function mouseouted(d) {
-  link
-      .classed("link--target", false)
-      .classed("link--source", false);
+  // link
+  //     .classed("link--target", false)
+  //     .classed("link--source", false);
 
   node
       .classed("node--target", false)

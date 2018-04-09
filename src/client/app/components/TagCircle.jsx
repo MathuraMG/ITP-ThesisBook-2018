@@ -1,35 +1,32 @@
 import React from 'react';
 import { withFauxDOM } from 'react-faux-dom';
 
+const d3 = require('d3');
+const axios = require('axios');
+const ReactFauxDOM = require('react-faux-dom');
+
+const testVar = 'hello';
+let svg;
 class TagCircle extends React.Component {
-  mouseclick(d) {
-    console.log(d);
+  constructor(props) {
+    super(props);
+    this.state = {
+      dummy: 0,
+      mouseOver: false,
+      svg: []
+    };
+  }
+  componentDidUpdate() {
+    console.log('updates');
+  }
+  getPairedProjects(tag) {
+    axios.get(`/api/pair/${tag}`)
+      .then((res) => {
+        this.props.setSelectedTags(res.data);
+        this.props.getTagProjects(tag);
+      });
   }
 
-  mouseovered(node, link, d) {
-    node
-      .each((n) => { n.target = n.source = false; });
-
-    link
-      .classed('link--target', (l) => { if (l.target === d) return l.source.source = true; })
-      .classed('link--source', (l) => { if (l.source === d) return l.target.target = true; })
-      .filter(l => l.target === d || l.source === d)
-      .raise();
-
-    node
-      .classed('node--target', n => n.target)
-      .classed('node--source', n => n.source);
-  }
-
-  mouseouted(node, link, d) {
-    link
-      .classed('link--target', false)
-      .classed('link--source', false);
-
-    node
-      .classed('node--target', false)
-      .classed('node--source', false);
-  }
 
   packageImports(nodes) {
     let map = {},
@@ -76,10 +73,6 @@ class TagCircle extends React.Component {
     return d3.hierarchy(map['']);
   }
   componentDidMount() {
-    const faux = this.props.connectFauxDOM('div', 'chart');
-
-    // D3 Code to create the chart
-    // using faux as container
     let diameter = 600,
       radius = diameter / 2,
       innerRadius = radius - 120;
@@ -92,15 +85,14 @@ class TagCircle extends React.Component {
       .radius(d => d.y)
       .angle(d => d.x / 180 * Math.PI);
 
-    const svg = d3.select(faux).append('svg')
+    const self = this;
+    svg = d3.select(ReactFauxDOM.createElement('svg'))
       .attr('width', diameter)
       .attr('height', diameter)
-      .append('g')
-      .attr('transform', `translate(${radius},${radius})`);
+      .attr('class', 'tagCircle__container');
 
-    let link = svg.append('g').selectAll('.link'),
-      node = svg.append('g').selectAll('.node');
-
+    let link = svg.append('svg').selectAll('.link'),
+      node = svg.append('svg').selectAll('.node');
 
     d3.json('flare.json', (error, classes) => {
       if (error) throw error;
@@ -114,30 +106,49 @@ class TagCircle extends React.Component {
         .data(this.packageImports(root.leaves()))
         .enter().append('path')
         .each((d) => { d.source = d[0], d.target = d[d.length - 1]; })
-        .attr('class', 'link')
+        .attr('class', this.state.mouseOver ? 'link' : 'link')
+        .attr('transform', `translate(${radius},${radius})`)
         .attr('d', line);
-
+      console.log(svg);
       node = node
         .data(root.leaves())
         .enter().append('text')
         .attr('class', 'node')
         .attr('dy', '0.31em')
-        .attr('transform', d => `rotate(${d.x - 90})translate(${d.y + 8},0)${d.x < 180 ? '' : 'rotate(180)'}`)
+        .attr('transform', d => `translate(${d.y - 30 + radius / 2},${radius})rotate(${d.x - 90})translate(${d.y / 2 + 20 + radius / 4},0)${d.x < 180 ? '' : 'rotate(180)'}`)
         .attr('text-anchor', d => (d.x < 180 ? 'start' : 'end'))
         .text(d => d.data.key)
-        .on('mouseover', (d) => { this.mouseovered(node, link, d); })
-        .on('click', this.mouseclick)
-        .on('mouseout', (d) => { this.mouseouted(node, link, d); });
+        .on('click', (d) => {
+          this.setState({ mouseOver: !this.state.mouseOver });
+          link
+            .classed('link--target', (l) => { if (l.target === d) return l.source.source = true; })
+            .filter(l => l.target === d)
+            .raise();
+
+          // node.classed('node--source', (n) => {
+          //   if (n.source) { return true; } console.log('yo'); return false;
+          // });
+          //
+          node.classed('node--target', (n) => {
+            if (n.data.name === d.data.name) {
+              return true;
+            }
+          });
+          this.props.setSelectedTag(d.data.name);
+          this.getPairedProjects(d.data.name);
+        });
+
+      this.setState({ mouseOver: !this.state.mouseOver });
     });
   }
 
   render() {
     return (
-      <div className="line-container">
-        {this.props.chart}
+      <div>
+        {svg && svg.node().toReact()}
       </div>
     );
   }
 }
 
-export default withFauxDOM(TagCircle);
+export default TagCircle;
