@@ -73,7 +73,6 @@ class TagCircle extends React.Component {
     return d3.hierarchy(map['']);
   }
   componentDidMount() {
-    console.log('yes, i updated');
     let diameter = 600,
       radius = diameter / 2,
       innerRadius = radius - 120;
@@ -88,19 +87,14 @@ class TagCircle extends React.Component {
 
     const self = this;
     svg = d3.select(ReactFauxDOM.createElement('svg'))
-      .attr('width', diameter * 2)
-      .attr('height', diameter * 2)
-      .append('svg');
-    // .attr('transform', `translate(${radius},${radius})`);
+      .attr('width', diameter)
+      .attr('height', diameter)
+      .attr('class', 'tagCircle__container');
+
     let link = svg.append('svg').selectAll('.link'),
       node = svg.append('svg').selectAll('.node');
 
-
-    // debugger;// eslint-disable-line
-
     d3.json('flare.json', (error, classes) => {
-      // debugger;// eslint-disable-line
-
       if (error) throw error;
 
       const root = this.packageHierarchy(classes)
@@ -113,6 +107,7 @@ class TagCircle extends React.Component {
         .enter().append('path')
         .each((d) => { d.source = d[0], d.target = d[d.length - 1]; })
         .attr('class', this.state.mouseOver ? 'link' : 'link')
+        .attr('transform', `translate(${radius},${radius})`)
         .attr('d', line);
       console.log(svg);
       node = node
@@ -120,29 +115,36 @@ class TagCircle extends React.Component {
         .enter().append('text')
         .attr('class', 'node')
         .attr('dy', '0.31em')
-        .attr('transform', d => `rotate(${d.x - 90})translate(${d.y + 8},0)${d.x < 180 ? '' : 'rotate(180)'}`)
+        .attr('transform', d => `translate(${d.y - 30 + radius / 2},${radius})rotate(${d.x - 90})translate(${d.y / 2 + 20 + radius / 4},0)${d.x < 180 ? '' : 'rotate(180)'}`)
         .attr('text-anchor', d => (d.x < 180 ? 'start' : 'end'))
         .text(d => d.data.key)
         .on('click', (d) => {
-          console.log(d);
           this.setState({ mouseOver: !this.state.mouseOver });
           link
             .classed('link--target', (l) => { if (l.target === d) return l.source.source = true; })
-            .classed('link--source', (l) => { if (l.source === d) return l.target.target = true; })
-            .filter(l => l.target === d || l.source === d)
+            .filter(l => l.target === d)
             .raise();
+
+          this.props.setSelectedTag(d.data.name);
+          this.getPairedProjects(d.data.name);
+          node
+            .classed('node--source', false);
+          // .classed('node--target', n => n.target);
+          node.classed('node--source', n => n.source)
+            .classed('node--target', (n) => {
+              if (n.target === d.data.name) {
+                return true;
+              }
+            });
         });
-      // debugger;// eslint-disable-line
-      // this.setState({ dummy: this.state.dummy + 1 });
+
       this.setState({ mouseOver: !this.state.mouseOver });
     });
   }
 
-
   render() {
     return (
       <div>
-        {true && this.state.dummy}
         {svg && svg.node().toReact()}
       </div>
     );

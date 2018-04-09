@@ -9,8 +9,7 @@
 }
 
 .link {
-  stroke: red;
-  stroke-opacity: 0.2;
+  stroke: none;
   fill: none;
   pointer-events: none;
 }
@@ -31,13 +30,8 @@
 
 .link--source,
 .link--target {
-  stroke: yellow;
   stroke-opacity: 1;
   stroke-width: 2px;
-}
-
-.link--source {
-  stroke: red;
 }
 
 .link--target {
