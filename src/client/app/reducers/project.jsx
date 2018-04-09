@@ -1,11 +1,13 @@
 import * as ActionTypes from '../constants.jsx';
 
 const initialState = {
+  isTagCircleOpen: false,
   selectedProject:{},
   selectedProjects:[],
   selectedStudent:'',
   selectedTag:'',
   selectedTags:[],
+  showSingleProject: false,
   tags: [
     "Art",
     "Education",
@@ -140,17 +142,25 @@ const initialState = {
 const project = (state = initialState, action) => {
   switch (action.type) {
 
+    case ActionTypes.SET_IS_TAG_CIRCLE_OPEN:
+      {
+        return Object.assign({},state,{
+          isTagCircleOpen: action.value
+        })
+      }
     case ActionTypes.SET_SELECTED_PROJECT:
       {
         return Object.assign({}, state, {
-          selectedProject: action.value
+          selectedProject: action.value,
+          showSingleProject: true
         });
       }
 
     case ActionTypes.SET_SELECTED_PROJECTS:
       {
         return Object.assign({}, state, {
-          selectedProjects: action.value
+          selectedProjects: action.value,
+          showSingleProject: false
         });
       }
     case ActionTypes.SET_SELECTED_TAG:

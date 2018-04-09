@@ -144,8 +144,20 @@ class TagCircle extends React.Component {
 
   render() {
     return (
-      <div>
-        {svg && svg.node().toReact()}
+      <div className="tag-circle__container">
+        <nav className="tag-circle__nav">
+          <h4> Search By Tag </h4>
+          <button
+            onClick={() => {
+              this.props.setIsTagCircleOpen(false);
+            }}
+          >
+        x
+          </button>
+        </nav>
+        <div className="tag-circle__main">
+          {svg && svg.node().toReact()}
+        </div>
       </div>
     );
   }

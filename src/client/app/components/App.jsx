@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import Nav from './Nav.jsx';
 import Project from './Project.jsx';
 import Projects from './Projects.jsx';
 import Search from './Search.jsx';
 import TagCircle from './TagCircle.jsx';
-import TagSearcher from './TagSearcher.jsx';
 
 import * as projectActions from '../action/project.jsx';
 
@@ -40,54 +40,65 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.getStudentProject}>Get Examples</button>
-        <Link to="/about">About</Link>
-        <Search
-          selectedStudent={this.props.selectedStudent}
-          students={this.props.students}
-          setSelectedStudent={this.props.setSelectedStudent}
+        <Nav
           getStudentProject={this.getStudentProject}
-        />
-        <TagCircle
+          getTagProjects={this.getTagProjects}
+          selectedStudent={this.props.selectedStudent}
+          setSelectedStudent={this.props.setSelectedStudent}
           setSelectedTags={this.props.setSelectedTags}
           setSelectedTag={this.props.setSelectedTag}
-          getTagProjects={this.getTagProjects}
+          students={this.props.students}
+          isTagCircleOpen={this.props.isTagCircleOpen}
+          setIsTagCircleOpen={this.props.setIsTagCircleOpen}
         />
+        {
+          this.props.showSingleProject &&
+          <Project
+            selectedProject={this.props.selectedProject}
+          />
+        }
+        {
+          !this.props.showSingleProject &&
+          <Projects
+            setIsTagCircleOpen={this.props.setIsTagCircleOpen}
+            selectedProjects={this.props.selectedProjects}
+            setSelectedProject={this.props.setSelectedProject}
+          />
+        }
 
-        <Project
-          selectedProject={this.props.selectedProject}
-        />
-        <Projects
-          selectedProjects={this.props.selectedProjects}
-        />
       </div>
     );
   }
 }
 
 App.propTypes = {
+  isTagCircleOpen: PropTypes.bool.isRequired,
   selectedProject: PropTypes.shape.isRequired,
   selectedProjects: PropTypes.arrayOf.isRequired,
   selectedStudent: PropTypes.string.isRequired,
   selectedTag: PropTypes.string.isRequired,
   selectedTags: PropTypes.arrayOf.isRequired,
-  tags: PropTypes.arrayOf.isRequired,
+  showSingleProject: PropTypes.bool.isRequired,
   students: PropTypes.arrayOf.isRequired,
+  tags: PropTypes.arrayOf.isRequired,
+
+  setIsTagCircleOpen: PropTypes.func.isRequired,
   setSelectedProject: PropTypes.func.isRequired,
   setSelectedProjects: PropTypes.func.isRequired,
   setSelectedStudent: PropTypes.func.isRequired,
   setSelectedTag: PropTypes.func.isRequired,
   setSelectedTags: PropTypes.func.isRequired,
-
 };
 
 function mapStateToProps(state) {
   return {
+    isTagCircleOpen: state.projectReducer.isTagCircleOpen,
     selectedProject: state.projectReducer.selectedProject,
     selectedProjects: state.projectReducer.selectedProjects,
     selectedStudent: state.projectReducer.selectedStudent,
     selectedTag: state.projectReducer.selectedTag,
     selectedTags: state.projectReducer.selectedTags,
+    showSingleProject: state.projectReducer.showSingleProject,
     tags: state.projectReducer.tags,
     students: state.projectReducer.students,
   };

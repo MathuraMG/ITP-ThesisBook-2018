@@ -1,4 +1,12 @@
-
+.tag-circle {
+  &__container {
+    position: absolute;
+    background-color: $white;
+  }
+  &__nav {
+    display: flex;
+  }
+}
 .node {
   font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
   fill: #bbb;

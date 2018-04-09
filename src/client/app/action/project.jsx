@@ -1,6 +1,15 @@
 import axios from 'axios';
 import * as ActionTypes from '../constants.jsx';
 
+export function setIsTagCircleOpen(value) {
+  return (dispatch) => {
+    dispatch({
+      type: ActionTypes.SET_IS_TAG_CIRCLE_OPEN,
+      value
+    });
+  };
+}
+
 export function setSelectedProject(value) {
   return (dispatch) => {
     dispatch({

@@ -1,0 +1,15 @@
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin:0 10%;
+  &__container {
+    width: 25%;
+    padding: 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  &__image {
+    width: 100%;
+  }
+}
