@@ -125,17 +125,17 @@ class TagCircle extends React.Component {
             .filter(l => l.target === d)
             .raise();
 
+          // node.classed('node--source', (n) => {
+          //   if (n.source) { return true; } console.log('yo'); return false;
+          // });
+          //
+          node.classed('node--target', (n) => {
+            if (n.data.name === d.data.name) {
+              return true;
+            }
+          });
           this.props.setSelectedTag(d.data.name);
           this.getPairedProjects(d.data.name);
-          node
-            .classed('node--source', false);
-          // .classed('node--target', n => n.target);
-          node.classed('node--source', n => n.source)
-            .classed('node--target', (n) => {
-              if (n.target === d.data.name) {
-                return true;
-              }
-            });
         });
 
       this.setState({ mouseOver: !this.state.mouseOver });
