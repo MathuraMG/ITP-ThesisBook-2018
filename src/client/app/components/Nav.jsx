@@ -23,10 +23,14 @@ class Nav extends React.Component {
         {
           this.props.isTagCircleOpen &&
           <TagCircle
+            selectedTag={this.props.selectedTag}
             setSelectedTags={this.props.setSelectedTags}
             setSelectedTag={this.props.setSelectedTag}
             getTagProjects={this.props.getTagProjects}
+            getTwoTagProjects={this.props.getTwoTagProjects}
             setIsTagCircleOpen={this.props.setIsTagCircleOpen}
+            selectedProjects={this.props.selectedProjects}
+            setSelectedProjects={this.props.setSelectedProjects}
           />
         }
       </nav>

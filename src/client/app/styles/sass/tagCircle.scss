@@ -19,7 +19,7 @@
 .link {
   stroke: none;
   fill: none;
-  pointer-events: none;
+  // pointer-events: none;
 }
 
 .node:hover,
@@ -38,10 +38,15 @@
 
 .link--source,
 .link--target {
-  stroke-opacity: 1;
+  stroke-opacity: .2;
   stroke-width: 2px;
 }
 
 .link--target {
-  stroke:yellow;
+  stroke:purple;
+  &:hover {
+    stroke: green;
+    cursor: pointer;
+    stroke-width:8px;
+  }
 }

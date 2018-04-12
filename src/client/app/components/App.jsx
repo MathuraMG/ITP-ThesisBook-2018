@@ -20,6 +20,7 @@ class App extends React.Component {
 
     this.getStudentProject = this.getStudentProject.bind(this);
     this.getTagProjects = this.getTagProjects.bind(this);
+    this.getTwoTagProjects = this.getTwoTagProjects.bind(this);
   }
 
   getStudentProject(student) {
@@ -31,7 +32,13 @@ class App extends React.Component {
 
   getTagProjects(tag) {
     axios.get(`/api/tag/${tag}`)
+      .then((res) => {
+        this.props.setSelectedProjects(res.data);
+      });
+  }
 
+  getTwoTagProjects(tag1, tag2) {
+    axios.get(`/api/tag/${tag1}/${tag2}`)
       .then((res) => {
         this.props.setSelectedProjects(res.data);
       });
@@ -43,6 +50,9 @@ class App extends React.Component {
         <Nav
           getStudentProject={this.getStudentProject}
           getTagProjects={this.getTagProjects}
+          getTwoTagProjects={this.getTwoTagProjects}
+          selectedTag={this.props.selectedTag}
+          selectedProjects={this.props.selectedProjects}
           selectedStudent={this.props.selectedStudent}
           setSelectedStudent={this.props.setSelectedStudent}
           setSelectedTags={this.props.setSelectedTags}
@@ -50,6 +60,7 @@ class App extends React.Component {
           students={this.props.students}
           isTagCircleOpen={this.props.isTagCircleOpen}
           setIsTagCircleOpen={this.props.setIsTagCircleOpen}
+          setSelectedProjects={this.props.setSelectedProjects}
         />
         {
           this.props.showSingleProject &&

@@ -10,7 +10,8 @@ class TagCircle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mouseOver: false
+      mouseOver: false,
+      allProjects: []
     };
   }
 
@@ -49,8 +50,10 @@ class TagCircle extends React.Component {
         .each((d) => { d.source = d[0]; d.target = d[d.length - 1]; })
         .attr('class', this.state.mouseOver ? 'link' : 'link')
         .attr('transform', `translate(${radius},${radius})`)
-        .attr('d', line);
-      console.log(svg);
+        .attr('d', line)
+        .on('click', (l) => {
+          this.getTwoPairedProjects(l.source.data.name, l.target.data.name);
+        });
       node = node
         .data(root.leaves())
         .enter().append('text')
@@ -78,6 +81,9 @@ class TagCircle extends React.Component {
           });
           this.props.setSelectedTag(d.data.name);
           this.getPairedProjects(d.data.name);
+          this.setState({
+            allProjects: this.props.selectedProjects
+          });
         });
 
       this.setState({ mouseOver: !this.state.mouseOver });
@@ -91,7 +97,12 @@ class TagCircle extends React.Component {
         this.props.getTagProjects(tag);
       });
   }
-
+  getTwoPairedProjects(tag1, tag2) {
+    axios.get(`/api/tag/${tag1}/${tag2}`)
+      .then((res) => {
+        this.props.getTwoTagProjects(tag1, tag2);
+      });
+  }
 
   packageImports(nodes) {
     const map = {};
