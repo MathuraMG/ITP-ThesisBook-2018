@@ -841,7 +841,11 @@ routes.route('/student/:student').get(getStudentProject);
 routes.route('/tag/:tag').get(getTagProjects);
 routes.route('/tag/:tag1/:tag2').get(getTwoTagProjects);
 routes.route('/pair/:tag').get(getTagPairs);
+routes.route('/id/:student').get(getStudentID);
 
+function getStudentID(req, res) {
+  res.send(sampleStudentData[req.params.student].student_id);
+}
 
 function getStudentProject(req, res) {
   res.send(sampleStudentData[req.params.student]);

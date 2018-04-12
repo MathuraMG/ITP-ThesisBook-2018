@@ -1,6 +1,6 @@
 import React from 'react';
-import {render} from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { render } from 'react-dom';
+import { BrowserRouter as Router, Route, Switch, browserHistory } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
@@ -15,24 +15,23 @@ require('./styles/sass/main.scss');
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,
-  composeEnhancers(
-    applyMiddleware(thunk)
-  )
+  composeEnhancers(applyMiddleware(thunk))
 );
 
 class Main extends React.Component {
-  render () {
+  render() {
     return (
       <Provider store={store}>
-        <Router>
-          <Switch>
-            <Route exact path='/' component={App}/>
-            <Route path='/about' component={About}/>
-          </Switch>
+        <Router history={browserHistory}>
+          <div>
+            <Route exact path="/" component={App} />
+            <Route path="/about" component={About} />
+            <Route path="/student" component={App} />
+          </div>
         </Router>
       </Provider>
     );
   }
 }
 
-render(<Main/>, document.getElementById('app'));
+render(<Main />, document.getElementById('app'));

@@ -21,6 +21,43 @@ class App extends React.Component {
     this.getStudentProject = this.getStudentProject.bind(this);
     this.getTagProjects = this.getTagProjects.bind(this);
     this.getTwoTagProjects = this.getTwoTagProjects.bind(this);
+    this.studentName = this.studentName.bind(this);
+    this.loadPage = this.loadPage.bind(this);
+    this.getStudentProjectAPI = this.getStudentProjectAPI.bind(this);
+  }
+
+  getStudentProjectAPI(student) {
+    console.log('in here');
+    axios.get(`/api/id/${student}`)
+      .then((res) => {
+        console.log(student);
+
+        const id = res.data;
+        const baseUrl = 'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2017/wp-content/themes/itpthesis/api.php?student_id=';
+        axios.get(baseUrl + id)
+          .then((res) => {
+            const data = JSON.parse(res.data.contents);
+            this.props.setSelectedProject(data);
+          });
+      });
+  }
+
+  componentDidMount() {
+    this.loadPage();
+  }
+
+  studentName() {
+    const location = this.props.location.pathname;
+    const studentName = location.match(/\/student\/([\w-].*)/);
+    return studentName ? studentName[1] : null;
+  }
+
+  loadPage() {
+    if (this.studentName()) {
+      console.log(this.studentName());
+      this.getStudentProjectAPI(this.studentName());
+      this.props.setIsTagCircleOpen(false);
+    }
   }
 
   getStudentProject(student) {

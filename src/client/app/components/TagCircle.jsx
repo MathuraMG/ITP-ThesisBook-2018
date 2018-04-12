@@ -36,7 +36,7 @@ class TagCircle extends React.Component {
     let link = svg.append('svg').selectAll('.link');
     let node = svg.append('svg').selectAll('.node');
 
-    d3.json('flare.json', (error, classes) => {
+    d3.json('/flare.json', (error, classes) => {
       if (error) throw error;
 
       const root = this.packageHierarchy(classes)

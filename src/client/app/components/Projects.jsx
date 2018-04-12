@@ -4,14 +4,6 @@ import PropTypes from 'prop-types';
 const axios = require('axios');
 
 class Projects extends React.Component {
-  getStudentProject(id) {
-    const baseUrl = 'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2017/wp-content/themes/itpthesis/api.php?student_id=';
-    axios.get(baseUrl + id)
-      .then((res) => {
-        const data = JSON.parse(res.data.contents);
-        this.props.setSelectedProject(data);
-      });
-  }
   render() {
     return (
       <section className="projects">
@@ -20,9 +12,10 @@ class Projects extends React.Component {
             className="projects__container"
             onClick={
               () => {
-                console.log(project.student_id);
-                this.getStudentProject(project.student_id);
-                this.props.setIsTagCircleOpen(false);
+                console.log(project.student_slug);
+                window.location.replace(`${window.location.origin}/student/${project.student_slug}`);
+                // this.getStudentProject(project.student_id);
+                // this.props.setIsTagCircleOpen(false);
               }
             }
           >
