@@ -16,7 +16,7 @@ class TagCircle extends React.Component {
   }
 
   componentDidMount() {
-    const diameter = 360;
+    const diameter = 0.25 * window.innerWidth;// 360;
     const radius = diameter / 2;
     const innerRadius = radius - 60;
 
@@ -54,8 +54,13 @@ class TagCircle extends React.Component {
         .on('click', (l) => {
           this.getTwoPairedProjects(l.source.data.name, l.target.data.name);
         });
+      // .exit()
+
       node = node
         .data(root.leaves())
+        // .enter().append('svg')
+        // .attr('width', '20px')
+        // .attr('height', '20px')
         .enter().append('text')
         .attr('class', 'node')
         .attr('dy', '0.31em')
@@ -84,7 +89,12 @@ class TagCircle extends React.Component {
           this.setState({
             allProjects: this.props.selectedProjects
           });
-        });
+        })
+        .append('circle')
+        .attr('cx', '20px')
+        .attr('cy', '20px')
+        .attr('r', '10px');
+
 
       this.setState({ mouseOver: !this.state.mouseOver });
     });
@@ -152,19 +162,17 @@ class TagCircle extends React.Component {
   render() {
     return (
       <div className="tag-circle__container">
-        <nav className="tag-circle__nav">
-          <h4> Search By Tag </h4>
-          <button
-            onClick={() => {
-              this.props.setIsTagCircleOpen(false);
-            }}
-          >
-        x
-          </button>
-        </nav>
         <div className="tag-circle__main">
           {svg && svg.node().toReact()}
         </div>
+        <button
+          onClick={() => {
+            this.props.setIsTagCircleOpen(false);
+          }}
+          className="tag-circle__close"
+        >
+      x
+        </button>
       </div>
     );
   }

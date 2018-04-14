@@ -19,6 +19,7 @@ class App extends React.Component {
     super(props);
 
     this.getStudentProject = this.getStudentProject.bind(this);
+    this.getAllProject = this.getAllProject.bind(this);
     this.getTagProjects = this.getTagProjects.bind(this);
     this.getTwoTagProjects = this.getTwoTagProjects.bind(this);
     this.studentName = this.studentName.bind(this);
@@ -57,6 +58,8 @@ class App extends React.Component {
       console.log(this.studentName());
       this.getStudentProjectAPI(this.studentName());
       this.props.setIsTagCircleOpen(false);
+    } else {
+      this.getAllProject();
     }
   }
 
@@ -64,6 +67,16 @@ class App extends React.Component {
     axios.get(`/api/student/${student}`)
       .then((res) => {
         this.props.setSelectedProject(res.data);
+      });
+  }
+
+  getAllProject() {
+    const baseUrl = 'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2017/wp-content/themes/itpthesis/api.php?student_id=-1';
+    axios.get(baseUrl)
+      .then((res) => {
+        // console.log(res.data);
+        const data = JSON.parse(res.data.contents);
+        this.props.setSelectedProjects(data);
       });
   }
 

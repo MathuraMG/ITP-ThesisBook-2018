@@ -1,10 +1,15 @@
 .tag-circle {
   &__container {
     position: absolute;
-    background-color: $white;
+    background-color: $blue;
+    width: 28.8%;
+    z-index: 100;
   }
   &__nav {
     display: flex;
+  }
+  &__close {
+    width: 100%;
   }
 }
 .node {
