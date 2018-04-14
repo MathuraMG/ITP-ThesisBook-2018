@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 
 class Search extends React.Component {
   render() {
-    const studentList = this.props.students.map(student => ({ label: student }));
+    const studentList = this.props.students;
     return (
       <Autocomplete
         getItemValue={item => item.label}
         items={studentList}
+        shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
         renderItem={(item, isHighlighted) =>
           (<div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-            {item.label}
+            {item.name}
           </div>)
         }
         value={this.props.selectedStudent}
