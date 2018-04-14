@@ -16,9 +16,9 @@ class TagCircle extends React.Component {
   }
 
   componentDidMount() {
-    const diameter = 600;
+    const diameter = 360;
     const radius = diameter / 2;
-    const innerRadius = radius - 120;
+    const innerRadius = radius - 60;
 
     const cluster = d3.cluster()
       .size([360, innerRadius]);

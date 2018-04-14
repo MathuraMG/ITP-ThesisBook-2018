@@ -83,7 +83,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="main__container">
         <Nav
           getStudentProject={this.getStudentProject}
           getTagProjects={this.getTagProjects}

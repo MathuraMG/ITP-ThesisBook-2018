@@ -1,7 +1,7 @@
 import * as ActionTypes from '../constants.jsx';
 
 const initialState = {
-  isTagCircleOpen: false,
+  isTagCircleOpen: true,
   selectedProject: {},
   selectedProjects: [],
   selectedStudent: '',
