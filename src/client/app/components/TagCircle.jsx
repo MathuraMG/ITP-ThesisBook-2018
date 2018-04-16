@@ -10,10 +10,29 @@ class TagCircle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mouseOver: false,
-      allProjects: []
+      mouseOver: false
     };
   }
+
+  // componentDidUpdate(prevProps) {
+  //   // console.log(prevProps.selectedTag);
+  //   // console.log(this.props.selectedTag);
+  //   if (prevProps.selectedTag != this.props.selectedTag) {
+  //     // console.log('in here');
+  //     this.forceUpdate();
+  //   }
+  //   // console.log(this.)
+  //   //
+  // }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log(this.props.selectedTag);
+  //   console.log(nextProps.selectedTag);
+  //   if (nextProps.selectedTag != this.props.selectedTag) {
+  //     // console.log('in here');
+  //     this.forceUpdate();
+  //     return true;
+  //   }
+  // }
 
   componentDidMount() {
     const diameter = 0.25 * window.innerWidth;// 360;
@@ -51,6 +70,9 @@ class TagCircle extends React.Component {
         .attr('class', this.state.mouseOver ? 'link' : 'link')
         .attr('transform', `translate(${radius},${radius})`)
         .attr('d', line)
+        .classed('link--target', (l) => { if (l.target.data.name === this.props.selectedTag) return l.source.source = true; })
+        .filter(l => l.target.data.name === this.props.selectedTag)
+        .raise()
         .on('click', (l) => {
           this.getTwoPairedProjects(l.source.data.name, l.target.data.name);
         });
@@ -58,20 +80,29 @@ class TagCircle extends React.Component {
 
       node = node
         .data(root.leaves())
-        // .enter().append('svg')
-        // .attr('width', '20px')
-        // .attr('height', '20px')
         .enter().append('text')
         .attr('class', 'node')
         .attr('dy', '0.31em')
         .attr('transform', d => `translate(${d.y - 30 + radius / 2},${radius})rotate(${d.x - 90})translate(${d.y / 2 + 20 + radius / 4},0)${d.x < 180 ? '' : 'rotate(180)'}`)
         .attr('text-anchor', d => (d.x < 180 ? 'start' : 'end'))
         .text(d => d.data.key)
+        .classed('node--target', (n) => {
+          if (n.data.name === this.props.selectedTag) {
+            return true;
+          }
+          return false;
+        })
         .on('click', (d) => {
+          console.log('boop');
           this.setState({ mouseOver: !this.state.mouseOver });
           link
-            .classed('link--target', (l) => { if (l.target === d) return l.source.source = true; })
-            .filter(l => l.target === d)
+            .classed('link--target', (l) => {
+              console.log('boomp');
+              if (l.target.data.name === d.data.name) {
+                return l.source.source = true;
+              }
+            })
+            .filter(l => l.target.data.name === d.data.name)
             .raise();
 
           // node.classed('node--source', (n) => {
@@ -86,14 +117,14 @@ class TagCircle extends React.Component {
           });
           this.props.setSelectedTag(d.data.name);
           this.getPairedProjects(d.data.name);
-          this.setState({
-            allProjects: this.props.selectedProjects
-          });
-        })
-        .append('circle')
-        .attr('cx', '20px')
-        .attr('cy', '20px')
-        .attr('r', '10px');
+        });
+      // node = node
+      //   .data(root.leaves())
+      //   .enter()
+      //   .append('circle')
+      //   .attr('cx', '20px')
+      //   .attr('cy', '20px')
+      //   .attr('r', '10px');
 
 
       this.setState({ mouseOver: !this.state.mouseOver });

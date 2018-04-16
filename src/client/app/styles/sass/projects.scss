@@ -1,15 +1,31 @@
 .projects {
+  background: $blue;
   display: flex;
   flex-wrap: wrap;
-  width: 60%;
-  margin-left: 40%;
+  width: 48%; //60% of 80%
+  padding-left: 28%; //35% of 80%
+  padding-right: 4%; //5% of 80%
+  margin: 0 10%;
   &__container {
-    width: 33%;
-    padding: 1rem;
+    padding: 0;
+    width: 30.33%;
+    margin: 1.5%;
     box-sizing: border-box;
     cursor: pointer;
+    background: white;
   }
   &__image {
     width: 100%;
+
+  }
+  &__name {
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.5rem 1rem;
+  }
+  &__title {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.5rem 1rem;
   }
 }

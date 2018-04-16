@@ -20,9 +20,8 @@ class Projects extends React.Component {
             }
           >
             <img className="projects__image" src="https://placebear.com/300/200" />
-            <h1 className="projects__title">{project.project_title}</h1>
             <h3 className="projects__name">{project.student_name}</h3>
-            <p className="projects__questions">{project.project_question}</p>
+            <h1 className="projects__title">{project.project_title}</h1>
           </div>
         ))}
 

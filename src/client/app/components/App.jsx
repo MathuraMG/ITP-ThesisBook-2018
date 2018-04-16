@@ -59,8 +59,20 @@ class App extends React.Component {
       this.getStudentProjectAPI(this.studentName());
       this.props.setIsTagCircleOpen(false);
     } else {
-      this.getAllProject();
+      axios.get('/api/pair/Art')
+        .then((res) => {
+          this.props.setSelectedTag('Art');
+          this.getPairedProjects('Art');
+        });
     }
+  }
+
+  getPairedProjects(tag) {
+    axios.get(`/api/pair/${tag}`)
+      .then((res) => {
+        this.props.setSelectedTags(res.data);
+        this.getTagProjects(tag);
+      });
   }
 
   getStudentProject(student) {

@@ -1,8 +1,8 @@
 .tag-circle {
   &__container {
     position: absolute;
-    background-color: $blue;
-    width: 28.8%;
+    background-color: $white;
+    width: 22%;
     z-index: 100;
   }
   &__nav {
@@ -27,30 +27,34 @@
   // pointer-events: none;
 }
 
-.node:hover,
 .node--source,
 .node--target {
   font-weight: 700;
+  fill: #888;
+}
+
+.node:hover {
+  fill:black;
 }
 
 .node--source {
-  fill: #2ca02c;
+  fill: black;
 }
 
 .node--target {
-  fill: #d62728;
+  fill: black;
 }
 
 .link--source,
 .link--target {
   stroke-opacity: .2;
-  stroke-width: 2px;
+  stroke-width: 1px;
 }
 
 .link--target {
-  stroke:purple;
+  stroke:black;
   &:hover {
-    stroke: green;
+    stroke: black;
     cursor: pointer;
     stroke-width:8px;
   }

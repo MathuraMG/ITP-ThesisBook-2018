@@ -13,7 +13,7 @@ class Nav extends React.Component {
             onClick={() => { this.props.setIsTagCircleOpen(true); }}
             className="nav__heading"
           >
-          Search By TagCircle
+          Thesis Archive 18
           </button>
           {
             this.props.isTagCircleOpen &&

@@ -22,6 +22,7 @@ class Project extends React.Component {
     const renderArray = this.renderImages(this.props.selectedProject.slide_show);
     return (
       <section className="project__container">
+        <a className="project__close" href="/">X</a>
         <h2 className="project__student-name">{this.props.selectedProject.student_name}</h2>
         <h1 className="project__title">{this.props.selectedProject.project_title}</h1>
         <p className="project__abstract">{this.props.selectedProject.short_description}</p>
