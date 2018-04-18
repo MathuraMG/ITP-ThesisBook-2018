@@ -120,8 +120,10 @@ class App extends React.Component {
           setSelectedTags={this.props.setSelectedTags}
           setSelectedTag={this.props.setSelectedTag}
           students={this.props.students}
+          isDropDownOpen={this.props.isDropDownOpen}
           isTagCircleOpen={this.props.isTagCircleOpen}
           setIsTagCircleOpen={this.props.setIsTagCircleOpen}
+          setIsDropDownOpen={this.props.setIsDropDownOpen}
           setSelectedProjects={this.props.setSelectedProjects}
         />
         {
@@ -136,6 +138,7 @@ class App extends React.Component {
             setIsTagCircleOpen={this.props.setIsTagCircleOpen}
             selectedProjects={this.props.selectedProjects}
             setSelectedProject={this.props.setSelectedProject}
+            selectedTag={this.props.selectedTag}
           />
         }
 
@@ -146,6 +149,7 @@ class App extends React.Component {
 
 App.propTypes = {
   isTagCircleOpen: PropTypes.bool.isRequired,
+  isDropDownOpen: PropTypes.bool.isRequired,
   selectedProject: PropTypes.shape.isRequired,
   selectedProjects: PropTypes.arrayOf.isRequired,
   selectedStudent: PropTypes.string.isRequired,
@@ -156,6 +160,7 @@ App.propTypes = {
   tags: PropTypes.arrayOf.isRequired,
 
   setIsTagCircleOpen: PropTypes.func.isRequired,
+  setIsDropDownOpen: PropTypes.func.isRequired,
   setSelectedProject: PropTypes.func.isRequired,
   setSelectedProjects: PropTypes.func.isRequired,
   setSelectedStudent: PropTypes.func.isRequired,
@@ -166,6 +171,7 @@ App.propTypes = {
 function mapStateToProps(state) {
   return {
     isTagCircleOpen: state.projectReducer.isTagCircleOpen,
+    isDropDownOpen: state.projectReducer.isDropDownOpen,
     selectedProject: state.projectReducer.selectedProject,
     selectedProjects: state.projectReducer.selectedProjects,
     selectedStudent: state.projectReducer.selectedStudent,

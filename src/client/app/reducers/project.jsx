@@ -2,6 +2,7 @@ import * as ActionTypes from '../constants.jsx';
 
 const initialState = {
   isTagCircleOpen: true,
+  isDropDownOpen: false,
   selectedProject: {},
   selectedProjects: [],
   selectedStudent: '',
@@ -147,6 +148,12 @@ const project = (state = initialState, action) => {
     {
       return Object.assign({}, state, {
         isTagCircleOpen: action.value
+      });
+    }
+    case ActionTypes.SET_IS_DROPDOWN_OPEN:
+    {
+      return Object.assign({}, state, {
+        isDropDownOpen: action.value
       });
     }
     case ActionTypes.SET_SELECTED_PROJECT:

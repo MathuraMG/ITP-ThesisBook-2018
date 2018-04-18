@@ -38,7 +38,10 @@
   }
   &__tag {
     list-style: none;
-    text-transform: capitalize;
+    text-transform: uppercase;
     padding-left: 0.8rem;
+    &--selected {
+      color: $white;
+    }
   }
 }

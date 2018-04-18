@@ -21,12 +21,12 @@ class Projects extends React.Component {
           >
             <ul className="projects__tags">
               {project.topics[0] &&
-                <li className="projects__tag">
+                <li className={`projects__tag ${(this.props.selectedTag === project.topics[0].name) ? 'projects__tag--selected' : ''}`}>
                   {project.topics[0].name}
                 </li>
               }
               {project.topics[1] &&
-                <li className="projects__tag">
+                <li className={`projects__tag ${(this.props.selectedTag === project.topics[1].name) ? 'projects__tag--selected' : ''}`}>
                   {project.topics[1].name}
                 </li>
               }

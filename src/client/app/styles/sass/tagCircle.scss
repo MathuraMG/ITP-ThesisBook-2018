@@ -4,6 +4,7 @@
     background-color: $white;
     width: 22%;
     z-index: 100;
+    margin-top: 3rem;
   }
   &__nav {
     display: flex;
@@ -13,8 +14,10 @@
   }
 }
 .node {
-  font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  // font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 0.8rem;
   fill: #bbb;
+  text-transform: uppercase;
 }
 .node::before{
    content: 'tes';

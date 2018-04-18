@@ -3,10 +3,24 @@ import Autocomplete from 'react-autocomplete';
 import PropTypes from 'prop-types';
 
 class Search extends React.Component {
+  componentDidMount() {
+    // debugger; //eslint-disable-line
+    // document.getElementsByClassName('search__container')[0].onfocus(() => { console.log('focused'); });
+    // document.getElementsByClassName('search__container')[0].setAttribute('onfocus', 'console.log("trstsT")');
+    // document.getElementsByTagName('input')[0].addEventListener('focus', () => { console.log('trstsT'); });
+    // document.getElementsByTagName('input')[0].addEventListener('blur', () => {
+    //   console.log('AAAA');
+    //   this.props.setIsDropDownOpen(false);
+    // });
+    // document.getElementsByTagName('input')[0].defaultValue = 'Search';
+  }
+  test() {
+    console.log('hi');
+  }
   render() {
     const studentList = this.props.students;
     const style = {
-      'background': 'rgba(255, 255, 255, 0.9)',
+      'background': 'transparent',
       'padding': '2px 0px',
       'font-size': '90%',
       'position': 'fixed',
@@ -14,8 +28,12 @@ class Search extends React.Component {
       'max-height': '100%',
       'width': '200px',
     };
+    const inputProps = {
+      onBlur: this.props.setIsDropDownOpen(false)
+    };
     return (
-      <div className="search__container">
+      <div className="search__container" tabIndex="2">
+
         <Autocomplete
           getItemValue={item => item.label}
           items={studentList}
@@ -35,8 +53,9 @@ class Search extends React.Component {
           }
           }
           menuStyle={style}
-
+          inputProps={inputProps}
         />
+
       </div>
     );
   }

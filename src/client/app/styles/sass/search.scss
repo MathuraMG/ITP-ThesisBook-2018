@@ -6,5 +6,8 @@
 }
 
 input {
-  width: 100%
+  width: 100%;
+  background-color: $blue;
+  box-shadow: none;
+  border: black solid 1px;
 }

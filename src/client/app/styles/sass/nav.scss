@@ -8,6 +8,7 @@
   &-left {
     width:27.5%;
     margin-left: 4%; //5% of 80%
+    display: flex;
   }
   &-right{
     width: 30%;
@@ -15,6 +16,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-transform: uppercase;
   }
 }
 
@@ -23,4 +25,8 @@
   height: 3rem;
   background: white;
   border: none;
+}
+
+.nav__image {
+  height: 3rem;
 }

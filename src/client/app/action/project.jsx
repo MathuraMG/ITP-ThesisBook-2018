@@ -10,6 +10,15 @@ export function setIsTagCircleOpen(value) {
   };
 }
 
+export function setIsDropDownOpen(value) {
+  return (dispatch) => {
+    dispatch({
+      type: ActionTypes.SET_IS_DROPDOWN_OPEN,
+      value
+    });
+  };
+}
+
 export function setSelectedProject(value) {
   return (dispatch) => {
     dispatch({
