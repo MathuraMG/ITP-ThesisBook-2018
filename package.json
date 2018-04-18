@@ -46,6 +46,8 @@
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.1.0",
+    "file-loader": "^1.1.11",
+    "ttf-loader": "^1.0.2",
     "webpack-cli": "^2.0.13"
   }
 }

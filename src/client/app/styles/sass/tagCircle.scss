@@ -16,6 +16,12 @@
   font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
   fill: #bbb;
 }
+.node::before{
+   content: 'tes';
+   width: 15px;
+   height: 15px;
+border-radius: 7.5px;
+}
 
 .node:hover {
   fill: #000;

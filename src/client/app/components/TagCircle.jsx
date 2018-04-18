@@ -70,9 +70,9 @@ class TagCircle extends React.Component {
         .attr('class', this.state.mouseOver ? 'link' : 'link')
         .attr('transform', `translate(${radius},${radius})`)
         .attr('d', line)
-        .classed('link--target', (l) => { if (l.target.data.name === this.props.selectedTag) return l.source.source = true; })
-        .filter(l => l.target.data.name === this.props.selectedTag)
-        .raise()
+        // .classed('link--target', (l) => { if (l.target.data.name === this.props.selectedTag) return l.source.source = true; })
+        // .filter(l => l.target.data.name === this.props.selectedTag)
+        // .raise()
         .on('click', (l) => {
           this.getTwoPairedProjects(l.source.data.name, l.target.data.name);
         });
@@ -85,7 +85,10 @@ class TagCircle extends React.Component {
         .attr('dy', '0.31em')
         .attr('transform', d => `translate(${d.y - 30 + radius / 2},${radius})rotate(${d.x - 90})translate(${d.y / 2 + 20 + radius / 4},0)${d.x < 180 ? '' : 'rotate(180)'}`)
         .attr('text-anchor', d => (d.x < 180 ? 'start' : 'end'))
-        .text(d => d.data.key)
+        .text((d) => {
+          const text = d.x < 180 ? `${'\u25CB' + '  '}${d.data.key}` : `${d.data.key}${'  ' + '\u25CB'}`;
+          return text;
+        })
         .classed('node--target', (n) => {
           if (n.data.name === this.props.selectedTag) {
             return true;
@@ -93,8 +96,9 @@ class TagCircle extends React.Component {
           return false;
         })
         .on('click', (d) => {
-          console.log('boop');
           this.setState({ mouseOver: !this.state.mouseOver });
+          console.log('boop');
+          console.log(link);
           link
             .classed('link--target', (l) => {
               console.log('boomp');
@@ -196,14 +200,7 @@ class TagCircle extends React.Component {
         <div className="tag-circle__main">
           {svg && svg.node().toReact()}
         </div>
-        <button
-          onClick={() => {
-            this.props.setIsTagCircleOpen(false);
-          }}
-          className="tag-circle__close"
-        >
-      x
-        </button>
+
       </div>
     );
   }

@@ -28,4 +28,17 @@
     text-align: center;
     padding: 0.5rem 1rem;
   }
+  &__tags {
+    background-color: $blue;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-end;
+    font-size: 0.8rem;
+  }
+  &__tag {
+    list-style: none;
+    text-transform: capitalize;
+    padding-left: 0.8rem;
+  }
 }

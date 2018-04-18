@@ -19,6 +19,19 @@ class Projects extends React.Component {
               }
             }
           >
+            <ul className="projects__tags">
+              {project.topics[0] &&
+                <li className="projects__tag">
+                  {project.topics[0].name}
+                </li>
+              }
+              {project.topics[1] &&
+                <li className="projects__tag">
+                  {project.topics[1].name}
+                </li>
+              }
+            </ul>
+
             <img className="projects__image" src="https://placebear.com/300/200" />
             <h3 className="projects__name">{project.student_name}</h3>
             <h1 className="projects__title">{project.project_title}</h1>
