@@ -45,3 +45,14 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .projects{
+    width: 90%;
+    padding: 0;
+    margin: 0 5%;
+    &__container {
+      width: 100%;
+    }
+  }
+}

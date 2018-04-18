@@ -30,3 +30,17 @@
 .nav__image {
   height: 3rem;
 }
+
+
+@media only screen and (max-width: 768px) {
+  .nav__container {
+    width: 80%;
+    display: flex;
+    padding-top: 1rem;
+    background-color: $white;
+    flex-direction: column;
+    &-left {
+      width: 100%;
+    }
+  }
+}

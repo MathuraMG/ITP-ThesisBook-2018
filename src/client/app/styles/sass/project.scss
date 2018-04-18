@@ -7,7 +7,7 @@
     /* margin: 0 auto; */
     padding: 5rem 25%;
     background: white;
-        border-top: gray solid 1px;
+    border-top: gray solid 1px;
   }
   &__close  {
     position: absolute;
@@ -27,4 +27,10 @@
 }
 .legend {
   display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .projects{
+    width: 90%;
+  }
 }
