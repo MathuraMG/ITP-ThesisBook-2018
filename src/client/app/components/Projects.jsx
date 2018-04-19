@@ -5,6 +5,7 @@ const axios = require('axios');
 
 class Projects extends React.Component {
   render() {
+    console.log(this.props.selectedProjects);
     return (
       <section className="projects">
         {this.props.selectedProjects.map(project => (

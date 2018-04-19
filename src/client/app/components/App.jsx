@@ -34,7 +34,7 @@ class App extends React.Component {
         console.log(student);
 
         const id = res.data;
-        const baseUrl = 'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2017/wp-content/themes/itpthesis/api.php?student_id=';
+        const baseUrl = 'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=';
         axios.get(baseUrl + id)
           .then((res) => {
             const data = JSON.parse(res.data.contents);
@@ -59,10 +59,10 @@ class App extends React.Component {
       this.getStudentProjectAPI(this.studentName());
       this.props.setIsTagCircleOpen(false);
     } else {
-      axios.get('/api/pair/Art')
+      axios.get('/api/pair/Culture')
         .then((res) => {
-          this.props.setSelectedTag('Art');
-          this.getPairedProjects('Art');
+          this.props.setSelectedTag('Culture');
+          this.getPairedProjects('Culture');
         });
     }
   }
@@ -83,18 +83,22 @@ class App extends React.Component {
   }
 
   getAllProject() {
-    const baseUrl = 'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2017/wp-content/themes/itpthesis/api.php?student_id=-1';
+    const baseUrl = 'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=-1';
     axios.get(baseUrl)
       .then((res) => {
         // console.log(res.data);
         const data = JSON.parse(res.data.contents);
+
         this.props.setSelectedProjects(data);
       });
   }
 
   getTagProjects(tag) {
+    console.log('poop');
+    console.log(tag);
     axios.get(`/api/tag/${tag}`)
       .then((res) => {
+        console.log(res);
         this.props.setSelectedProjects(res.data);
       });
   }

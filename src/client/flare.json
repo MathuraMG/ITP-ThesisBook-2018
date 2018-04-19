@@ -1,45 +1,32 @@
 [
-  {"name":"Art", "imports":["Art", "Education", "Performance", "Installation", "Behavior", "Product-Tool", "Machine Learning", "Music-Sound", "Storytelling", "Wearables", "Algorithms", "Games", "VR", "Politics", "Data Viz", "Mobile Apps", "Networking", "Privacy"]},
+  {"name":"Culture","imports":["Culture","Tool\\Service","UX\\UI","Data","Machine Learning"]},
 
-  {"name":"Education", "imports":["Art", "Education", "Behavior", "Speculative Design", "Product-Tool", "Social Good", "Games", "Storytelling", "Politics", "Installation", "Data Viz", "UX-UI", "VR"]},
+{"name":"Tool\\Service","imports":["Culture","Tool\\Service","Machine Learning","Society","Data","UX\\UI"]},
 
-  {"name":"Performance", "imports":["Art", "Performance", "Wearables", "Music-Sound", "Installation", "Games"]},
+{"name":"Education","imports":["Education","Narrative","Installation","VR\\AR","Play","Machine Learning"]},
 
-  {"name":"Installation", "imports":["Art", "Installation", "Storytelling", "VR", "Music-Sound", "Wearables", "Behavior", "Social Good", "Education", "Networking", "Product-Tool", "Data Viz", "Internet of Things", "Performance", "Games"]},
+{"name":"Narrative","imports":["Education","Narrative","Performance","VR\\AR"]},
 
-  {"name":"Storytelling", "imports":["Installation", "Storytelling", "Social Good", "Algorithms", "Art", "Music-Sound", "Wearables", "Education", "VR", "Games", "Speculative Design"]},
+{"name":"Play","imports":["Play","UX\\UI","Society","Education","Performance"]},
 
-  {"name":"Social Good", "imports":["Social Good", "Storytelling", "Politics", "Privacy", "Education", "Internet of Things", "Mobile Apps", "UX-UI", "Installation", "Data Viz", "Product-Tool"]},
+{"name":"UX\\UI","imports":["Play","UX\\UI","VR\\AR","Tangiable","Culture","Tool\\Service"]},
 
-  {"name":"VR", "imports":["Installation", "VR", "Product-Tool", "Storytelling", "Art", "Games", "Politics", "Data Viz", "Education", "UX-UI", "Internet of Things", "Wearables", "Speculative Design"]},
+{"name":"Identity","imports":["Identity","VR\\AR","Sound","Installation","Data"]},
 
-  {"name":"Behavior", "imports":["Art", "Behavior", "Product-Tool", "Music-Sound", "Education", "Mobile Apps", "UX-UI", "Installation", "Games", "Wearables", "Data Viz"]},
+{"name":"VR\\AR","imports":["Identity","VR\\AR","UX\\UI","Narrative","Installation","Education","Machine Learning","Health","Performance","Data"]},
 
-  {"name":"Product-Tool", "imports":["Art", "Behavior", "Product-Tool", "UX-UI", "Education", "VR", "Data Viz", "Installation", "Networking", "Internet of Things", "Mobile Apps", "Social Good", "Wearables", "Speculative Design"]},
+{"name":"Installation","imports":["Education","Installation","VR\\AR","Identity","Data"]},
 
-  {"name":"Machine Learning", "imports":["Art", "Machine Learning", "Music-Sound", "Privacy"]},
+{"name":"Data","imports":["Data","Society","Culture","Installation","Identity","Tool\\Service","VR\\AR"]},
 
-  {"name":"UX-UI", "imports":["Product-Tool", "UX-UI", "Behavior", "Games", "Mobile Apps", "Social Good", "Internet of Things", "Data Viz", "Education", "VR"]},
+{"name":"Society","imports":["Data","Society","Tool\\Service","Play","Performance"]},
 
-  {"name":"Music-Sound", "imports":["Behavior", "Music-Sound", "Art", "Installation", "Storytelling", "Machine Learning", "Performance", "Wearables"]},
+{"name":"Performance","imports":["Narrative","Performance","Society","Play","VR\\AR"]},
 
-  {"name":"Algorithms", "imports":["Algorithms", "Storytelling", "Art"]},
+{"name":"Machine Learning","imports":["Machine Learning","Tool\\Service","Sound","VR\\AR","Culture","Education"]},
 
-  {"name":"Politics", "imports":["Politics", "Privacy", "Social Good", "Education", "Art", "VR", "Speculative Design", "Mobile Apps", "Networking"]},
+{"name":"Sound","imports":["Machine Learning","Sound","Identity"]},
 
-  {"name":"Privacy", "imports":["Politics", "Privacy", "Social Good", "Machine Learning", "Art", "Mobile Apps", "Networking"]},
+{"name":"Tangiable","imports":["Tangiable","UX\\UI","Health"]},
 
-  {"name":"Mobile Apps", "imports":["Behavior", "Mobile Apps", "Social Good", "UX-UI", "Internet of Things", "Product-Tool", "Art", "Networking", "Politics", "Privacy"]},
-
-  {"name":"Wearables", "imports":["Art", "Installation", "Storytelling", "Wearables", "Data Viz", "Performance", "Behavior", "Games", "Internet of Things", "Product-Tool", "VR", "Music-Sound"]},
-
-  {"name":"Speculative Design", "imports":["Education", "Speculative Design", "Storytelling", "Product-Tool", "Data Viz", "VR", "Politics"]},
-
-  {"name":"Data Viz", "imports":["Data Viz", "Wearables", "Product-Tool", "Installation", "Internet of Things", "Social Good", "Education", "UX-UI", "VR", "Art", "Speculative Design", "Behavior"]},
-
-  {"name":"Games", "imports":["Games", "UX-UI", "Education", "Behavior", "Wearables", "Art", "Storytelling", "VR", "Installation", "Performance"]},
-
-  {"name":"Internet of Things", "imports":["Internet of Things", "Social Good", "Mobile Apps", "Product-Tool", "UX-UI", "Data Viz", "Installation", "VR", "Wearables"]},
-
-  {"name":"Networking", "imports":["Installation", "Networking", "Product-Tool", "Art", "Mobile Apps", "Politics", "Privacy"]}
-]
+{"name":"Health","imports":["Health","VR\\AR","Tangiable"]}]

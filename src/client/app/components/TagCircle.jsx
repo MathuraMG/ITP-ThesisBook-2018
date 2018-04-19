@@ -161,6 +161,7 @@ class TagCircle extends React.Component {
     // For each import, construct a link from the source to target node.
     nodes.forEach((d) => {
       if (d.data.imports) {
+        console.log(d.data.imports);
         d.data.imports.forEach((i) => {
           imports.push(map[d.data.name].path(map[i]));
         });
