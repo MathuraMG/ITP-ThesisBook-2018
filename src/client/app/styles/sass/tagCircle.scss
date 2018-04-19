@@ -12,10 +12,14 @@
   &__close {
     width: 100%;
   }
+  &__main {
+    display: flex;
+    justify-content: center;
+  }
 }
 .node {
   // font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font: 0.8rem;
+  font-size: 0.8rem;  
   fill: #bbb;
   text-transform: uppercase;
 }
@@ -23,7 +27,7 @@
    content: 'tes';
    width: 15px;
    height: 15px;
-border-radius: 7.5px;
+   border-radius: 7.5px;
 }
 
 .node:hover {

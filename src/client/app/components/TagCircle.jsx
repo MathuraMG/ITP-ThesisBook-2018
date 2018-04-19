@@ -35,16 +35,17 @@ class TagCircle extends React.Component {
   // }
 
   componentDidMount() {
-    const diameter = 0.25 * window.innerWidth;// 360;
+    const diameter = 0.2 * window.innerWidth;// 360;
     const radius = diameter / 2;
-    const innerRadius = radius - 60;
+    console.log(radius);
+    const innerRadius = radius - 120;
 
     const cluster = d3.cluster()
       .size([360, innerRadius]);
 
     const line = d3.radialLine()
       .curve(d3.curveBundle.beta(0))
-      .radius(d => d.y)
+      .radius(d => radius / 2)
       .angle(d => d.x / 180 * Math.PI);
 
     svg = d3.select(ReactFauxDOM.createElement('svg'))
@@ -83,25 +84,27 @@ class TagCircle extends React.Component {
         .enter().append('text')
         .attr('class', 'node')
         .attr('dy', '0.31em')
-        .attr('transform', d => `translate(${d.y - 30 + radius / 2},${radius})rotate(${d.x - 90})translate(${d.y / 2 + 20 + radius / 4},0)${d.x < 180 ? '' : 'rotate(180)'}`)
+        .attr('transform', d => `translate(${radius},${radius})rotate(${d.x - 90})translate(${d.y / 2 + 20 + radius / 4},0)${d.x < 180 ? '' : 'rotate(180)'}`)
         .attr('text-anchor', d => (d.x < 180 ? 'start' : 'end'))
         .text((d) => {
           const text = d.x < 180 ? `${'\u25CB' + '  '}${d.data.key}` : `${d.data.key}${'  ' + '\u25CB'}`;
           return text;
         })
         .classed('node--target', (n) => {
+          console.log(n.source);
           if (n.data.name === this.props.selectedTag) {
             return true;
           }
           return false;
         })
+
         .on('click', (d) => {
+          node
+            .each((n) => { n.target = n.source = false; });
           this.setState({ mouseOver: !this.state.mouseOver });
-          console.log('boop');
-          console.log(link);
           link
+
             .classed('link--target', (l) => {
-              console.log('boomp');
               if (l.target.data.name === d.data.name) {
                 return l.source.source = true;
               }
@@ -109,16 +112,14 @@ class TagCircle extends React.Component {
             .filter(l => l.target.data.name === d.data.name)
             .raise();
 
-          // node.classed('node--source', (n) => {
-          //   if (n.source) { return true; } console.log('yo'); return false;
-          // });
-          //
           node.classed('node--target', (n) => {
             if (n.data.name === d.data.name) {
               return true;
             }
             return false;
-          });
+          })
+            .classed('node--source', n => n.source);
+
           this.props.setSelectedTag(d.data.name);
           this.getPairedProjects(d.data.name);
         });
@@ -136,6 +137,8 @@ class TagCircle extends React.Component {
   }
 
   getPairedProjects(tag) {
+    console.log(tag);
+    tag = encodeURIComponent(tag);
     axios.get(`/api/pair/${tag}`)
       .then((res) => {
         this.props.setSelectedTags(res.data);
@@ -161,7 +164,6 @@ class TagCircle extends React.Component {
     // For each import, construct a link from the source to target node.
     nodes.forEach((d) => {
       if (d.data.imports) {
-        console.log(d.data.imports);
         d.data.imports.forEach((i) => {
           imports.push(map[d.data.name].path(map[i]));
         });

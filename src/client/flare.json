@@ -1,9 +1,10 @@
 [
   {"name":"Culture","imports":["Culture","Tool\\Service","UX\\UI","Data","Machine Learning"]},
 
+{"name":"Education","imports":["Education","Narrative","Installation","VR\\AR","Play","Machine Learning"]},
+
 {"name":"Tool\\Service","imports":["Culture","Tool\\Service","Machine Learning","Society","Data","UX\\UI"]},
 
-{"name":"Education","imports":["Education","Narrative","Installation","VR\\AR","Play","Machine Learning"]},
 
 {"name":"Narrative","imports":["Education","Narrative","Performance","VR\\AR"]},
 
@@ -15,9 +16,9 @@
 
 {"name":"VR\\AR","imports":["Identity","VR\\AR","UX\\UI","Narrative","Installation","Education","Machine Learning","Health","Performance","Data"]},
 
-{"name":"Installation","imports":["Education","Installation","VR\\AR","Identity","Data"]},
-
 {"name":"Data","imports":["Data","Society","Culture","Installation","Identity","Tool\\Service","VR\\AR"]},
+
+{"name":"Installation","imports":["Education","Installation","VR\\AR","Identity","Data"]},
 
 {"name":"Society","imports":["Data","Society","Tool\\Service","Play","Performance"]},
 

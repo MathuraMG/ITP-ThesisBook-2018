@@ -28,11 +28,8 @@ class App extends React.Component {
   }
 
   getStudentProjectAPI(student) {
-    console.log('in here');
     axios.get(`/api/id/${student}`)
       .then((res) => {
-        console.log(student);
-
         const id = res.data;
         const baseUrl = 'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=';
         axios.get(baseUrl + id)
@@ -55,7 +52,6 @@ class App extends React.Component {
 
   loadPage() {
     if (this.studentName()) {
-      console.log(this.studentName());
       this.getStudentProjectAPI(this.studentName());
       this.props.setIsTagCircleOpen(false);
     } else {
@@ -86,7 +82,6 @@ class App extends React.Component {
     const baseUrl = 'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=-1';
     axios.get(baseUrl)
       .then((res) => {
-        // console.log(res.data);
         const data = JSON.parse(res.data.contents);
 
         this.props.setSelectedProjects(data);
@@ -94,11 +89,8 @@ class App extends React.Component {
   }
 
   getTagProjects(tag) {
-    console.log('poop');
-    console.log(tag);
     axios.get(`/api/tag/${tag}`)
       .then((res) => {
-        console.log(res);
         this.props.setSelectedProjects(res.data);
       });
   }

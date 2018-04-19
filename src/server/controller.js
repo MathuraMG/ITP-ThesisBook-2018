@@ -2792,7 +2792,6 @@ function getTwoTagProjects(req, res) {
 }
 
 function getTagProjects(req, res) {
-  console.log(sampleTagData);
   res.send(sampleTagData[req.params.tag]);
 }
 
