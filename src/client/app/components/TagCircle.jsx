@@ -37,7 +37,6 @@ class TagCircle extends React.Component {
   componentDidMount() {
     const diameter = 0.2 * window.innerWidth;// 360;
     const radius = diameter / 2;
-    console.log(radius);
     const innerRadius = radius - 120;
 
     const cluster = d3.cluster()
@@ -91,7 +90,6 @@ class TagCircle extends React.Component {
           return text;
         })
         .classed('node--target', (n) => {
-          console.log(n.source);
           if (n.data.name === this.props.selectedTag) {
             return true;
           }
@@ -137,7 +135,6 @@ class TagCircle extends React.Component {
   }
 
   getPairedProjects(tag) {
-    console.log(tag);
     tag = encodeURIComponent(tag);
     axios.get(`/api/pair/${tag}`)
       .then((res) => {

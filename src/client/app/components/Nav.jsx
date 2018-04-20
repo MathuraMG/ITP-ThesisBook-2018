@@ -10,7 +10,6 @@ class Nav extends React.Component {
     this.searchButtonClicked = this.searchButtonClicked.bind(this);
   }
   searchButtonClicked() {
-    console.log('hello ');
     this.props.setIsDropDownOpen(true);
   }
   render() {
@@ -43,7 +42,7 @@ class Nav extends React.Component {
           }
         </div>
         <div className="nav__container-right">
-          <Link to="/about">About</Link>
+          <a className="" href="/about">About</a>
 
           <Search
             isDropDownOpen={this.props.isDropDownOpen}

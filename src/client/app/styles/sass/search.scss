@@ -1,13 +1,32 @@
 .search__container {
-  min-width: 200px;
+  // margin-right: 20%;
+  z-index: 100;
+  min-width: 250px;
   & div {
     width: 100%;
   }
+}
+
+.search__values {
+  padding: 0.5rem 0.5rem;
+  box-sizing:border-box;
+  z-index: 100;
 }
 
 input {
   width: 100%;
   background-color: $blue;
   box-shadow: none;
-  border: black solid 1px;
+  border: black solid 0px;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  z-index: 100;
+}
+
+input:focus {
+  background-color: $white;
+  box-shadow: none;
+  border: black solid 0px;
+  text-transform: uppercase;
 }

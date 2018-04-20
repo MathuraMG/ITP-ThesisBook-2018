@@ -3,24 +3,32 @@ import Autocomplete from 'react-autocomplete';
 import PropTypes from 'prop-types';
 
 class Search extends React.Component {
+  constructor(props) {
+    super(props);
+    this.test = this.test.bind(this);
+  }
   componentDidMount() {
     // debugger; //eslint-disable-line
     // document.getElementsByClassName('search__container')[0].onfocus(() => { console.log('focused'); });
     // document.getElementsByClassName('search__container')[0].setAttribute('onfocus', 'console.log("trstsT")');
-    // document.getElementsByTagName('input')[0].addEventListener('focus', () => { console.log('trstsT'); });
-    // document.getElementsByTagName('input')[0].addEventListener('blur', () => {
-    //   console.log('AAAA');
+    document.getElementsByTagName('input')[0].addEventListener('focus', () => {
+
+    });
+    document.getElementsByTagName('input')[0].addEventListener('blur', () => {
+      console.log('AAAA');
+    });
     //   this.props.setIsDropDownOpen(false);
     // });
     // document.getElementsByTagName('input')[0].defaultValue = 'Search';
   }
   test() {
     console.log('hi');
+    console.log($('input'));
   }
   render() {
     const studentList = this.props.students;
     const style = {
-      'background': 'transparent',
+      'background': 'white',
       'padding': '2px 0px',
       'font-size': '90%',
       'position': 'fixed',
@@ -29,7 +37,9 @@ class Search extends React.Component {
       'width': '200px',
     };
     const inputProps = {
-      onBlur: this.props.setIsDropDownOpen(false)
+      // onFocus: this.test(),
+      // onBlur: this.props.setIsDropDownOpen(false),
+      placeholder: 'Search By Student'
     };
     return (
       <div className="search__container" tabIndex="2">
@@ -39,11 +49,12 @@ class Search extends React.Component {
           items={studentList}
           shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
           renderItem={(item, isHighlighted) =>
-            (<div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+            (<div className="search__values" style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
               {item.name}
              </div>)
           }
           value={this.props.selectedStudent}
+
           onChange={(e) => {
             this.props.setSelectedStudent(e.target.value);
           }

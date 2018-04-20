@@ -29,7 +29,6 @@ export function setSelectedProject(value) {
 }
 
 export function setSelectedProjects(value) {
-  console.log(value);
   return (dispatch) => {
     dispatch({
       type: ActionTypes.SET_SELECTED_PROJECTS,

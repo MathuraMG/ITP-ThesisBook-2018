@@ -12,7 +12,7 @@ class Project extends React.Component {
         <img
           src={image.src}
         />
-        // <p className="legend">Legend</p>
+
       </div>);
     });
 
@@ -22,15 +22,23 @@ class Project extends React.Component {
     const renderArray = this.renderImages(this.props.selectedProject.slide_show);
     return (
       <section className="project__container">
-        <a className="project__close" href="/">X</a>
+        <a className="project__close" href="/">
+          &times;
+        </a>
         <h2 className="project__student-name">{this.props.selectedProject.student_name}</h2>
         <h1 className="project__title">{this.props.selectedProject.project_title}</h1>
-        <p className="project__abstract">{this.props.selectedProject.short_description}</p>
+        <div className="project__details">
+          <p className="project__tags">
+            {this.props.selectedProject.topics[0].name}, {this.props.selectedProject.topics[1].name}
+          </p>
+          <p className="project__advisor">Advisor: {this.props.selectedProject.advisor_name}</p>
+        </div>
+        <p className="project__abstract">{ReactHtmlParser(this.props.selectedProject.short_description)}</p>
         <Carousel>
           {renderArray}
         </Carousel>
-        <p>{this.props.selectedProject.description}</p>
-        {ReactHtmlParser(this.props.selectedProject.further_reading)}
+        <p className="project__desc">{this.props.selectedProject.description}</p>
+        <div className="project__further">{ReactHtmlParser(this.props.selectedProject.further_reading)}</div>
       </section>
     );
   }
