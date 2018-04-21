@@ -10,7 +10,7 @@
 
 {"name":"Play","imports":["Play","UX\\UI","Society","Education","Performance"]},
 
-{"name":"UX\\UI","imports":["Play","UX\\UI","VR\\AR","Tangiable","Culture","Tool\\Service"]},
+{"name":"UX\\UI","imports":["Play","UX\\UI","VR\\AR","Tangible","Culture","Tool\\Service"]},
 
 {"name":"Identity","imports":["Identity","VR\\AR","Sound","Installation","Data"]},
 
@@ -28,6 +28,6 @@
 
 {"name":"Sound","imports":["Machine Learning","Sound","Identity"]},
 
-{"name":"Tangiable","imports":["Tangiable","UX\\UI","Health"]},
+{"name":"Tangible","imports":["Tangible","UX\\UI","Health"]},
 
-{"name":"Health","imports":["Health","VR\\AR","Tangiable"]}]
+{"name":"Health","imports":["Health","VR\\AR","Tangible"]}]

@@ -20,6 +20,7 @@ class Project extends React.Component {
   }
   render() {
     const renderArray = this.renderImages(this.props.selectedProject.slide_show);
+    // Accounting for spelling mistake in Tangiable in the DB
     return (
       <section className="project__container">
         <button
@@ -36,7 +37,8 @@ class Project extends React.Component {
         <h1 className="project__title">{this.props.selectedProject.project_title}</h1>
         <div className="project__details">
           <p className="project__tags">
-            {this.props.selectedProject.topics[0].name}, {this.props.selectedProject.topics[1].name}
+            {this.props.selectedProject.topics[0].name === 'Tangiable' ? 'Tangible' : this.props.selectedProject.topics[0].name},	&nbsp;
+            {this.props.selectedProject.topics[1].name === 'Tangiable' ? 'Tangible' : this.props.selectedProject.topics[1].name}
           </p>
           <p className="project__advisor">Advisor: {this.props.selectedProject.advisor_name}</p>
         </div>

@@ -39,8 +39,21 @@
     font-size: 0.8rem;
     color: $dark-blue;
   }
+  &__abstract {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+  &__desc {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
   &__further {
     width: 100%;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
   }
   &__further img{
     width: 100%;

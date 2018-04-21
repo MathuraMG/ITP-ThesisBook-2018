@@ -22,7 +22,7 @@ const sampleTags = ['Culture',
   'Performance',
   'Machine Learning',
   'Sound',
-  'Tangiable',
+  'Tangible',
   'Health'];
 
 const sampleStudentData = {
@@ -317,8 +317,8 @@ const sampleStudentData = {
     caption: ''
   },
   topics: [{
-    name: 'Tangiable',
-    slug: 'tangiable'
+    name: 'Tangible',
+    slug: 'Tangible'
   }, {
     name: 'UX\\UI',
     slug: 'uxui'
@@ -333,8 +333,8 @@ const sampleStudentData = {
   project_title: 'Expressive Tactile Controls',
   project_question: 'Push buttons, sliders, switches and dials—we use such controls everyday, and yet we barely notice them. ‘Expressive Tactile Controls’ is a series of playful research experiments that ask: how could our relationship to tactile controls be augmented by giving these controls more personality? How would buttons that have a stronger, more evocative personality affect and improve our relationship with the applications they are built into? How would people react to buttons that ‘talk back?’\r\n\r\nThis question was approached by constructing and testing a series of experimental pushbutton prototypes able to express themselves with various tactile and kinesthetic feedback (vibration, tension, and movement), according to the user’s touch or environment. \r\n\r\nThe first series included controls designed to feel Stubborn, Sensitive/Impatient, Lazy, Timid, and Spontaneous. These ‘personality-enriched’ buttons were then used to provide users with a more intuitive tactile feedback, in accordance with the application they were serving.\r\n',
   topics: [{
-    name: 'Tangiable',
-    slug: 'tangiable'
+    name: 'Tangible',
+    slug: 'Tangible'
   }, {
     name: 'UX\\UI',
     slug: 'uxui'
@@ -866,8 +866,8 @@ const sampleStudentData = {
     name: 'Health',
     slug: 'health'
   }, {
-    name: 'Tangiable',
-    slug: 'tangiable'
+    name: 'Tangible',
+    slug: 'Tangible'
   }]
 },
   'se-young-kim':
@@ -1680,8 +1680,8 @@ const sampleTagData = {
       caption: ''
     },
     topics: [{
-      name: 'Tangiable',
-      slug: 'tangiable'
+      name: 'Tangible',
+      slug: 'Tangible'
     }, {
       name: 'UX\\UI',
       slug: 'uxui'
@@ -1694,8 +1694,8 @@ const sampleTagData = {
     project_title: 'Expressive Tactile Controls',
     project_question: 'Push buttons, sliders, switches and dials—we use such controls everyday, and yet we barely notice them. ‘Expressive Tactile Controls’ is a series of playful research experiments that ask: how could our relationship to tactile controls be augmented by giving these controls more personality? How would buttons that have a stronger, more evocative personality affect and improve our relationship with the applications they are built into? How would people react to buttons that ‘talk back?’\r\n\r\nThis question was approached by constructing and testing a series of experimental pushbutton prototypes able to express themselves with various tactile and kinesthetic feedback (vibration, tension, and movement), according to the user’s touch or environment. \r\n\r\nThe first series included controls designed to feel Stubborn, Sensitive/Impatient, Lazy, Timid, and Spontaneous. These ‘personality-enriched’ buttons were then used to provide users with a more intuitive tactile feedback, in accordance with the application they were serving.\r\n',
     topics: [{
-      name: 'Tangiable',
-      slug: 'tangiable'
+      name: 'Tangible',
+      slug: 'Tangible'
     }, {
       name: 'UX\\UI',
       slug: 'uxui'
@@ -2679,7 +2679,7 @@ const sampleTagData = {
       slug: 'sound'
     }]
   }],
-  'Tangiable': [{
+  'Tangible': [{
     student_id: '7',
     student_name: 'Grau Puche Recarens',
     student_slug: 'grau-puche-recarens',
@@ -2693,8 +2693,8 @@ const sampleTagData = {
       caption: ''
     },
     topics: [{
-      name: 'Tangiable',
-      slug: 'tangiable'
+      name: 'Tangible',
+      slug: 'Tangible'
     }, {
       name: 'UX\\UI',
       slug: 'uxui'
@@ -2707,8 +2707,8 @@ const sampleTagData = {
     project_title: 'Expressive Tactile Controls',
     project_question: 'Push buttons, sliders, switches and dials—we use such controls everyday, and yet we barely notice them. ‘Expressive Tactile Controls’ is a series of playful research experiments that ask: how could our relationship to tactile controls be augmented by giving these controls more personality? How would buttons that have a stronger, more evocative personality affect and improve our relationship with the applications they are built into? How would people react to buttons that ‘talk back?’\r\n\r\nThis question was approached by constructing and testing a series of experimental pushbutton prototypes able to express themselves with various tactile and kinesthetic feedback (vibration, tension, and movement), according to the user’s touch or environment. \r\n\r\nThe first series included controls designed to feel Stubborn, Sensitive/Impatient, Lazy, Timid, and Spontaneous. These ‘personality-enriched’ buttons were then used to provide users with a more intuitive tactile feedback, in accordance with the application they were serving.\r\n',
     topics: [{
-      name: 'Tangiable',
-      slug: 'tangiable'
+      name: 'Tangible',
+      slug: 'Tangible'
     }, {
       name: 'UX\\UI',
       slug: 'uxui'
@@ -2724,8 +2724,8 @@ const sampleTagData = {
       name: 'Health',
       slug: 'health'
     }, {
-      name: 'Tangiable',
-      slug: 'tangiable'
+      name: 'Tangible',
+      slug: 'Tangible'
     }]
   }],
   'Health': [{
@@ -2753,8 +2753,8 @@ const sampleTagData = {
       name: 'Health',
       slug: 'health'
     }, {
-      name: 'Tangiable',
-      slug: 'tangiable'
+      name: 'Tangible',
+      slug: 'Tangible'
     }]
   }]
 };

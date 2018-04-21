@@ -25,7 +25,7 @@ const initialState = {
     'Performance',
     'Machine Learning',
     'Sound',
-    'Tangiable',
+    'Tangible',
     'Health'],
   students: [
     { label: 'alejandro-matamala', name: 'Alejandro Matamala' },
