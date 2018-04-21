@@ -47,6 +47,19 @@
   }
 }
 
+@media only screen and (max-width: 1200px) {
+  .projects{
+    width: 40%; //60% of 80%
+    padding-left: 36%; //45% of 80%
+    padding-right: 4%; //5% of 80%
+    // margin: 0 10%;
+    &__container {
+      width: 47%;
+      margin: 1.5%;
+    }
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .projects{
     width: 70%;

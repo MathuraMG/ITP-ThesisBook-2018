@@ -11,7 +11,6 @@ class TagCircle extends React.Component {
     super(props);
     this.state = {
       mouseOver: false,
-      innerSelectedTag: ''
     };
     this.createD3 = this.createD3.bind(this);
   }
@@ -20,8 +19,21 @@ class TagCircle extends React.Component {
     this.createD3();
   }
 
+  componentDidUpdate() {
+    this.createD3();
+  }
+
   createD3() {
-    const diameter = (window.innerWidth > 768) ? 0.2 * window.innerWidth : 0.8 * window.innerWidth;
+    console.log('it updated');
+    let diameter;
+    // const diameter = (window.innerWidth > 768) ? ((window.innerWidth > 1200 ? (0.2 * window.innerWidth): 0.3*window.innerWidth ): 0.8 * window.innerWidth);
+    if (window.innerWidth <= 768) {
+      diameter = 0.8 * window.innerWidth;
+    } else if (window.innerWidth > 1200) {
+      diameter = 0.2 * window.innerWidth;
+    } else {
+      diameter = 0.3 * window.innerWidth;
+    }
     const radius = diameter / 2;
     const innerRadius = radius - 120;
 
@@ -66,7 +78,7 @@ class TagCircle extends React.Component {
         .on('click', (l) => {
           this.getTwoPairedProjects(l.source.data.name, l.target.data.name);
         });
-      // .exit()
+
 
       node = node
         .data(root.leaves())
@@ -89,7 +101,6 @@ class TagCircle extends React.Component {
 
         .on('click', (d) => {
           this.props.history.push('/');
-          this.setState({ innerSelectedTag: d.data.name });
           this.props.setShowAboutPage(false);
           node
             .each((n) => { n.target = n.source = false; });
@@ -116,7 +127,6 @@ class TagCircle extends React.Component {
         });
 
       node.classed('node--target', (n) => {
-        // console.log(this.props.selectedTag);
         if (n.data.name === this.props.selectedTag) {
           return true;
         }
@@ -145,12 +155,12 @@ class TagCircle extends React.Component {
     const map = {};
     const imports = [];
 
-    // Compute a map from name to node.
+
     nodes.forEach((d) => {
       map[d.data.name] = d;
     });
 
-    // For each import, construct a link from the source to target node.
+
     nodes.forEach((d) => {
       if (d.data.imports) {
         d.data.imports.forEach((i) => {
@@ -187,7 +197,6 @@ class TagCircle extends React.Component {
   }
 
   render() {
-    this.createD3();
     return (
       <div className="tag-circle__container">
         <div className="tag-circle__main">
