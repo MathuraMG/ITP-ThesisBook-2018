@@ -116,6 +116,7 @@ class App extends React.Component {
   }
 
   getTwoTagProjects(tag1, tag2) {
+    console.log('getting 2');
     axios.get(`/api/tag/${tag1}/${tag2}`)
       .then((res) => {
         this.props.setSelectedProjects(res.data);
@@ -140,6 +141,7 @@ class App extends React.Component {
           setSelectedStudent={this.props.setSelectedStudent}
           setSelectedTags={this.props.setSelectedTags}
           setSelectedTag={this.props.setSelectedTag}
+          setShowAboutPage={this.props.setShowAboutPage}
           showAboutPage={this.props.showAboutPage}
           students={this.props.students}
           isDropDownOpen={this.props.isDropDownOpen}

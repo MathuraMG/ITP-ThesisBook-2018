@@ -18,7 +18,7 @@ class Nav extends React.Component {
         <div className="nav__container-left">
           <img
             className="nav__image"
-            src="https://placebear.com/100/100"
+            src="/logo.png"
           />
           <button
             onClick={() => { this.props.setIsTagCircleOpen(true); }}
@@ -29,6 +29,7 @@ class Nav extends React.Component {
           {
             this.props.isTagCircleOpen &&
             <TagCircle
+              history={this.props.history}
               selectedTag={this.props.selectedTag}
               setSelectedTags={this.props.setSelectedTags}
               setSelectedTag={this.props.setSelectedTag}
@@ -38,6 +39,7 @@ class Nav extends React.Component {
               setIsTagCircleOpen={this.props.setIsTagCircleOpen}
               selectedProjects={this.props.selectedProjects}
               setSelectedProjects={this.props.setSelectedProjects}
+              setShowAboutPage={this.props.setShowAboutPage}
             />
           }
         </div>

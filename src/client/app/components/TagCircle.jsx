@@ -102,6 +102,8 @@ class TagCircle extends React.Component {
         })
 
         .on('click', (d) => {
+          this.props.history.push('/');
+          this.props.setShowAboutPage(false);
           node
             .each((n) => { n.target = n.source = false; });
           this.setState({ mouseOver: !this.state.mouseOver });
@@ -157,6 +159,8 @@ class TagCircle extends React.Component {
       });
   }
   getTwoPairedProjects(tag1, tag2) {
+    tag1 = encodeURIComponent(tag1);
+    tag2 = encodeURIComponent(tag2);
     axios.get(`/api/tag/${tag1}/${tag2}`)
       .then((res) => {
         this.props.getTwoTagProjects(tag1, tag2);

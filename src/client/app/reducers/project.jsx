@@ -125,7 +125,6 @@ const project = (state = initialState, action) => {
 
     case ActionTypes.SET_SELECTED_PROJECTS:
     {
-      console.log('hi');
       return Object.assign({}, state, {
         selectedProjects: action.value,
         showSingleProject: false
