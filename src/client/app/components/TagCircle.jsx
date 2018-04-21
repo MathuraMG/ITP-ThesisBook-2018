@@ -10,36 +10,17 @@ class TagCircle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mouseOver: false
+      mouseOver: false,
+      innerSelectedTag: ''
     };
-    // this.test = this.test.bind(this);
+    this.createD3 = this.createD3.bind(this);
   }
 
-  // componentDidUpdate(prevProps) {
-  //   // console.log(prevProps.selectedTag);
-  //   // console.log(this.props.selectedTag);
-  //   if (prevProps.selectedTag != this.props.selectedTag) {
-  //     console.log('in here');
-  //     console.log(this.props.selectedTag);
-  //     this.setState({ mouseOver: !this.state.mouseOver });
-  //     // this.forceUpdate();
-  //   }
-  //   // console.log(this.)
-  //   //
-  // }
-  //
-  //
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log(this.props.selectedTag);
-  //   console.log(nextProps.selectedTag);
-  //   if (nextProps.selectedTag != this.props.selectedTag) {
-  //     console.log('in here');
-  //     // this.forceUpdate();
-  //     return true;
-  //   }
-  // }
-
   componentDidMount() {
+    this.createD3();
+  }
+
+  createD3() {
     const diameter = (window.innerWidth > 768) ? 0.2 * window.innerWidth : 0.8 * window.innerWidth;
     const radius = diameter / 2;
     const innerRadius = radius - 120;
@@ -75,9 +56,13 @@ class TagCircle extends React.Component {
         .attr('class', this.state.mouseOver ? 'link' : 'link')
         .attr('transform', `translate(${radius},${radius})`)
         .attr('d', line)
-        // .classed('link--target', (l) => { if (l.target.data.name === this.props.selectedTag) return l.source.source = true; })
-        // .filter(l => l.target.data.name === this.props.selectedTag)
-        // .raise()
+        .classed('link--target', (l) => {
+          if (l.target.data.name === this.props.selectedTag) {
+            return l.source.source = true;
+          }
+        })
+        .filter(l => l.target.data.name === this.props.selectedTag)
+        .raise()
         .on('click', (l) => {
           this.getTwoPairedProjects(l.source.data.name, l.target.data.name);
         });
@@ -100,30 +85,31 @@ class TagCircle extends React.Component {
           }
           return false;
         })
+        .classed('node--source', n => n.source)
 
         .on('click', (d) => {
           this.props.history.push('/');
+          this.setState({ innerSelectedTag: d.data.name });
           this.props.setShowAboutPage(false);
           node
             .each((n) => { n.target = n.source = false; });
           this.setState({ mouseOver: !this.state.mouseOver });
-          link
-
-            .classed('link--target', (l) => {
-              if (l.target.data.name === d.data.name) {
-                return l.source.source = true;
-              }
-            })
-            .filter(l => l.target.data.name === d.data.name)
-            .raise();
-
           node.classed('node--target', (n) => {
             if (n.data.name === d.data.name) {
               return true;
             }
             return false;
+          });
+          link.classed('link--target', (l) => {
+            if (l.target.data.name === d.data.name) {
+              return l.source.source = true;
+            }
           })
-            .classed('node--source', n => n.source);
+            .filter(l => l.target.data.name === d.data.name)
+            .raise();
+
+
+          node.classed('node--source', n => n.source);
 
           this.props.setSelectedTag(d.data.name);
           this.getPairedProjects(d.data.name);
@@ -137,30 +123,18 @@ class TagCircle extends React.Component {
         return false;
       })
         .classed('node--source', n => n.source);
-      // node = node
-      //   .data(root.leaves())
-      //   .enter()
-      //   .append('circle')
-      //   .attr('cx', '20px')
-      //   .attr('cy', '20px')
-      //   .attr('r', '10px');
-
-
-      // this.setState({ mouseOver: !this.state.mouseOver });
     });
   }
 
   getPairedProjects(tag) {
-    tag = encodeURIComponent(tag);
-    axios.get(`/api/pair/${tag}`)
+    const URL = `/api/pair/${tag}`;
+    axios.get(URL)
       .then((res) => {
         this.props.setSelectedTags(res.data);
         this.props.getTagProjects(tag);
       });
   }
   getTwoPairedProjects(tag1, tag2) {
-    tag1 = encodeURIComponent(tag1);
-    tag2 = encodeURIComponent(tag2);
     axios.get(`/api/tag/${tag1}/${tag2}`)
       .then((res) => {
         this.props.getTwoTagProjects(tag1, tag2);
@@ -213,7 +187,7 @@ class TagCircle extends React.Component {
   }
 
   render() {
-    // this.test();
+    this.createD3();
     return (
       <div className="tag-circle__container">
         <div className="tag-circle__main">

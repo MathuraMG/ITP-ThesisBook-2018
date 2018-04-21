@@ -108,6 +108,7 @@ class App extends React.Component {
   }
 
   getTagProjects(tag) {
+    tag = encodeURIComponent(tag);
     axios.get(`/api/tag/${tag}`)
       .then((res) => {
         this.props.setSelectedProjects(res.data);
@@ -116,6 +117,8 @@ class App extends React.Component {
 
   getTwoTagProjects(tag1, tag2) {
     console.log('getting 2');
+    tag1 = encodeURIComponent(tag1);
+    tag2 = encodeURIComponent(tag2);
     axios.get(`/api/tag/${tag1}/${tag2}`)
       .then((res) => {
         this.props.setSelectedProjects(res.data);
