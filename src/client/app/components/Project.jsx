@@ -22,9 +22,16 @@ class Project extends React.Component {
     const renderArray = this.renderImages(this.props.selectedProject.slide_show);
     return (
       <section className="project__container">
-        <a className="project__close" href="/">
+        <button
+          className="project__close"
+          onClick={() => {
+            this.props.history.push('/');
+            this.props.setIsTagCircleOpen(true);
+          }
+          }
+        >
           &times;
-        </a>
+        </button>
         <h2 className="project__student-name">{this.props.selectedProject.student_name}</h2>
         <h1 className="project__title">{this.props.selectedProject.project_title}</h1>
         <div className="project__details">

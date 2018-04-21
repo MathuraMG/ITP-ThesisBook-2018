@@ -1,6 +1,14 @@
 import axios from 'axios';
 import * as ActionTypes from '../constants.jsx';
 
+export function setAboutTopic(value) {
+  return (dispatch) => {
+    dispatch({
+      type: ActionTypes.SET_ABOUT_TOPIC,
+      value
+    });
+  };
+}
 export function setIsTagCircleOpen(value) {
   return (dispatch) => {
     dispatch({
@@ -14,6 +22,15 @@ export function setIsDropDownOpen(value) {
   return (dispatch) => {
     dispatch({
       type: ActionTypes.SET_IS_DROPDOWN_OPEN,
+      value
+    });
+  };
+}
+
+export function setShowAboutPage(value) {
+  return (dispatch) => {
+    dispatch({
+      type: ActionTypes.SET_SHOW_ABOUT_PAGE,
       value
     });
   };

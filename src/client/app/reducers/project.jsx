@@ -1,14 +1,16 @@
 import * as ActionTypes from '../constants.jsx';
 
 const initialState = {
+  aboutTopic: 0,
   isTagCircleOpen: true,
   isDropDownOpen: false,
   selectedProject: {},
   selectedProjects: [],
   selectedStudent: '',
-  selectedTag: '',
+  selectedTag: 'Health',
   selectedTags: [],
   showSingleProject: false,
+  showAboutPage: false,
   tags: ['Culture',
     'Tool\\Service',
     'Education',
@@ -89,6 +91,12 @@ const initialState = {
 
 const project = (state = initialState, action) => {
   switch (action.type) {
+    case ActionTypes.SET_ABOUT_TOPIC:
+    {
+      return Object.assign({}, state, {
+        aboutTopic: action.value
+      });
+    }
     case ActionTypes.SET_IS_TAG_CIRCLE_OPEN:
     {
       return Object.assign({}, state, {
@@ -99,6 +107,12 @@ const project = (state = initialState, action) => {
     {
       return Object.assign({}, state, {
         isDropDownOpen: action.value
+      });
+    }
+    case ActionTypes.SET_SHOW_ABOUT_PAGE:
+    {
+      return Object.assign({}, state, {
+        showAboutPage: action.value
       });
     }
     case ActionTypes.SET_SELECTED_PROJECT:

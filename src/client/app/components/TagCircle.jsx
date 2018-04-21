@@ -12,30 +12,35 @@ class TagCircle extends React.Component {
     this.state = {
       mouseOver: false
     };
+    // this.test = this.test.bind(this);
   }
 
   // componentDidUpdate(prevProps) {
   //   // console.log(prevProps.selectedTag);
   //   // console.log(this.props.selectedTag);
   //   if (prevProps.selectedTag != this.props.selectedTag) {
-  //     // console.log('in here');
-  //     this.forceUpdate();
+  //     console.log('in here');
+  //     console.log(this.props.selectedTag);
+  //     this.setState({ mouseOver: !this.state.mouseOver });
+  //     // this.forceUpdate();
   //   }
   //   // console.log(this.)
   //   //
   // }
+  //
+  //
   // shouldComponentUpdate(nextProps, nextState) {
   //   console.log(this.props.selectedTag);
   //   console.log(nextProps.selectedTag);
   //   if (nextProps.selectedTag != this.props.selectedTag) {
-  //     // console.log('in here');
-  //     this.forceUpdate();
+  //     console.log('in here');
+  //     // this.forceUpdate();
   //     return true;
   //   }
   // }
 
   componentDidMount() {
-    const diameter = 0.2 * window.innerWidth;// 360;
+    const diameter = (window.innerWidth > 768) ? 0.2 * window.innerWidth : 0.8 * window.innerWidth;
     const radius = diameter / 2;
     const innerRadius = radius - 120;
 
@@ -121,6 +126,15 @@ class TagCircle extends React.Component {
           this.props.setSelectedTag(d.data.name);
           this.getPairedProjects(d.data.name);
         });
+
+      node.classed('node--target', (n) => {
+        // console.log(this.props.selectedTag);
+        if (n.data.name === this.props.selectedTag) {
+          return true;
+        }
+        return false;
+      })
+        .classed('node--source', n => n.source);
       // node = node
       //   .data(root.leaves())
       //   .enter()
@@ -130,7 +144,7 @@ class TagCircle extends React.Component {
       //   .attr('r', '10px');
 
 
-      this.setState({ mouseOver: !this.state.mouseOver });
+      // this.setState({ mouseOver: !this.state.mouseOver });
     });
   }
 
@@ -195,6 +209,7 @@ class TagCircle extends React.Component {
   }
 
   render() {
+    // this.test();
     return (
       <div className="tag-circle__container">
         <div className="tag-circle__main">

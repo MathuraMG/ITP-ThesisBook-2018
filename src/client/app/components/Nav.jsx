@@ -42,7 +42,16 @@ class Nav extends React.Component {
           }
         </div>
         <div className="nav__container-right">
-          <a className="" href="/about">About</a>
+          <button
+            className={`nav__container-about ${(this.props.showAboutPage) ? 'nav__container-about--selected' : ''}`}
+            onClick={() => {
+              this.props.setShowAboutPage(true);
+              this.props.setIsTagCircleOpen(false);
+              this.props.history.push('/about');
+            }}
+          >
+          About
+          </button>
 
           <Search
             isDropDownOpen={this.props.isDropDownOpen}

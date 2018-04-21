@@ -25,7 +25,7 @@ class Main extends React.Component {
         <Router history={browserHistory}>
           <div>
             <Route exact path="/" component={App} />
-            <Route path="/about" component={About} />
+            <Route path="/about" component={App} />
             <Route path="/student" component={App} />
           </div>
         </Router>

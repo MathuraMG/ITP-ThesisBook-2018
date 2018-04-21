@@ -12,7 +12,8 @@ class Projects extends React.Component {
             className="projects__container"
             onClick={
               () => {
-                window.location.replace(`${window.location.origin}/student/${project.student_slug}`);
+                this.props.history.push(`/student/${project.student_slug}`);
+                // window.location.replace(`${window.location.origin}/student/${project.student_slug}`);
                 // this.getStudentProject(project.student_id);
                 // this.props.setIsTagCircleOpen(false);
               }

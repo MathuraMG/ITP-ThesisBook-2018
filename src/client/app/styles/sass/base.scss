@@ -19,3 +19,17 @@ h1 {
 h2 {
   font-size: 1rem;
 }
+
+button {
+  box-shadow: none;
+  border: $black solid 0px;
+  background: transparent;
+  cursor: pointer;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}

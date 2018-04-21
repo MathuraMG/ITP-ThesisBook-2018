@@ -19,7 +19,7 @@
 }
 .node {
   // font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.8rem;  
+  font-size: 0.8rem;
   fill: #bbb;
   text-transform: uppercase;
 }
@@ -70,5 +70,13 @@
     stroke: black;
     cursor: pointer;
     stroke-width:8px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .tag-circle {
+    &__container {
+      width: 90%;
+    }
   }
 }
