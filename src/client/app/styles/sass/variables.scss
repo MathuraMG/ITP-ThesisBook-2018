@@ -7,4 +7,7 @@ $black: #000;
 $blue: #64a6ac;
 $dark-blue: #264f52;
 
-$main-font: 'Tajawal', sans-serif;
+@font-face {
+  font-family: 'Cicle';
+  src: url('/fonts/CicleGordita.ttf'); /* IE9 Compat Modes */  
+}

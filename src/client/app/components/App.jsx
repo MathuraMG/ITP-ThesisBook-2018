@@ -60,7 +60,6 @@ class App extends React.Component {
 
   loadPage() {
     this.props.setShowAboutPage(false);
-    console.log(this.aboutPage());
     if (this.aboutPage()) {
       this.props.setShowAboutPage(true);
       this.props.setIsTagCircleOpen(false);

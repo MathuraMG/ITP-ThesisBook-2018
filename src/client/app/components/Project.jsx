@@ -44,7 +44,7 @@ class Project extends React.Component {
         <Carousel>
           {renderArray}
         </Carousel>
-        <p className="project__desc">{this.props.selectedProject.description}</p>
+        <p className="project__desc">{this.props.selectedProject.project_question}</p>
         <div className="project__further">{ReactHtmlParser(this.props.selectedProject.further_reading)}</div>
       </section>
     );
