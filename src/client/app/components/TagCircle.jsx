@@ -9,9 +9,6 @@ let svg;
 class TagCircle extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      mouseOver: false,
-    };
     this.createD3 = this.createD3.bind(this);
   }
 
@@ -19,12 +16,11 @@ class TagCircle extends React.Component {
     this.createD3();
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     this.createD3();
   }
 
   createD3() {
-    console.log('it updated');
     let diameter;
     // const diameter = (window.innerWidth > 768) ? ((window.innerWidth > 1200 ? (0.2 * window.innerWidth): 0.3*window.innerWidth ): 0.8 * window.innerWidth);
     if (window.innerWidth <= 768) {
@@ -65,7 +61,6 @@ class TagCircle extends React.Component {
         .data(this.packageImports(root.leaves()))
         .enter().append('path')
         .each((d) => { d.source = d[0]; d.target = d[d.length - 1]; })
-        .attr('class', this.state.mouseOver ? 'link' : 'link')
         .attr('transform', `translate(${radius},${radius})`)
         .attr('d', line)
         .classed('link--target', (l) => {
@@ -73,10 +68,22 @@ class TagCircle extends React.Component {
             return l.source.source = true;
           }
         })
-        .filter(l => l.target.data.name === this.props.selectedTag)
-        .raise()
+        // .filter(l => l.target.data.name === this.props.selectedTag)
+        // .raise()
         .on('click', (l) => {
+          const target = l.target.data.name;
+          const source = l.source.data.name;
           this.getTwoPairedProjects(l.source.data.name, l.target.data.name);
+          link = link
+            .classed('link--source', (l) => {
+              if (l.target.data.name === target && l.source.data.name === source) {
+                console.log('potato');
+                // debugger; //eslint-disable-linedeb
+                console.log(this);
+                return true;
+              }
+            });
+          // console.log(l);
         });
 
 
@@ -104,7 +111,6 @@ class TagCircle extends React.Component {
           this.props.setShowAboutPage(false);
           node
             .each((n) => { n.target = n.source = false; });
-          this.setState({ mouseOver: !this.state.mouseOver });
           node.classed('node--target', (n) => {
             if (n.data.name === d.data.name) {
               return true;
@@ -115,9 +121,9 @@ class TagCircle extends React.Component {
             if (l.target.data.name === d.data.name) {
               return l.source.source = true;
             }
-          })
-            .filter(l => l.target.data.name === d.data.name)
-            .raise();
+          });
+          // .filter(l => l.target.data.name === d.data.name);
+          // .raise();
 
 
           node.classed('node--source', n => n.source);

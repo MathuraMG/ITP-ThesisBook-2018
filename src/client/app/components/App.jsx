@@ -127,7 +127,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="main__container">
+      <div className={`main__container ${this.props.showAboutPage ? 'main__container--about' : ''}`}>
         <Nav
           history={this.props.history}
           getStudentProject={this.getStudentProject}

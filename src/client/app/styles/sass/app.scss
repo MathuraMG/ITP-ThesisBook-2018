@@ -1,9 +1,11 @@
 .main__container {
   background-image: url('/back.png');
-  background-size: cover;
-  width: 100%;
+  background-size: contain;
   height: 100%;
   margin: 0 auto;
+}
+.main__container--about {
+  background-image: none;
 }
 
 @media only screen and (max-width: 768px) {
