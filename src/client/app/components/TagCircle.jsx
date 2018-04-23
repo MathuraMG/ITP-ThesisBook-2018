@@ -17,7 +17,9 @@ class TagCircle extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    this.createD3();
+    if (prevProps.selectedTag != this.props.selectedTag) {
+      this.createD3();
+    }
   }
 
   createD3() {
