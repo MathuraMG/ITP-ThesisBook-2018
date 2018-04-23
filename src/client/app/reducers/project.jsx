@@ -7,7 +7,7 @@ const initialState = {
   selectedProject: {},
   selectedProjects: [],
   selectedStudent: '',
-  selectedTag: 'Health',
+  selectedTag: '',
   selectedTags: [],
   showSingleProject: false,
   showAboutPage: false,

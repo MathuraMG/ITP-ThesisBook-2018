@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 const axios = require('axios');
 
@@ -31,7 +32,7 @@ class Projects extends React.Component {
 
             <img className="projects__image" src="https://loremflickr.com/320/240" />
             <h3 className="projects__name">{project.student_name}</h3>
-            <h1 className="projects__title">{project.project_title}</h1>
+            <h1 className="projects__title">{ReactHtmlParser(project.project_title)}</h1>
           </div>
         ))}
 

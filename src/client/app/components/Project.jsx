@@ -23,6 +23,7 @@ class Project extends React.Component {
     // Accounting for spelling mistake in Tangiable in the DB
     return (
       <section className="project__container">
+        <img src="/arrow.png" className="project__arrow" />
         <button
           className="project__close"
           onClick={() => {
@@ -34,7 +35,7 @@ class Project extends React.Component {
           &times;
         </button>
         <h2 className="project__student-name">{this.props.selectedProject.student_name}</h2>
-        <h1 className="project__title">{this.props.selectedProject.project_title}</h1>
+        <h1 className="project__title">{ReactHtmlParser(this.props.selectedProject.project_title)}</h1>
         <div className="project__details">
           <p className="project__tags">
             {this.props.selectedProject.topics[0].name === 'Tangiable' ? 'Tangible' : this.props.selectedProject.topics[0].name},	&nbsp;

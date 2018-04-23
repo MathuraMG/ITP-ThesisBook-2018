@@ -7,6 +7,12 @@
     border-top: gray solid 1px;
     display: flex;
   }
+  &__arrow {
+    position: absolute;
+    width: 2%;
+    top: 8rem;
+    left: 30%;
+  }
   &__items {
     display: flex;
     flex-direction: column;

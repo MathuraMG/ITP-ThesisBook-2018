@@ -9,6 +9,12 @@
     background: white;
     border-top: gray solid 1px;
   }
+  &__arrow {
+    position: absolute;
+    width: 2%;
+    top: 8rem;
+    left: 24%;
+  }
   &__close  {
     text-decoration: none;
     color: $gray;
@@ -30,6 +36,7 @@
     text-transform: uppercase;
     font-size: 1.2rem;
     padding-top: 1.2rem;
+    text-align: center;
   }
   &__details {
     display: flex;
@@ -104,8 +111,32 @@
     padding: 0 !important;
 }
 
+@media only screen and (max-width: 1200px) {
+  .project{
+    &__arrow {
+      position: absolute;
+      width: 2%;
+      top: 8rem;
+      left: 30%;
+    }
+  }
+}
+
 @media only screen and (max-width: 768px) {
-  .projects{
+  .project{
     width: 90%;
+    &__arrow {
+      position: absolute;
+      width: 5%;
+      top: 4rem;
+      left: 49%;
+    }
+    &__details {
+      flex-direction: column;
+    }
+    &__container {
+      width: 70%;
+      padding: 5rem 15%;
+    }
   }
 }

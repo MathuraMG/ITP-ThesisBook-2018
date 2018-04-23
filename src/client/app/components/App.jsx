@@ -74,10 +74,10 @@ class App extends React.Component {
           this.getPairedProjects(tempTag);
         });
     } else {
-      axios.get('/api/pair/Culture')
+      axios.get('/api/pair/Narrative')
         .then((res) => {
-          this.props.setSelectedTag('Culture');
-          this.getPairedProjects('Culture');
+          this.props.setSelectedTag('Narrative');
+          this.getPairedProjects('Narrative');
         });
     }
   }
