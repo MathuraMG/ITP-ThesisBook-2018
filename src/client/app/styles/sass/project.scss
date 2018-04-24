@@ -7,12 +7,17 @@
     /* margin: 0 auto; */
     padding: 5rem 25%;
     background: white;
-    border-top: gray solid 1px;
+    border-top: $black solid 1px;
+    height: calc(100% - 19rem);
+    overflow-y: scroll;
+  }
+  &__abstract {
+    text-align: center;
   }
   &__arrow {
     position: absolute;
     width: 2%;
-    top: 8rem;
+    top: 9rem;
     left: 24%;
   }
   &__close  {
@@ -30,13 +35,15 @@
   &__title {
     text-align: center;
     margin: 2rem 0;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    letter-spacing: 3.5px;
   }
   &__student-name {
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding-top: 1.2rem;
     text-align: center;
+    letter-spacing: 3.5px;
   }
   &__details {
     display: flex;
@@ -70,6 +77,10 @@
 
   }
 
+  &__vimeo {
+    width: 100%;
+  }
+
 }
 .carousel {
   display: flex !important;
@@ -78,15 +89,16 @@
 }
 
 .carousel .thumbs-wrapper {
-  display: none !important;
+  // display: none !important;
 }
 .carousel .slide {
   background-color: $white !important;
 }
 .dot {
-  background-color: $black !important;
-  width: 15px !important;
-  height: 15px !important;
+  // background-color: $black !important;
+  // width: 15px !important;
+  // height: 15px !important;
+  display: none !important;
 }
 .thumbs {
   padding: 0 !important;
@@ -102,7 +114,7 @@
   border-right: 15px solid $dark-blue !important;
 }
 .carousel .slider-wrapper {
-  margin: 2rem 0;
+  margin-top: 2rem !important;
 }
 .carousel .control-dots {
     bottom: 10 !important;
@@ -111,13 +123,20 @@
     padding: 0 !important;
 }
 
+.carousel-status {
+  display: none !important;
+}
+
 @media only screen and (max-width: 1200px) {
   .project{
     &__arrow {
       position: absolute;
       width: 2%;
-      top: 8rem;
+      top: 9rem;
       left: 30%;
+    }
+    &__container {
+      height: calc(100% - 9rem);
     }
   }
 }
@@ -128,15 +147,20 @@
     &__arrow {
       position: absolute;
       width: 5%;
-      top: 4rem;
+      top: 5rem;
       left: 49%;
     }
     &__details {
       flex-direction: column;
+      align-items: center;
     }
     &__container {
       width: 70%;
       padding: 5rem 15%;
+      height: calc(100% - 15rem);
+    }
+    &__close {
+      right:5%;
     }
   }
 }

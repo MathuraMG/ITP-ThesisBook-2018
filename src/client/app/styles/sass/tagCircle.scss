@@ -4,7 +4,7 @@
     background-color: $white;
     width: 22%;
     z-index: 100;
-    margin-top: 3rem;
+    margin-top: 4rem;
   }
   &__nav {
     display: flex;
@@ -18,7 +18,7 @@
   }
 }
 .node {
-  // font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 1.5px;
   font-size: 0.8rem;
   fill: #bbb;
   text-transform: uppercase;
@@ -40,43 +40,38 @@
   fill: none;
   // pointer-events: none;
 }
-
-.node--source,
-.node--target {
-  font-weight: 700;
-  fill: #888;
-}
-
 .node:hover {
   fill:black;
 }
 
 .node--source {
-  fill: black;
+  fill: #444;
 }
 
 .node--target {
   fill: black;
+  font-weight: bold;
+  font-size: 0.85rem;
 }
 
 .link--target {
-  stroke-opacity: .2;
+  stroke-opacity: .8;
   stroke-width: 1px;
 }
 
 .link--target {
   stroke:black;
   &:hover {
-    stroke: black;
+    stroke: $black;
     cursor: pointer;
-    stroke-width:8px;
+    stroke-width:6px;
   }
 }
 
 .link--source {
-  stroke: red;
+  stroke: $black;
   cursor: pointer;
-  stroke-width:8px;
+  stroke-width:6px;
 }
 
 @media only screen and (max-width: 1200px) {

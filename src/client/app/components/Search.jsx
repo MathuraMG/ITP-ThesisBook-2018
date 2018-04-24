@@ -39,7 +39,7 @@ class Search extends React.Component {
     const inputProps = {
       // onFocus: this.test(),
       // onBlur: this.props.setIsDropDownOpen(false),
-      placeholder: 'Search By Student'
+      placeholder: 'SEARCH BY STUDENT'
     };
     return (
       <div className="search__container" tabIndex="2">

@@ -9,5 +9,11 @@ $dark-blue: #264f52;
 
 @font-face {
   font-family: 'Cicle';
-  src: url('/fonts/CicleGordita.ttf'); /* IE9 Compat Modes */  
+  src: url('/fonts/CicleFina.ttf'); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Cicle';
+  src: url('/fonts/CicleGordita.ttf'); /* IE9 Compat Modes */
+  font-weight: bold;
 }

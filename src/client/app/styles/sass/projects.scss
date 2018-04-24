@@ -16,7 +16,10 @@
   }
   &__image {
     width: 100%;
-
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
   }
   &__name {
     font-size: 0.8rem;
@@ -24,6 +27,8 @@
     padding: 0.5rem 1rem;
   }
   &__title {
+    line-height: 1.4rem;
+    height: 5.2rem;
     font-size: 1.2rem;
     text-align: center;
     padding: 0.5rem 1rem;
@@ -37,6 +42,8 @@
     font-size: 0.8rem;
   }
   &__tag {
+    letter-spacing: 1.5px;
+    padding-bottom: 0.4rem;
     list-style: none;
     text-transform: uppercase;
     padding-left: 0.8rem;
@@ -56,6 +63,9 @@
     &__container {
       width: 47%;
       margin: 1.5%;
+    }
+    &__tags {
+      font-size: 0.6rem;
     }
   }
 }

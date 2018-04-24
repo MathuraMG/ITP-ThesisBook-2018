@@ -149,6 +149,7 @@ class App extends React.Component {
           isDropDownOpen={this.props.isDropDownOpen}
           isTagCircleOpen={this.props.isTagCircleOpen}
         />
+        <hr className="main__line" />
         {
           this.props.showSingleProject && !this.props.showAboutPage &&
           <Project

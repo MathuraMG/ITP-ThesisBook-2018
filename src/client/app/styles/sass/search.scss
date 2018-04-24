@@ -1,7 +1,7 @@
 .search__container {
   // margin-right: 20%;
   z-index: 100;
-  min-width: 200px;
+  min-width: 250px;
   & div {
     width: 100%;
   }
@@ -11,6 +11,7 @@
   padding: 0.5rem 0.5rem;
   box-sizing:border-box;
   z-index: 100;
+  text-transform: capitalize;
 }
 
 input {
@@ -19,16 +20,21 @@ input {
   box-shadow: none;
   border: black solid 0px;
   padding: 0.5rem;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   font-size: 1rem;
   z-index: 100;
   font-family: 'Cicle';
-  letter-spacing: 1.5px;
+  letter-spacing: 3.5px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
 }
 
 input:focus {
   background-color: $white;
   box-shadow: none;
   border: black solid 0px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
