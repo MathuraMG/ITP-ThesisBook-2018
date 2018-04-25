@@ -79,7 +79,6 @@ class TagCircle extends React.Component {
           link = link
             .classed('link--source', (l) => {
               if (l.target.data.name === target && l.source.data.name === source) {
-                console.log('potato');
                 // debugger; //eslint-disable-linedeb
                 console.log(this);
                 return true;

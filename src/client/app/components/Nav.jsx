@@ -16,10 +16,16 @@ class Nav extends React.Component {
     return (
       <nav className="nav__container">
         <div className="nav__container-left">
-          <img
-            className="nav__image"
-            src="/logo.png"
-          />
+          <a
+            className="nav__image-container"
+            href="https://tisch.nyu.edu/itp"
+            target="blank"
+          >
+            <img
+              className="nav__image"
+              src="/logo.png"
+            />
+          </a>
           <button
             onClick={() => { this.props.setIsTagCircleOpen(true); }}
             className="nav__heading"

@@ -2,12 +2,6 @@ const express = require('express');
 
 const routes = express.Router();
 
-const sampleStudents = [
-  'student1',
-  'student2',
-  'student3'
-];
-
 const sampleTags = ['Culture',
   'Tool\\Service',
   'Education',

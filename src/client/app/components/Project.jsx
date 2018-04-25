@@ -11,6 +11,7 @@ class Project extends React.Component {
       array.push(<div key={index}>
         <img
           src={image.src}
+          // onClick={() => { console.log('image change'); }}
         />
 
       </div>);
@@ -34,6 +35,15 @@ class Project extends React.Component {
         >
           &times;
         </button>
+        {this.props.selectedProject.project_url &&
+          <a
+            className="project__student-site"
+            href={this.props.selectedProject.project_url}
+            target="blank"
+          >
+            Student Site
+          </a>
+        }
         <h2 className="project__student-name">{this.props.selectedProject.student_name}</h2>
         <h1 className="project__title">{ReactHtmlParser(this.props.selectedProject.project_title)}</h1>
         <div className="project__details">
@@ -48,9 +58,16 @@ class Project extends React.Component {
           {renderArray}
         </Carousel>
         <p className="project__desc">{this.props.selectedProject.project_question}</p>
-        <iframe className="project__vimeo" src="https://player.vimeo.com/video/167009768" width="640" height="360" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen>
+        <iframe className="project__vimeo" src="https://player.vimeo.com/video/167009768" width="100%" height="400px" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen>
         </iframe>
         <div className="project__further">{ReactHtmlParser(this.props.selectedProject.further_reading)}</div>
+        <button
+          className="project__top"
+          onClick={() => {
+            $('.project__container').animate({ scrollTop: 0 }, 'fast');
+          }}
+        >Back To Top
+        </button>
       </section>
     );
   }
