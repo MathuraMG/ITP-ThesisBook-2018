@@ -74,10 +74,12 @@ class App extends React.Component {
           this.getPairedProjects(tempTag);
         });
     } else {
-      axios.get('/api/pair/Narrative')
+      const tags = this.props.tags;
+      const tag = tags[Math.floor(Math.random() * tags.length)];
+      axios.get(`/api/pair/${tag}`)
         .then((res) => {
-          this.props.setSelectedTag('Narrative');
-          this.getPairedProjects('Narrative');
+          this.props.setSelectedTag(tag);
+          this.getPairedProjects(tag);
         });
     }
   }
