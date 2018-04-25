@@ -32,7 +32,12 @@ class Projects extends React.Component {
               }
             </ul>
 
-            <img className="projects__image" src="https://loremflickr.com/320/240" />
+            {project.portfolio_icon &&
+              <img className="projects__image" src={project.portfolio_icon.src} alt={project.portfolio_icon.alt} />
+            }
+            {!project.portfolio_icon &&
+              <img className="projects__image" src="/backup.png" alt="itp logo" />
+            }
             <section className="projects__text">
               <h3 className="projects__name">{project.student_name}</h3>
               <h1 className="projects__title">{ReactHtmlParser(project.project_title)}</h1>

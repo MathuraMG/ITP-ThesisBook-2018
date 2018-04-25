@@ -33,7 +33,7 @@ class Search extends React.Component {
       'font-size': '90%',
       'position': 'fixed',
       'overflow-y': 'scroll',
-      'max-height': '100%',
+      'max-height': '80%',
       'width': '200px',
     };
     const inputProps = {

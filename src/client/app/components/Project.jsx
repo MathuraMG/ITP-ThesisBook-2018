@@ -51,12 +51,13 @@ class Project extends React.Component {
             {this.props.selectedProject.topics[0].name === 'Tangiable' ? 'Tangible' : this.props.selectedProject.topics[0].name},	&nbsp;
             {this.props.selectedProject.topics[1].name === 'Tangiable' ? 'Tangible' : this.props.selectedProject.topics[1].name}
           </p>
-          <p className="project__advisor">Advisor: {this.props.selectedProject.advisor_name}</p>
+          <p className="project__advisor">Advisor: {this.props.selectedProject.advisor_name == 'Kathleen Sullivan' ? 'Kat Sullivan' : this.props.selectedProject.advisor_name}</p>
         </div>
         <p className="project__abstract">{ReactHtmlParser(this.props.selectedProject.short_description)}</p>
-        <Carousel>
-          {renderArray}
-        </Carousel>
+        {this.props.selectedProject.slide_show[0] &&
+          <Carousel>
+            {renderArray}
+          </Carousel>}
         <p className="project__desc">{this.props.selectedProject.project_question}</p>
         <iframe className="project__vimeo" src="https://player.vimeo.com/video/167009768" width="100%" height="400px" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen>
         </iframe>

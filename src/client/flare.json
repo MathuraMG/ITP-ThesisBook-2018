@@ -1,33 +1,18 @@
 [
-  {"name":"Culture","imports":["Culture","Tool\\Service","UX\\UI","Data","Machine Learning"]},
-
-{"name":"Education","imports":["Education","Narrative","Installation","VR\\AR","Play","Machine Learning"]},
-
-{"name":"Tool\\Service","imports":["Culture","Tool\\Service","Machine Learning","Society","Data","UX\\UI"]},
-
-
-{"name":"Narrative","imports":["Education","Narrative","Performance","VR\\AR"]},
-
-{"name":"Play","imports":["Play","UX\\UI","Society","Education","Performance"]},
-
-{"name":"UX\\UI","imports":["Play","UX\\UI","VR\\AR","Tangible","Culture","Tool\\Service"]},
-
-{"name":"Identity","imports":["Identity","VR\\AR","Sound","Installation","Data"]},
-
-{"name":"VR\\AR","imports":["Identity","VR\\AR","UX\\UI","Narrative","Installation","Education","Machine Learning","Health","Performance","Data"]},
-
-{"name":"Data","imports":["Data","Society","Culture","Installation","Identity","Tool\\Service","VR\\AR"]},
-
-{"name":"Installation","imports":["Education","Installation","VR\\AR","Identity","Data"]},
-
-{"name":"Society","imports":["Data","Society","Tool\\Service","Play","Performance"]},
-
-{"name":"Performance","imports":["Narrative","Performance","Society","Play","VR\\AR"]},
-
-{"name":"Machine Learning","imports":["Machine Learning","Tool\\Service","Sound","VR\\AR","Culture","Education"]},
-
-{"name":"Sound","imports":["Machine Learning","Sound","Identity"]},
-
-{"name":"Tangible","imports":["Tangible","UX\\UI","Health"]},
-
-{"name":"Health","imports":["Health","VR\\AR","Tangible"]}]
+  {"name":"Culture","imports":["Culture","Tool\\Service","UX\\UI","VR\\AR","Data","Machine Learning","Installation","Sound","Society"]},
+  {"name":"Tool\\Service","imports":["Culture","Tool\\Service","UX\\UI","Machine Learning","Narrative","Education","Data","Society","Performance"]},
+  {"name":"Education","imports":["Education","Narrative","Installation","Machine Learning","Tool\\Service","VR\\AR","Play","Data"]},
+  {"name":"Narrative","imports":["Identity","Narrative","Data","Education","VR\\AR","Performance","Tool\\Service","Society","Installation","Machine Learning"]},
+  {"name":"Play","imports":["Play","UX\\UI","Society","Education","Performance","VR\\AR"]},
+  {"name":"UX\\UI","imports":["Play","UX\\UI","Tool\\Service","Tangiable","VR\\AR","Culture","Society","Health"]},
+  {"name":"Identity","imports":["Identity","Narrative","VR\\AR","Installation","Performance","Sound","Data"]},
+  {"name":"VR\\AR","imports":["Narrative","VR\\AR","Identity","Installation","UX\\UI","Culture","Performance","Education","Machine Learning","Society","Tangiable","Health","Sound","Play","Data"]},
+  {"name":"Installation","imports":["Education","Installation","Performance","Identity","VR\\AR","Sound","Data","Narrative","Culture","Tangiable","Society"]},
+  {"name":"Data","imports":["Data","Narrative","Society","Tool\\Service","Culture","Education","Installation","Identity","VR\\AR"]},
+  {"name":"Society","imports":["Data","Society","Tool\\Service","UX\\UI","Play","Narrative","VR\\AR","Culture","Installation","Performance"]},
+  {"name":"Performance","imports":["Installation","Performance","Narrative","Identity","VR\\AR","Play","Machine Learning","Tool\\Service","Society"]},
+  {"name":"Machine Learning","imports":["Machine Learning","Tool\\Service","Education","Sound","VR\\AR","Culture","Performance","Narrative"]},
+  {"name":"Sound","imports":["Installation","Sound","Machine Learning","Identity","Health","Culture","VR\\AR"]},
+  {"name":"Tangiable","imports":["Tangiable","UX\\UI","VR\\AR","Health","Installation"]},
+  {"name":"Health","imports":["Health","UX\\UI","Sound","VR\\AR","Tangiable"]}
+]

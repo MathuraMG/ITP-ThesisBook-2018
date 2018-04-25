@@ -45,7 +45,6 @@ class About extends React.Component {
 
           {(this.props.aboutTopic === 1) &&
           <div>
-            // <img className="about__class-image" src="https://placebear.com/400/200" />
             <p className="about__para">
               {ReactHtmlParser(AboutDefs.ABOUT_THESIS_2018)}
             </p>
