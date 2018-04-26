@@ -7,20 +7,7 @@ class Search extends React.Component {
     super(props);
     this.test = this.test.bind(this);
   }
-  componentDidMount() {
-    // debugger; //eslint-disable-line
-    // document.getElementsByClassName('search__container')[0].onfocus(() => { console.log('focused'); });
-    // document.getElementsByClassName('search__container')[0].setAttribute('onfocus', 'console.log("trstsT")');
-    document.getElementsByTagName('input')[0].addEventListener('focus', () => {
 
-    });
-    document.getElementsByTagName('input')[0].addEventListener('blur', () => {
-      console.log('AAAA');
-    });
-    //   this.props.setIsDropDownOpen(false);
-    // });
-    // document.getElementsByTagName('input')[0].defaultValue = 'Search';
-  }
   test() {
     console.log('hi');
     console.log($('input'));
@@ -60,7 +47,10 @@ class Search extends React.Component {
           }
           }
           onSelect={(value) => {
-            window.location.replace(`${window.location.origin}/student/${value}`);
+            console.log(value);
+            this.props.history.push(`/student/${value}`);
+            location.reload();
+            // window.location.replace(`${window.location.origin}/student/${value}`);
           }
           }
           menuStyle={style}

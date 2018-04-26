@@ -9,11 +9,15 @@ let svg;
 class TagCircle extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      mousePressed: false,
+    };
     this.createD3 = this.createD3.bind(this);
   }
 
   componentDidMount() {
     this.createD3();
+    this.setState({ mousePressed: !this.state.mousePressed });
   }
 
   componentDidUpdate(prevProps) {
@@ -130,7 +134,7 @@ class TagCircle extends React.Component {
           node.classed('node--source', n => n.source);
 
           this.props.setSelectedTag(d.data.name);
-          this.getPairedProjects(d.data.name);
+          this.props.getTagPairs(d.data.name);
         });
 
       node.classed('node--target', (n) => {
@@ -141,16 +145,9 @@ class TagCircle extends React.Component {
       })
         .classed('node--source', n => n.source);
     });
+    this.setState({ mousePressed: !this.state.mousePressed });
   }
 
-  getPairedProjects(tag) {
-    const URL = `/api/pair/${tag}`;
-    axios.get(URL)
-      .then((res) => {
-        this.props.setSelectedTags(res.data);
-        this.props.getTagProjects(tag);
-      });
-  }
   getTwoPairedProjects(tag1, tag2) {
     axios.get(`/api/tag/${tag1}/${tag2}`)
       .then((res) => {

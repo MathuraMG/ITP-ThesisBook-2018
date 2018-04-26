@@ -46,6 +46,7 @@ class Nav extends React.Component {
               selectedProjects={this.props.selectedProjects}
               setSelectedProjects={this.props.setSelectedProjects}
               setShowAboutPage={this.props.setShowAboutPage}
+              getTagPairs={this.props.getTagPairs}
             />
           }
         </div>
@@ -62,6 +63,7 @@ class Nav extends React.Component {
           </button>
 
           <Search
+            history={this.props.history}
             isDropDownOpen={this.props.isDropDownOpen}
             selectedStudent={this.props.selectedStudent}
             students={this.props.students}

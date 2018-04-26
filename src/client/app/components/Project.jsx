@@ -58,7 +58,7 @@ class Project extends React.Component {
           <Carousel>
             {renderArray}
           </Carousel>}
-        <p className="project__desc">{this.props.selectedProject.project_question}</p>
+        <p className="project__desc">{ReactHtmlParser(this.props.selectedProject.project_question)}</p>
 
         {this.props.selectedProject.video_documentation_url && <iframe className="project__vimeo" src={this.props.selectedProject.video_documentation_url} width="100%" height="400px" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen>
         </iframe>}

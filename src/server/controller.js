@@ -3482,10 +3482,11 @@ const sampleTagData =
       topics: [{ name: 'Health', slug: 'health' }, { name: 'Tangible', slug: 'Tangible' }]
     }]
   };
+
 routes.route('/student/:student').get(getStudentProject);
 routes.route('/tag/:tag').get(getTagProjects);
 routes.route('/tag/:tag1/:tag2').get(getTwoTagProjects);
-routes.route('/pair/:tag').get(getTagPairs);
+// routes.route('/pair/:tag').get(getTagPairs);
 routes.route('/id/:student').get(getStudentID);
 
 function getStudentID(req, res) {
@@ -3512,19 +3513,19 @@ function getTagProjects(req, res) {
   res.send(sampleTagData[req.params.tag]);
 }
 
-function getTagPairs(req, res) {
-  let tagPairs = [];
-
-  if (sampleTagData[req.params.tag]) {
-    sampleTagData[req.params.tag].forEach((project) => {
-      project.topics.forEach((topic) => {
-        tagPairs = tagPairs.concat(topic.name);
-      });
-    });
-  }
-  tagPairs = tagPairs.filter(onlyUnique);
-  res.send(tagPairs);
-}
+// function getTagPairs(req, res) {
+//   let tagPairs = [];
+//
+//   if (sampleTagData[req.params.tag]) {
+//     sampleTagData[req.params.tag].forEach((project) => {
+//       project.topics.forEach((topic) => {
+//         tagPairs = tagPairs.concat(topic.name);
+//       });
+//     });
+//   }
+//   tagPairs = tagPairs.filter(onlyUnique);
+//   res.send(tagPairs);
+// }
 
 function onlyUnique(value, index, self) {
   return self.indexOf(value) === index;
