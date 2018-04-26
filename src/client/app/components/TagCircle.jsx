@@ -80,7 +80,6 @@ class TagCircle extends React.Component {
             .classed('link--source', (l) => {
               if (l.target.data.name === target && l.source.data.name === source) {
                 // debugger; //eslint-disable-linedeb
-                console.log(this);
                 return true;
               }
             });
@@ -96,7 +95,8 @@ class TagCircle extends React.Component {
         .attr('transform', d => `translate(${radius},${radius})rotate(${d.x - 90})translate(${d.y / 2 + 20 + radius / 4},0)${d.x < 180 ? '' : 'rotate(180)'}`)
         .attr('text-anchor', d => (d.x < 180 ? 'start' : 'end'))
         .text((d) => {
-          const text = d.x < 180 ? `${'\u25CB' + '  '}${d.data.key}` : `${d.data.key}${'  ' + '\u25CB'}`;
+          const tagText = (d.data.key === 'Machine Learning' ? 'M Learning' : d.data.key);
+          const text = d.x < 180 ? `${'\u25CB' + '  '}${tagText}` : `${tagText}${'  ' + '\u25CB'}`;
           return text;
         })
         .classed('node--target', (n) => {

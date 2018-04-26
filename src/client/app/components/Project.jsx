@@ -21,7 +21,7 @@ class Project extends React.Component {
   }
   render() {
     const renderArray = this.renderImages(this.props.selectedProject.slide_show);
-    // Accounting for spelling mistake in Tangiable in the DB
+    // Accounting for spelling mistake in Tangible in the DB
     return (
       <section className="project__container">
         <img src="/arrow.png" className="project__arrow" />
@@ -59,8 +59,10 @@ class Project extends React.Component {
             {renderArray}
           </Carousel>}
         <p className="project__desc">{this.props.selectedProject.project_question}</p>
-        <iframe className="project__vimeo" src="https://player.vimeo.com/video/167009768" width="100%" height="400px" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen>
-        </iframe>
+
+        {this.props.selectedProject.video_documentation_url && <iframe className="project__vimeo" src={this.props.selectedProject.video_documentation_url} width="100%" height="400px" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen>
+        </iframe>}
+
         <div className="project__further">{ReactHtmlParser(this.props.selectedProject.further_reading)}</div>
         <button
           className="project__top"
