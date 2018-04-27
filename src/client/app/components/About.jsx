@@ -6,7 +6,7 @@ class About extends React.Component {
   render() {
     return (
       <section className="about__container">
-        <img src="/arrow.png" className="project__arrow" />
+        <img src="https://itp.nyu.edu/testthesis/arrow.png" className="project__arrow" />
 
         <div className="about__items">
           <button

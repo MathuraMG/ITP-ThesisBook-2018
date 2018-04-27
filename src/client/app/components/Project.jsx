@@ -24,7 +24,7 @@ class Project extends React.Component {
     // Accounting for spelling mistake in Tangible in the DB
     return (
       <section className="project__container">
-        <img src="/arrow.png" className="project__arrow" />
+        <img src="https://itp.nyu.edu/testthesis/arrow.png" className="project__arrow" />
         <button
           className="project__close"
           onClick={() => {
