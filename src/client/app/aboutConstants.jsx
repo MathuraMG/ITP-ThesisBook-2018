@@ -1,3 +1,84 @@
+export const ABOUT_CREDITS = `
+<div class="about__credit-c">
+<h3 class="about__credit-h">THESIS ADVISORS:</h3>
+<p class="about__credit-p">Nancy Hechinger (Area Head)</p>
+<p class="about__credit-p">Gabe Barcia-Colombo</p>
+<p class="about__credit-p">Stefani Bardin</p>
+<p class="about__credit-p">Kat Sullivan</p>
+<p class="about__credit-p">Adaora Udoji</p>
+<p class="about__credit-p">Kathleen Wilson</p>
+
+
+<h3 class="about__credit-h">FULL-FACULTY:</h3>
+<p class="about__credit-p">Dan O’Sullivan (Chair)</p>
+
+<p class="about__credit-p">Gabe Barcia-Colombo</p>
+<p class="about__credit-p">Luke DuBois</p>
+<p class="about__credit-p">Nancy Hechinger</p>
+<p class="about__credit-p">Tom Igoe</p>
+<p class="about__credit-p">Allison Parrish</p>
+<p class="about__credit-p">Marianne Petit</p>
+<p class="about__credit-p">Daniel Rozin</p>
+<p class="about__credit-p">Dan Shiffman</p>
+<p class="about__credit-p">Clay Shirky</p>
+<p class="about__credit-p">Shawn Van Every</p>
+<p class="about__credit-p">Mimi Yin</p>
+<p class="about__credit-p">Marina Zurkow</p>
+
+
+
+
+<h3 class="about__credit-h">RESEARCH RESIDENTS:</h3>
+<p class="about__credit-p">Jason Beck</p>
+<p class="about__credit-p">Yuli Cai</p>
+<p class="about__credit-p">Leon Eckert</p>
+<p class="about__credit-p">Juan Jose Egusquiza</p>
+<p class="about__credit-p">Mathura Govindarajan</p>
+<p class="about__credit-p">Michelle Hessel Alves</p>
+<p class="about__credit-p">Nikita Huggins</p>
+<p class="about__credit-p">Lisa Jamhoury</p>
+<p class="about__credit-p">Chino Kim</p>
+<p class="about__credit-p">David Lockard</p>
+<p class="about__credit-p">Aaron Montoya</p>
+<p class="about__credit-p">Aaron Parkesian</p>
+</div>
+<div class="about__credit-c">
+<h3 class="about__credit-h">STAFF AND ADMIN:</h3>
+<p class="about__credit-p">George Agudow, Admin Director</p>
+<p class="about__credit-p">Yen-An Chen</p>
+<p class="about__credit-p">Dante DelGiacco</p>
+<p class="about__credit-p">John Duane</p>
+<p class="about__credit-p">Marlon Evans</p>
+<p class="about__credit-p">Anna Gallagher</p>
+<p class="about__credit-p">Ben Light</p>
+<p class="about__credit-p">Rob Ryan</p>
+<p class="about__credit-p">Midori Yasuda</p>
+
+
+
+<h3 class="about__credit-h">SPECIAL THANKS:</h3>
+
+<p class="about__credit-p">A sign of the generous and supportive community that surrounds ITP is the 100+ people (alums, artists, designers,and more) who came to speak to the students this semester and to review the mid-term and final presentations. Thank you so much for your gifts of time and wisdom.</p>
+
+<p class="about__credit-p">Eric Rosenthal (Godfather of Thesis)</p>
+<p class="about__credit-p">Margaret Smith (NYU Physical Sciences LIbrarian)</p>
+<p class="about__credit-p">Todd Bryant ( 360/VR/AR Whisperer)</p>
+<p class="about__credit-p">Anna Gallagher (Unflappable)</p>
+
+<p class="about__credit-p">Special Thanks to the First Years and next year’s
+First Years for their comments at the Quick & Dirty Thesis Show.</p>
+
+
+<h3 class="about__credit-h">THESIS ARCHIVE 2017 WEBSITE:</h3>
+
+<p class="about__credit-p">Nancy Hechinger, Team Leader</p>
+<p class="about__credit-p">David Lockard, Designer</p>
+<p class="about__credit-p">Mathura Govindarajan, Front-End Developer</p>
+<p class="about__credit-p">Yen-an Chen, Back-end Developer</p>
+<p class="about__credit-p">Ilana Pecis Bonder, Production Associate</p>
+</div>
+`;
+
 export const ABOUT_ITP = `
 ITP is a two-year graduate program located in the Tisch School of the Arts whose mission is to explore the imaginative uses of media and technology — how they might augment, improve and bring delight and art into people’s lives. Perhaps the best way to describe us is a Center for the Recently Possible.
 <br><br>

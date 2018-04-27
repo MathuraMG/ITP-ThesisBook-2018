@@ -8,7 +8,7 @@ const config = {
   entry: `${APP_DIR}/index.jsx`,
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     loaders: [
@@ -35,7 +35,11 @@ const config = {
         loaders: ['ttf-loader']
       }
     ]
-  }
+  },
+  devServer: {
+          historyApiFallback:{
+              index:'/index.html'
+          },
 };
 
 module.exports = config;

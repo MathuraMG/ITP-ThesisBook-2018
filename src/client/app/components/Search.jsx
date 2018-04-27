@@ -9,7 +9,6 @@ class Search extends React.Component {
   }
 
   test() {
-    console.log('hi');
     console.log($('input'));
   }
   render() {

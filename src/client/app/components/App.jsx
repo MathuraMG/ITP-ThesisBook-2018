@@ -19,6 +19,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isPressed: false,
       sampleStudentData:
         {
           'akmyrat-tuyliyev': {
@@ -3508,6 +3509,11 @@ class App extends React.Component {
 
   componentDidMount() {
     this.loadPage();
+    const that = this;
+    $(document).ready(() => {
+      console.log('ready!');
+      that.setState({ isPressed: !that.state.isPressed });
+    });
   }
 
   onlyUnique(value, index, self) {
@@ -3584,7 +3590,7 @@ class App extends React.Component {
 
   getTagProjects(tag) {
     this.props.setSelectedProjects(this.state.sampleTagData[tag]);
-    // tag = encodeURIComponent(tag);
+    tag = encodeURIComponent(tag);
     //
     // axios.get(`/api/tag/${tag}`)
     //   .then((res) => {
@@ -3595,12 +3601,18 @@ class App extends React.Component {
 
   getTwoTagProjects(tag1, tag2) {
     console.log('getting 2');
-    tag1 = encodeURIComponent(tag1);
-    tag2 = encodeURIComponent(tag2);
-    axios.get(`/api/tag/${tag1}/${tag2}`)
-      .then((res) => {
-        this.props.setSelectedProjects(res.data);
+    // tag1 = encodeURIComponent(tag1);
+    // tag2 = encodeURIComponent(tag2);
+    const filteredProjects = [];
+    this.state.sampleTagData[tag2].forEach((project) => {
+      project.topics.forEach((tag) => {
+        if (tag.name === tag1) {
+          filteredProjects.push(project);
+        }
       });
+    });
+
+    this.props.setSelectedProjects(filteredProjects);
   }
 
   render() {

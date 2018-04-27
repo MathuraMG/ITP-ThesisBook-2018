@@ -54,13 +54,9 @@ class About extends React.Component {
 
           {(this.props.aboutTopic === 2) &&
           <div>
-            <ul className="about__list">
-              <li> Hoomins </li>
-              <li> Hoomins </li>
-              <li> Hoomins </li>
-              <li> Hoomins </li>
-              <li> Hoomins </li>
-            </ul>
+            <p className="about__para">
+              {ReactHtmlParser(AboutDefs.ABOUT_CREDITS)}
+            </p>
           </div>
           }
 

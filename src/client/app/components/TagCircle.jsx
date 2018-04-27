@@ -17,12 +17,19 @@ class TagCircle extends React.Component {
 
   componentDidMount() {
     this.createD3();
-    this.setState({ mousePressed: !this.state.mousePressed });
+    console.log('mounted');
+    // this.setState({ mousePressed: !this.state.mousePressed });
   }
 
   componentDidUpdate(prevProps) {
+    console.log('updating');
     if (prevProps.selectedTag != this.props.selectedTag) {
-      this.createD3();
+      // this.createD3();
+    }
+    console.log(document.getElementsByClassName('tagCircle__container')[0].children[0].children.length);
+    if (document.getElementsByClassName('tagCircle__container')[0].children[0].children.length === 0) {
+      // console.log('oy yo yo y');
+      // this.forceUpdate();
     }
   }
 
@@ -55,7 +62,7 @@ class TagCircle extends React.Component {
     let link = svg.append('svg').selectAll('.link');
     let node = svg.append('svg').selectAll('.node');
 
-    d3.json('/flare.json', (error, classes) => {
+    d3.json('flare.json', (error, classes) => {
       if (error) throw error;
 
       const root = this.packageHierarchy(classes)
@@ -74,16 +81,17 @@ class TagCircle extends React.Component {
             return l.source.source = true;
           }
         })
+
         // .filter(l => l.target.data.name === this.props.selectedTag)
         // .raise()
         .on('click', (l) => {
           const target = l.target.data.name;
           const source = l.source.data.name;
-          this.getTwoPairedProjects(l.source.data.name, l.target.data.name);
+          this.props.getTwoTagProjects(l.source.data.name, l.target.data.name);
           link = link
             .classed('link--source', (l) => {
               if (l.target.data.name === target && l.source.data.name === source) {
-                // debugger; //eslint-disable-linedeb
+                // debugger; //eslint-disable-line
                 return true;
               }
             });
@@ -127,9 +135,11 @@ class TagCircle extends React.Component {
               return l.source.source = true;
             }
           });
-          // .filter(l => l.target.data.name === d.data.name);
-          // .raise();
-
+          link.classed('link--source', (l) => {
+            if (l.target.data.name === d.data.name) {
+              return false;
+            }
+          });
 
           node.classed('node--source', n => n.source);
 
@@ -145,14 +155,6 @@ class TagCircle extends React.Component {
       })
         .classed('node--source', n => n.source);
     });
-    this.setState({ mousePressed: !this.state.mousePressed });
-  }
-
-  getTwoPairedProjects(tag1, tag2) {
-    axios.get(`/api/tag/${tag1}/${tag2}`)
-      .then((res) => {
-        this.props.getTwoTagProjects(tag1, tag2);
-      });
   }
 
   packageImports(nodes) {

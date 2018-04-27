@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 class Nav extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      test: 0,
+    };
     this.searchButtonClicked = this.searchButtonClicked.bind(this);
   }
   searchButtonClicked() {
@@ -27,7 +30,13 @@ class Nav extends React.Component {
             />
           </a>
           <button
-            onClick={() => { this.props.setIsTagCircleOpen(true); }}
+            id="testbutton"
+            onClick={() => {
+              this.props.setIsTagCircleOpen(true);
+
+              this.setState({ test: this.state.test++ });
+              console.log(this.state.test);
+            }}
             className="nav__heading"
           >
           Thesis Archive 18

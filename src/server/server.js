@@ -7,7 +7,7 @@ const srcpath = path.join(__dirname, '../client');
 // start the server:
 app.listen(8080);
 app.use('/', express.static('src/client/')); // set a static file directory
-
+//
 app.use('/api', routes);
 
 app.get('*', (req, res) => {
