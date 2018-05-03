@@ -36,10 +36,6 @@ const config = {
       }
     ]
   },
-  devServer: {
-          historyApiFallback:{
-              index:'/index.html'
-          },
 };
 
 module.exports = config;

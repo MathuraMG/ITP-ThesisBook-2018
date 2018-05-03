@@ -80,3 +80,13 @@ export function setSelectedTags(value) {
     });
   };
 }
+
+
+export function setShowProjectText(value) {
+  return (dispatch) => {
+    dispatch({
+      type: ActionTypes.SET_SHOW_PROJECT_TEXT,
+      value
+    });
+  };
+}

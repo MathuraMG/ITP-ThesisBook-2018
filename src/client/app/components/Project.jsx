@@ -11,20 +11,20 @@ class Project extends React.Component {
       array.push(<div key={index}>
         <img
           src={image.src}
-          // onClick={() => { console.log('image change'); }}
         />
 
       </div>);
     });
-
     return array;
   }
+
   render() {
+    console.log(this.props.selectedProject);
     const renderArray = this.renderImages(this.props.selectedProject.slide_show);
     // Accounting for spelling mistake in Tangible in the DB
     return (
       <section className="project__container">
-        <img src="https://itp.nyu.edu/testthesis/arrow.png" className="project__arrow" />
+        <img src="arrow.png" className="project__arrow" />
         <button
           className="project__close"
           onClick={() => {

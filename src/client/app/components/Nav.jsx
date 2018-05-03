@@ -26,7 +26,7 @@ class Nav extends React.Component {
           >
             <img
               className="nav__image"
-              src="https://itp.nyu.edu/testthesis/logo.png"
+              src="logo.png"
             />
           </a>
           <button

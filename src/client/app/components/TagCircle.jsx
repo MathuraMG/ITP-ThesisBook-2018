@@ -18,26 +18,8 @@ class TagCircle extends React.Component {
   componentDidMount() {
     this.createD3();
     console.log('mounted');
-    // debugger; //eslint-disable-line
-    // this.setState({ mousePressed: !this.state.mousePressed });
   }
 
-  componentWillUpdate(nextProps) {
-    // debugger; //eslint-disable-line
-  }
-
-  componentDidUpdate(prevProps) {
-    console.log('updating');
-    // debugger; //eslint-disable-line
-    if (prevProps.selectedTag != this.props.selectedTag) {
-      // this.createD3();
-    }
-    console.log(document.getElementsByClassName('tagCircle__container')[0].children[0].children.length);
-    if (document.getElementsByClassName('tagCircle__container')[0].children[0].children.length === 0) {
-      // console.log('oy yo yo y');
-      // this.forceUpdate();
-    }
-  }
 
   createD3() {
     let diameter;
@@ -68,7 +50,7 @@ class TagCircle extends React.Component {
     let link = svg.append('svg').selectAll('.link');
     let node = svg.append('svg').selectAll('.node');
 
-    d3.json('https://itp.nyu.edu/testthesis/flare.json', (error, classes) => {
+    d3.json('flare.json', (error, classes) => {
       if (error) throw error;
 
       const root = this.packageHierarchy(classes)

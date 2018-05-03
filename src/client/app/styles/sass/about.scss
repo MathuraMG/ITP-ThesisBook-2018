@@ -2,15 +2,16 @@
   &__container {
     background: $white;
     width: 80%;
-    padding: 5rem 10%;
+    padding: $about-padding 10%;
     z-index: 50;
-    // border-top: $black solid 1px;
+    height: calc(100% - #{$nav-top-padding + $nav-height + 2*$about-padding});
     display: flex;
+    overflow-y: scroll;
   }
   &__arrow {
     position: absolute;
     width: 2%;
-    top: 8rem;
+    top: $nav-top-padding + $nav-height;
     left: 30%;
     z-index: 1000;
   }

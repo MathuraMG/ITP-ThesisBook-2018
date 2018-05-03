@@ -11,6 +11,7 @@ const initialState = {
   selectedTags: [],
   showSingleProject: false,
   showAboutPage: false,
+  showProjectText: false,
   tags: ['Culture',
     'Tool\\Service',
     'Education',
@@ -111,6 +112,7 @@ const initialState = {
     { label: 'se-young-kim', name: 'Se Young Kim' },
     { label: 'sean-kim', name: 'Sean Kim' },
     { label: 'sebastian-morales', name: 'Sebastian Morales' },
+    { label: 'sejo-vega-cebrián', name: 'Sejo vega-cebrián' },
     { label: 'sharif-al-hadidi', name: 'Sharif Al-hadidi' },
     { label: 'shelley-hu', name: 'Shelley Hu' },
     { label: 'shivanku-kumar-fnu', name: 'Shivanku Kumar Fnu' },
@@ -136,8 +138,7 @@ const initialState = {
     { label: 'yuqiao-qin', name: 'Yuqiao Qin' },
     { label: 'yutong-zhang', name: 'Yutong Zhang' },
     { label: 'zachary-coble', name: 'Zachary Coble' },
-    { label: 'ziyu-he', name: 'Ziyu He' },
-    { label: 'sejo-vega-cebrián', name: 'sejo vega-cebrián' }]
+    { label: 'ziyu-he', name: 'Ziyu He' }]
 
 };
 
@@ -200,6 +201,13 @@ const project = (state = initialState, action) => {
     {
       return Object.assign({}, state, {
         selectedStudent: action.value
+      });
+    }
+
+    case ActionTypes.SET_SHOW_PROJECT_TEXT:
+    {
+      return Object.assign({}, state, {
+        showProjectText: action.value
       });
     }
 

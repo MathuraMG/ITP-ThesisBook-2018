@@ -7,13 +7,21 @@ $black: #000;
 $blue: #64a6ac;
 $dark-blue: #264f52;
 
+//paddings
+$about-padding: 5rem;
+$nav-top-padding: 5rem;
+$nav-height: 4rem;
+$student-side-width: 5rem;
+
+$nav-top-padding-mobile: 1rem;
+
 @font-face {
   font-family: 'Cicle';
-  src: url('https://itp.nyu.edu/testthesis/fonts/CicleFina.ttf'); /* IE9 Compat Modes */
+  src: url('/thesis2018/fonts/CicleFina.ttf'); /* IE9 Compat Modes */
 }
 
 @font-face {
   font-family: 'Cicle';
-  src: url('https://itp.nyu.edu/testthesis/fonts/CicleGordita.ttf'); /* IE9 Compat Modes */
+  src: url('/thesis2018/fonts/CicleGordita.ttf'); /* IE9 Compat Modes */
   font-weight: bold;
 }

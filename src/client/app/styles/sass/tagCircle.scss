@@ -4,7 +4,7 @@
     background-color: $white;
     width: 22%;
     z-index: 2000;
-    margin-top: 4rem;
+    margin-top: $nav-height;
   }
   &__nav {
     display: flex;

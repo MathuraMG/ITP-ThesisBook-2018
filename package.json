@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/server/server.js",
+  "homepage": "http://mathuramg.github.io/ITP-ThesisBook-2018",
   "scripts": {
     "start": "nodemon",
     "dev": "webpack -d --watch",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
@@ -47,6 +49,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.1.0",
     "file-loader": "^1.1.11",
+    "gh-pages": "^1.1.0",
     "ttf-loader": "^1.0.2",
     "webpack-cli": "^2.0.13"
   }

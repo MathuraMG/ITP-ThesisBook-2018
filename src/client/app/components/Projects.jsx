@@ -5,10 +5,33 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 const axios = require('axios');
 
 class Projects extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hoveredName: '',
+      studentArray: []
+    };
+  }
+
+  componentWillUpdate(nextProps) {
+    if (this.props.selectedProjects.length != nextProps.selectedProjects.length) {
+      const tempArray = this.shuffleArray(nextProps.selectedProjects);
+      this.setState({ studentArray: tempArray });
+    }
+  }
+  shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+
   render() {
     return (
       <section className="projects">
-        {this.props.selectedProjects.map(project => (
+        {this.state.studentArray.map(project => (
           <div
             className="projects__container"
             onClick={() => {
@@ -16,32 +39,59 @@ class Projects extends React.Component {
             }}
           >
             <ul className="projects__tags">
-              {project.topics[0] && <li className={`projects__tag ${(this.props.selectedTag === project.topics[0].name)
-                ? ''
-                : 'projects__tag--selected'}`}
-              >
-                {project.topics[0].name}
-              </li>
+              {project.topics[0] &&
+                <li className={`projects__tag ${(this.props.selectedTag === project.topics[0].name)
+                  ? ''
+                  : 'projects__tag--selected'}`}
+                >
+                  {project.topics[0].name}
+                </li>
               }
-              {project.topics[1] && <li className={`projects__tag ${(this.props.selectedTag === project.topics[1].name)
-                ? ''
-                : 'projects__tag--selected'}`}
-              >
-                {project.topics[1].name}
-              </li>
+              {project.topics[1] &&
+                <li className={`projects__tag ${(this.props.selectedTag === project.topics[1].name)
+                  ? ''
+                  : 'projects__tag--selected'}`}
+                >
+                  {project.topics[1].name}
+                </li>
               }
             </ul>
+            <div
+              className="projects__inside-container"
+              onMouseEnter={(e) => { this.setState({ hoveredName: e.target.parentElement.id }); this.props.setShowProjectText(true); }}
+              onMouseLeave={() => { console.log('bye'); this.props.setShowProjectText(false); }}
+            >
+              <div id={project.student_slug}>
+                {project.portfolio_icon &&
+                <img
+                  src={project.portfolio_icon.src}
+                  alt={project.portfolio_icon.alt}
+                  className="projects__image"
+                />
+                }
+                {!project.portfolio_icon &&
+                <img className="projects__image" src="backup.png" alt="itp logo" />
+                }
+                <section
+                  id={project.student_slug}
+                  className="projects__text"
+                >
+                  <h3 className="projects__name">{project.student_name}</h3>
+                  <h1 className="projects__title">{ReactHtmlParser(project.project_title)}</h1>
+                </section>
+              </div>
 
-            {project.portfolio_icon &&
-              <img className="projects__image" src={project.portfolio_icon.src} alt={project.portfolio_icon.alt} />
-            }
-            {!project.portfolio_icon &&
-              <img className="projects__image" src="backup.png" alt="itp logo" />
-            }
-            <section className="projects__text">
-              <h3 className="projects__name">{project.student_name}</h3>
-              <h1 className="projects__title">{ReactHtmlParser(project.project_title)}</h1>
-            </section>
+              <div
+                className={`projects__inside${(this.props.showProjectText && this.state.hoveredName === project.student_slug) ? '--show' : '--hide'}`}
+              >
+                <p className="projects__inside-text">
+                  {ReactHtmlParser(project.short_description)}
+                </p>
+              </div>
+
+
+            </div>
+
           </div>
         ))}
 
