@@ -24,7 +24,9 @@ class Main extends React.Component {
       <Provider store={store}>
         <Router history={hashHistory}>
           <div>
-            <Route path="/" component={App} />
+            <Route exact path="/" component={App} />
+            <Route path="/student" component={App} />
+            <Route path="/about" component={App} />
           </div>
         </Router>
       </Provider>

@@ -2,11 +2,11 @@
   background: $blue;
   display: flex;
   flex-wrap: wrap;
-  width: 48%; //60% of 80%
-  padding-left: 28%; //35% of 80%
-  padding-right: 4%; //5% of 80%
+  width: 42%; //60% of 70%
+  padding-left: 34.5%; //50% of 70%
+  padding-right: 3.5%; //5% of 70%
   margin: 0 10%;
-  height: calc(100% - ($nav-top-padding + $nav-height));
+  height: calc(100% - #{$nav-top-padding + $nav-height});
   overflow-y: scroll;
   &__container {
     padding: 0;
@@ -37,7 +37,7 @@
     font-size: 1.2rem;
     text-align: center;
     padding: 0.5rem 1rem;
-    word-wrap: break-word;
+    word-break: break-word;
   }
   &__tags {
     background-color: $blue;
@@ -88,15 +88,15 @@
     text-overflow: ellipsis;
     overflow: hidden;
     text-align: center;
-    word-wrap: break-word;
+    word-break: break-word;
   }
 }
 
 @media only screen and (max-width: 1200px) {
   .projects{
-    width: 40%; //60% of 80%
-    padding-left: 36%; //45% of 80%
-    padding-right: 4%; //5% of 80%
+    width: 35%; //50% of 70%
+    padding-left: 38.5%; //55% of 70%
+    padding-right: 3.5%; //5% of 70%
     // margin: 0 10%;
     &__container {
       width: 47%;

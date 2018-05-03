@@ -20,7 +20,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPressed: false,
       sampleStudentData: studentConstants.STUDENT_DATA,
       sampleTagData: studentConstants.TAG_DATA,
 
@@ -48,11 +47,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.loadPage();
-    const that = this;
-    $(document).ready(() => {
-      console.log('ready!');
-      that.setState({ isPressed: !that.state.isPressed });
-    });
   }
 
   onlyUnique(value, index, self) {
@@ -71,7 +65,6 @@ class App extends React.Component {
     }
     tagPairs = tagPairs.filter(this.onlyUnique);
     this.props.setSelectedTag(tag);
-    this.props.setSelectedTags(tagPairs);
     this.getTagProjects(tag);
   }
 
@@ -93,7 +86,6 @@ class App extends React.Component {
       this.props.setShowAboutPage(true);
       this.props.setIsTagCircleOpen(false);
     } else if (this.studentName()) {
-      console.log('in here');
       // this.props.history.push(`/student/${this.studentName}`);
       this.getStudentProjectAPI(this.studentName());
       this.props.setIsTagCircleOpen(false);
@@ -130,18 +122,9 @@ class App extends React.Component {
   getTagProjects(tag) {
     this.props.setSelectedProjects(this.state.sampleTagData[tag]);
     tag = encodeURIComponent(tag);
-    //
-    // axios.get(`/api/tag/${tag}`)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     this.props.setSelectedProjects(res.data);
-    //   });
   }
 
   getTwoTagProjects(tag1, tag2) {
-    console.log('getting 2');
-    // tag1 = encodeURIComponent(tag1);
-    // tag2 = encodeURIComponent(tag2);
     const filteredProjects = [];
     this.state.sampleTagData[tag2].forEach((project) => {
       project.topics.forEach((tag) => {
@@ -150,7 +133,6 @@ class App extends React.Component {
         }
       });
     });
-
     this.props.setSelectedProjects(filteredProjects);
   }
 
@@ -170,7 +152,6 @@ class App extends React.Component {
           setSelectedProjects={this.props.setSelectedProjects}
           setShowAboutPage={this.props.setShowAboutPage}
           setSelectedStudent={this.props.setSelectedStudent}
-          setSelectedTags={this.props.setSelectedTags}
           setSelectedTag={this.props.setSelectedTag}
           setShowAboutPage={this.props.setShowAboutPage}
           showAboutPage={this.props.showAboutPage}
@@ -222,7 +203,6 @@ App.propTypes = {
   selectedProjects: PropTypes.arrayOf.isRequired,
   selectedStudent: PropTypes.string.isRequired,
   selectedTag: PropTypes.string.isRequired,
-  selectedTags: PropTypes.arrayOf.isRequired,
   showAboutPage: PropTypes.bool.isRequired,
   showSingleProject: PropTypes.bool.isRequired,
   showProjectText: PropTypes.bool.isRequired,
@@ -237,7 +217,6 @@ App.propTypes = {
   setSelectedProjects: PropTypes.func.isRequired,
   setSelectedStudent: PropTypes.func.isRequired,
   setSelectedTag: PropTypes.func.isRequired,
-  setSelectedTags: PropTypes.func.isRequired,
   setShowProjectText: PropTypes.func.isRequired
 };
 
@@ -250,7 +229,6 @@ function mapStateToProps(state) {
     selectedProjects: state.projectReducer.selectedProjects,
     selectedStudent: state.projectReducer.selectedStudent,
     selectedTag: state.projectReducer.selectedTag,
-    selectedTags: state.projectReducer.selectedTags,
     showAboutPage: state.projectReducer.showAboutPage,
     showSingleProject: state.projectReducer.showSingleProject,
     showProjectText: state.projectReducer.showProjectText,

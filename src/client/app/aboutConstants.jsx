@@ -38,8 +38,8 @@ export const ABOUT_CREDITS = `
 <p class="about__credit-p">Nikita Huggins</p>
 <p class="about__credit-p">Lisa Jamhoury</p>
 <p class="about__credit-p">Chino Kim</p>
-<p class="about__credit-p">David Lockard</p>
-<p class="about__credit-p">Aaron Montoya</p>
+<p class="about__credit-p">Davíd Lockard</p>
+<p class="about__credit-p">Aarón Montoya</p>
 <p class="about__credit-p">Aaron Parkesian</p>
 </div>
 <div class="about__credit-c">
@@ -69,20 +69,20 @@ export const ABOUT_CREDITS = `
 First Years for their comments at the Quick & Dirty Thesis Show.</p>
 
 
-<h3 class="about__credit-h">THESIS ARCHIVE 2017 WEBSITE:</h3>
+<h3 class="about__credit-h">THESIS ARCHIVE 2018 WEBSITE:</h3>
 
 <p class="about__credit-p">Nancy Hechinger, Team Leader</p>
 <p class="about__credit-p">David Lockard, Designer</p>
 <p class="about__credit-p">Mathura Govindarajan, Front-End Developer</p>
 <p class="about__credit-p">Yen-an Chen, Back-end Developer</p>
-<p class="about__credit-p">Ilana Pecis Bonder, Production Associate</p>
+<p class="about__credit-p">Ilana Pecis Bonder, Production Associate, Co-Designer</p>
 </div>
 `;
 
 export const ABOUT_ITP = `
 ITP is a two-year graduate program located in the Tisch School of the Arts whose mission is to explore the imaginative uses of media and technology — how they might augment, improve and bring delight and art into people’s lives. Perhaps the best way to describe us is a Center for the Recently Possible.
 <br><br>
-The ITP Thesis is just one semester long and is taught as a class within the two-year period. It is the one class that students work individually (i.e. not part of a team) and develop a project or their own choosing from concept through a proof-of-concept prototype.
+The ITP Thesis is just one semester long and is taught as a class within the two-year period. It is the one class in which students work individually (i.e. not part of a team) and develop a project or their own choosing from concept to a proof-of-concept prototype.
 <br><br>
 The goal of an ITP education is that students leave here with the tools to do whatvever they want to do. Those tools include: knowing how to find out what they don’t know; to be ready for change, anticipate it; a willingness to experiment, fail, try again, etc; how to take an idea and make it real; to find their own strengths and deepen them; to follow your passions and trust their gut.
 <br><br>
@@ -149,7 +149,7 @@ Hurrah to you all, and we salute you by name!
 <br><br>
 Yuan, Yuhan, Yihan, Yunho, Younho, Yueping, and Ran
 <br>
-Yutong(that’s Carlie) but Karly is Kar,Xitong andSam
+Yutong(that’s Carlie) but Karly is Kar,Xitong and Sam
 <br><br>
 Amanda, Jasmine,Mint, Jackie and Sean
 <br>

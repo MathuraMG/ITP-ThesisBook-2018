@@ -4,9 +4,7 @@
     width: 80%;
     padding: $about-padding 10%;
     z-index: 50;
-    height: calc(100% - #{$nav-top-padding + $nav-height + 2*$about-padding});
     display: flex;
-    overflow-y: scroll;
   }
   &__arrow {
     position: absolute;
@@ -39,6 +37,8 @@
     width: 50%;
     font-size: 1rem;
     line-height: 1.5rem;
+    height: calc(100% - #{$nav-top-padding + $nav-height + 2*$about-padding});
+    overflow-y: scroll;
   }
   &__para {
     width: 100%;
@@ -49,5 +49,9 @@
   }
   &__credit-h {
     padding-top: 1rem;
+  }
+  &__thesis-2018 {
+    display: flex;
+    flex-direction: column;
   }
 }

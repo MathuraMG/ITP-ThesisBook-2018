@@ -30,11 +30,11 @@ class Nav extends React.Component {
             />
           </a>
           <button
-            id="testbutton"
             onClick={() => {
               this.props.setIsTagCircleOpen(true);
-
-              this.setState({ test: this.state.test++ });
+              this.props.history.push('/');
+              this.props.setShowAboutPage(false);
+              this.setState({ test: this.state.test + 1 });
               console.log(this.state.test);
             }}
             className="nav__heading"

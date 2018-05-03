@@ -11,7 +11,7 @@
 
   {"name":"Installation","imports":["Education","Installation","Performance","Identity","VR\\AR","Sound","Data","Narrative","Culture","Tangiable","Society"]},
 
-  {"name":"Tool\\Service","imports":["Culture","Tool\\Service","UX\\UI","Machine Learning","Narrative","Education","Data","Society","Performance"]},
+  {"name":"Identity","imports":["Identity","Narrative","VR\\AR","Installation","Performance","Health","Sound","Data"]},
 
   {"name":"Play","imports":["Play","UX\\UI","Society","Education","Performance","VR\\AR"]},
 
@@ -28,7 +28,7 @@
 
   {"name":"Tangiable","imports":["Tangiable","UX\\UI","VR\\AR","Health","Installation"]},
 
-  {"name":"Identity","imports":["Identity","Narrative","VR\\AR","Installation","Performance","Health","Sound","Data"]},
+  {"name":"Tool\\Service","imports":["Culture","Tool\\Service","UX\\UI","Machine Learning","Narrative","Education","Data","Society","Performance"]},
 
   {"name":"Data","imports":["Data","Narrative","Society","Tool\\Service","Culture","Installation","Identity","Health","VR\\AR"]}
 

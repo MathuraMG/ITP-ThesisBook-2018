@@ -16,12 +16,22 @@ class TagCircle extends React.Component {
   }
 
   componentDidMount() {
-    this.createD3();
+    // this.createD3();
     console.log('mounted');
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log(prevProps.selectedTag);
+    console.log(this.props.selectedTag);
+    if (!this.state.mousePressed) {
+      this.createD3();
+      this.setState({ mousePressed: true });
+    }
   }
 
 
   createD3() {
+    console.log('d3 was created');
     let diameter;
     // const diameter = (window.innerWidth > 768) ? ((window.innerWidth > 1200 ? (0.2 * window.innerWidth): 0.3*window.innerWidth ): 0.8 * window.innerWidth);
     if (window.innerWidth <= 768) {
@@ -32,14 +42,14 @@ class TagCircle extends React.Component {
       diameter = 0.3 * window.innerWidth;
     }
     const radius = diameter / 2;
-    const innerRadius = radius - 120;
+    const innerRadius = radius - 150;
 
     const cluster = d3.cluster()
       .size([360, innerRadius]);
 
     const line = d3.radialLine()
       .curve(d3.curveBundle.beta(0))
-      .radius(d => radius / 2)
+      .radius(d => radius / 2 - 15)
       .angle(d => d.x / 180 * Math.PI);
 
     svg = d3.select(ReactFauxDOM.createElement('svg'))
@@ -64,6 +74,7 @@ class TagCircle extends React.Component {
         .each((d) => { d.source = d[0]; d.target = d[d.length - 1]; })
         .attr('transform', `translate(${radius},${radius})`)
         .attr('d', line)
+        .attr('class', 'link')
         .classed('link--target', (l) => {
           if (l.target.data.name === this.props.selectedTag) {
             return l.source.source = true;
@@ -79,11 +90,9 @@ class TagCircle extends React.Component {
           link = link
             .classed('link--source', (l) => {
               if (l.target.data.name === target && l.source.data.name === source) {
-                // debugger; //eslint-disable-line
                 return true;
               }
             });
-          // console.log(l);
         });
 
 
@@ -92,11 +101,11 @@ class TagCircle extends React.Component {
         .enter().append('text')
         .attr('class', 'node')
         .attr('dy', '0.31em')
-        .attr('transform', d => `translate(${radius},${radius})rotate(${d.x - 90})translate(${d.y / 2 + 20 + radius / 4},0)${d.x < 180 ? '' : 'rotate(180)'}`)
+        .attr('transform', d => `translate(${radius},${radius})rotate(${d.x - 90})translate(${(d.y / 2) + (20 + (radius / 4))},0)${d.x < 180 ? '' : 'rotate(180)'}`)
         .attr('text-anchor', d => (d.x < 180 ? 'start' : 'end'))
         .text((d) => {
           const tagText = (d.data.key === 'Machine Learning' ? 'M Learning' : d.data.key);
-          const text = d.x < 180 ? `${'\u25CB' + '  '}${tagText}` : `${tagText}${'  ' + '\u25CB'}`;
+          const text = d.x < 180 ? `${'\u25CB  '}${tagText}` : `${tagText}${'  \u25CB'}`;
           return text;
         })
         .classed('node--target', (n) => {
@@ -108,8 +117,8 @@ class TagCircle extends React.Component {
         .classed('node--source', n => n.source)
 
         .on('click', (d) => {
-          this.props.history.push('/');
-          this.props.setShowAboutPage(false);
+          // this.props.history.push('/');
+          // this.props.setShowAboutPage(false);
           node
             .each((n) => { n.target = n.source = false; });
           node.classed('node--target', (n) => {
@@ -127,10 +136,10 @@ class TagCircle extends React.Component {
             if (l.target.data.name === d.data.name) {
               return false;
             }
+            return false;
           });
 
           node.classed('node--source', n => n.source);
-
           this.props.setSelectedTag(d.data.name);
           this.props.getTagPairs(d.data.name);
         });
@@ -143,7 +152,6 @@ class TagCircle extends React.Component {
       })
         .classed('node--source', n => n.source);
     });
-    // this.setState({ mousePressed: !this.state.mousePressed });
   }
 
   packageImports(nodes) {
@@ -174,7 +182,7 @@ class TagCircle extends React.Component {
       let node = map[name];
       let i;
       if (!node) {
-        node = map[name] = data || { name, children: [] };
+        node = map[name] = data || { name, children: [] }; //eslint-disable-line
         if (name.length) {
           node.parent = find(name.substring(0, i = name.lastIndexOf('.')));
           node.parent.children.push(node);
@@ -204,10 +212,9 @@ class TagCircle extends React.Component {
 }
 
 TagCircle.propTypes = {
-  getTagProjects: PropTypes.func.isRequired,
-  setSelectedTag: PropTypes.func.isRequired,
-  setIsTagCircleOpen: PropTypes.func.isRequired,
-  setSelectedTags: PropTypes.func.isRequired,
+  getTagPairs: PropTypes.func.isRequired,
+  selectedTag: PropTypes.string.isRequired,
+  setSelectedTag: PropTypes.func.isRequired
 };
 
 export default TagCircle;

@@ -1,6 +1,7 @@
 import React from 'react';
 import * as AboutDefs from '../aboutConstants.jsx';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import { Carousel } from 'react-responsive-carousel';
 
 class About extends React.Component {
   render() {
@@ -44,7 +45,11 @@ class About extends React.Component {
           }
 
           {(this.props.aboutTopic === 1) &&
-          <div>
+          <div className="about__thesis-2018">
+            <Carousel>
+              <img src="https://placebear.com/400/200" />
+              <img src="https://placebear.com/400/200" />
+            </Carousel>
             <p className="about__para">
               {ReactHtmlParser(AboutDefs.ABOUT_THESIS_2018)}
             </p>

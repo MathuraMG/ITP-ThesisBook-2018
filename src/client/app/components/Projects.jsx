@@ -13,12 +13,22 @@ class Projects extends React.Component {
     };
   }
 
-  componentWillUpdate(nextProps) {
-    if (this.props.selectedProjects.length != nextProps.selectedProjects.length) {
-      const tempArray = this.shuffleArray(nextProps.selectedProjects);
+  componentDidMount() {
+    if (this.props.selectedProjects.length > 0) {
+      const tempArray = this.shuffleArray(this.props.selectedProjects);
       this.setState({ studentArray: tempArray });
     }
   }
+
+  componentWillUpdate(nextProps) {
+    if (this.props.selectedProjects != nextProps.selectedProjects || this.props.selectedTag != nextProps.selectedTag) {
+      if (nextProps.selectedProjects && nextProps.selectedProjects.length > 0) {
+        const tempArray = this.shuffleArray(nextProps.selectedProjects);
+        this.setState({ studentArray: tempArray });
+      }
+    }
+  }
+
   shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -27,6 +37,9 @@ class Projects extends React.Component {
     return array;
   }
 
+  truncate(desc) {
+    return (desc.length > 250) ? (`${desc.slice(0, 250)}...`) : desc;
+  }
 
   render() {
     return (
@@ -59,7 +72,7 @@ class Projects extends React.Component {
             <div
               className="projects__inside-container"
               onMouseEnter={(e) => { this.setState({ hoveredName: e.target.parentElement.id }); this.props.setShowProjectText(true); }}
-              onMouseLeave={() => { console.log('bye'); this.props.setShowProjectText(false); }}
+              onMouseLeave={() => { this.props.setShowProjectText(false); }}
             >
               <div id={project.student_slug}>
                 {project.portfolio_icon &&
@@ -85,7 +98,7 @@ class Projects extends React.Component {
                 className={`projects__inside${(this.props.showProjectText && this.state.hoveredName === project.student_slug) ? '--show' : '--hide'}`}
               >
                 <p className="projects__inside-text">
-                  {ReactHtmlParser(project.short_description)}
+                  {ReactHtmlParser(this.truncate(project.short_description))}
                 </p>
               </div>
 
