@@ -16,13 +16,13 @@ class TagCircle extends React.Component {
 
   componentDidMount() {
     this.createD3();
-    debugger; //eslint-disable-line
+    // debugger; //eslint-disable-line
   }
 
   componentDidUpdate(prevProps) {
     if (!this.state.mousePressed) {
       this.createD3();
-      debugger; //eslint-disable-line
+      // debugger; //eslint-disable-line
       this.setState({ mousePressed: true });
     }
   }
