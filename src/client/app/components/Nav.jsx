@@ -8,9 +8,6 @@ import TagCircle from './TagCircle.jsx';
 class Nav extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      test: 0,
-    };
     this.searchButtonClicked = this.searchButtonClicked.bind(this);
   }
   searchButtonClicked() {
@@ -36,8 +33,7 @@ class Nav extends React.Component {
               this.props.setIsTagCircleOpen(true);
               this.props.history.push('/');
               this.props.setShowAboutPage(false);
-              this.setState({ test: this.state.test + 1 });
-              console.log(this.state.test);
+              debugger; //eslint-disable-line
             }}
             className="nav__heading"
           >

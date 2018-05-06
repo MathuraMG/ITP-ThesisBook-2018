@@ -17,12 +17,14 @@ class TagCircle extends React.Component {
   componentDidMount() {
     this.createD3();
     // debugger; //eslint-disable-line
+    setTimeout(() => {
+      this.forceUpdate();
+    }, 1000);
   }
 
   componentDidUpdate(prevProps) {
     console.log('in update');
     if (!this.state.mousePressed) {
-      // this.createD3();
       console.log('in update loop');
       // debugger; //eslint-disable-line
       this.setState({ mousePressed: true });
@@ -164,6 +166,7 @@ class TagCircle extends React.Component {
       })
         .classed('node--source', n => n.source);
     });
+    this.setState({ mousePressed: !this.state.mousePressed });
   }
 
   packageImports(nodes) {
