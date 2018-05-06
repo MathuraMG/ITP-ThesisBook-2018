@@ -1,6 +1,7 @@
 import React from 'react';
 import Autocomplete from 'react-autocomplete';
 import PropTypes from 'prop-types';
+import $ from 'jquery';
 
 class Search extends React.Component {
   constructor(props) {
@@ -28,16 +29,19 @@ class Search extends React.Component {
       placeholder: 'SEARCH BY STUDENT'
     };
     return (
-      <div className="search__container" tabIndex="2">
-
+      <div
+        className="search__container"
+      >
         <Autocomplete
           getItemValue={item => item.label}
           items={studentList}
           shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
           renderItem={(item, isHighlighted) =>
-            (<div className="search__values" style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-              {item.name}
-             </div>)
+            (
+              <div className="search__values" style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+                {item.name}
+              </div>
+            )
           }
           value={this.props.selectedStudent}
 
@@ -48,7 +52,7 @@ class Search extends React.Component {
           onSelect={(value) => {
             console.log(value);
             this.props.history.push(`/student/${value}`);
-            location.reload();
+            window.location.reload();
             // window.location.replace(`${window.location.origin}/student/${value}`);
           }
           }
@@ -61,10 +65,10 @@ class Search extends React.Component {
   }
 }
 Search.propTypes = {
+  history: PropTypes.object.isRequired,
   selectedStudent: PropTypes.string.isRequired,
-  getStudentProject: PropTypes.func.isRequired,
   setSelectedStudent: PropTypes.func.isRequired,
-  students: PropTypes.shape.isRequired,
+  students: PropTypes.array.isRequired,
 };
 
 export default Search;

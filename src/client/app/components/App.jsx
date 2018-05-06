@@ -8,8 +8,6 @@ import About from './About.jsx';
 import Nav from './Nav.jsx';
 import Project from './Project.jsx';
 import Projects from './Projects.jsx';
-import Search from './Search.jsx';
-import TagCircle from './TagCircle.jsx';
 import * as studentConstants from '../studentConstants.jsx';
 
 import * as projectActions from '../action/project.jsx';
@@ -36,21 +34,22 @@ class App extends React.Component {
     this.getTagPairs = this.getTagPairs.bind(this);
   }
 
-  getStudentProjectAPI(student) {
-    const id = this.state.sampleStudentData[student].student_id;
-    const baseUrl = 'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=';
-    axios.get(baseUrl + id)
-      .then((res) => {
-        this.props.setSelectedProject(JSON.parse(res.data.contents));
-      });
-  }
-
   componentDidMount() {
     this.loadPage();
   }
 
   onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
+  }
+
+  getStudentProjectAPI(student) {
+    const id = this.state.sampleStudentData[student].student_id;
+    const baseUrl =
+    'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=';
+    axios.get(baseUrl + id)
+      .then((res) => {
+        this.props.setSelectedProject(JSON.parse(res.data.contents));
+      });
   }
 
   getTagPairs(tag) {
@@ -68,10 +67,38 @@ class App extends React.Component {
     this.getTagProjects(tag);
   }
 
-  studentName() {
-    const location = this.props.location.pathname;
-    const studentName = location.match(/\/student\/([\w-].*)/);
-    return studentName ? studentName[1] : null;
+  getStudentProject(student) {
+    axios.get(`/api/student/${student}`)
+      .then((res) => {
+        this.props.setSelectedProject(res.data);
+      });
+  }
+
+  getAllProject() {
+    const baseUrl =
+    'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=-1';
+    axios.get(baseUrl)
+      .then((res) => {
+        const data = JSON.parse(res.data.contents);
+
+        this.props.setSelectedProjects(data);
+      });
+  }
+
+  getTagProjects(tag) {
+    this.props.setSelectedProjects(this.state.sampleTagData[tag]);
+  }
+
+  getTwoTagProjects(tag1, tag2) {
+    const filteredProjects = [];
+    this.state.sampleTagData[tag2].forEach((project) => {
+      project.topics.forEach((tag) => {
+        if (tag.name === tag1) {
+          filteredProjects.push(project);
+        }
+      });
+    });
+    this.props.setSelectedProjects(filteredProjects);
   }
 
   aboutPage() {
@@ -101,39 +128,10 @@ class App extends React.Component {
     }
   }
 
-
-  getStudentProject(student) {
-    axios.get(`/api/student/${student}`)
-      .then((res) => {
-        this.props.setSelectedProject(res.data);
-      });
-  }
-
-  getAllProject() {
-    const baseUrl = 'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=-1';
-    axios.get(baseUrl)
-      .then((res) => {
-        const data = JSON.parse(res.data.contents);
-
-        this.props.setSelectedProjects(data);
-      });
-  }
-
-  getTagProjects(tag) {
-    this.props.setSelectedProjects(this.state.sampleTagData[tag]);
-    tag = encodeURIComponent(tag);
-  }
-
-  getTwoTagProjects(tag1, tag2) {
-    const filteredProjects = [];
-    this.state.sampleTagData[tag2].forEach((project) => {
-      project.topics.forEach((tag) => {
-        if (tag.name === tag1) {
-          filteredProjects.push(project);
-        }
-      });
-    });
-    this.props.setSelectedProjects(filteredProjects);
+  studentName() {
+    const location = this.props.location.pathname;
+    const studentName = location.match(/\/student\/([\w-].*)/);
+    return studentName ? studentName[1] : null;
   }
 
   render() {
@@ -153,7 +151,6 @@ class App extends React.Component {
           setShowAboutPage={this.props.setShowAboutPage}
           setSelectedStudent={this.props.setSelectedStudent}
           setSelectedTag={this.props.setSelectedTag}
-          setShowAboutPage={this.props.setShowAboutPage}
           showAboutPage={this.props.showAboutPage}
           students={this.props.students}
           isDropDownOpen={this.props.isDropDownOpen}
@@ -197,17 +194,19 @@ class App extends React.Component {
 
 App.propTypes = {
   aboutTopic: PropTypes.number.isRequired,
+  history: PropTypes.object.isRequired,
   isTagCircleOpen: PropTypes.bool.isRequired,
   isDropDownOpen: PropTypes.bool.isRequired,
-  selectedProject: PropTypes.shape.isRequired,
-  selectedProjects: PropTypes.arrayOf.isRequired,
+  location: PropTypes.object.isRequired,
+  selectedProject: PropTypes.object.isRequired,
+  selectedProjects: PropTypes.array.isRequired,
   selectedStudent: PropTypes.string.isRequired,
   selectedTag: PropTypes.string.isRequired,
   showAboutPage: PropTypes.bool.isRequired,
   showSingleProject: PropTypes.bool.isRequired,
   showProjectText: PropTypes.bool.isRequired,
-  students: PropTypes.arrayOf.isRequired,
-  tags: PropTypes.arrayOf.isRequired,
+  students: PropTypes.array.isRequired,
+  tags: PropTypes.array.isRequired,
 
   setAboutTopic: PropTypes.func.isRequired,
   setIsTagCircleOpen: PropTypes.func.isRequired,

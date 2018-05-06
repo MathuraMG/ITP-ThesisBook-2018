@@ -15,15 +15,14 @@ class TagCircle extends React.Component {
   }
 
   componentDidMount() {
-    // this.createD3();
-    console.log('mounted');
+    this.createD3();
+    debugger; //eslint-disable-line
   }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps.selectedTag);
-    console.log(this.props.selectedTag);
     if (!this.state.mousePressed) {
       this.createD3();
+      debugger; //eslint-disable-line
       this.setState({ mousePressed: true });
     }
   }
@@ -32,7 +31,6 @@ class TagCircle extends React.Component {
   createD3() {
     console.log('d3 was created');
     let diameter;
-    // const diameter = (window.innerWidth > 768) ? ((window.innerWidth > 1200 ? (0.2 * window.innerWidth): 0.3*window.innerWidth ): 0.8 * window.innerWidth);
     if (window.innerWidth <= 768) {
       diameter = 0.8 * window.innerWidth;
     } else if (window.innerWidth > 1200) {
@@ -82,6 +80,7 @@ class TagCircle extends React.Component {
             l.source.source = true;
             return l.source.source;
           }
+          return false;
         })
 
         // .filter(l => l.target.data.name === this.props.selectedTag)
@@ -105,7 +104,8 @@ class TagCircle extends React.Component {
         .enter().append('text')
         .attr('class', 'node')
         .attr('dy', '0.31em')
-        .attr('transform', d => `translate(${radius},${radius})rotate(${d.x - 90})translate(${(d.y / 2) + (20 + (radius / 4))},0)${d.x < 180 ? '' : 'rotate(180)'}`)
+        .attr('transform', d =>
+          `translate(${radius},${radius})rotate(${d.x - 90})translate(${(d.y / 2) + (20 + (radius / 4))},0)${d.x < 180 ? '' : 'rotate(180)'}`)
         .attr('text-anchor', d => (d.x < 180 ? 'start' : 'end'))
         .text((d) => {
           const tagText = (d.data.key === 'Machine Learning' ? 'M Learning' : d.data.key);

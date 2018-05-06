@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Carousel } from 'react-responsive-carousel';
 import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
+import $ from 'jquery';
 
 class Project extends React.Component {
   renderImages(images) {
@@ -19,7 +20,6 @@ class Project extends React.Component {
   }
 
   render() {
-    console.log(this.props.selectedProject);
     const renderArray = this.renderImages(this.props.selectedProject.slide_show);
     // Accounting for spelling mistake in Tangible in the DB
     return (
@@ -51,17 +51,37 @@ class Project extends React.Component {
             {this.props.selectedProject.topics[0].name === 'Tangiable' ? 'Tangible' : this.props.selectedProject.topics[0].name},	&nbsp;
             {this.props.selectedProject.topics[1].name === 'Tangiable' ? 'Tangible' : this.props.selectedProject.topics[1].name}
           </p>
-          <p className="project__advisor">Advisor: {this.props.selectedProject.advisor_name == 'Kathleen Sullivan' ? 'Kat Sullivan' : this.props.selectedProject.advisor_name}</p>
+          <p className="project__advisor">
+            Advisor:
+            {
+              this.props.selectedProject.advisor_name === 'Kathleen Sullivan' ?
+                'Kat Sullivan' :
+                this.props.selectedProject.advisor_name
+            }
+          </p>
         </div>
         <p className="project__abstract">{ReactHtmlParser(this.props.selectedProject.short_description)}</p>
         {this.props.selectedProject.slide_show[0] &&
           <Carousel>
             {renderArray}
           </Carousel>}
-        <p className="project__desc">{ReactHtmlParser(this.props.selectedProject.project_question)}</p>
-
-        {this.props.selectedProject.video_documentation_url && <iframe className="project__vimeo" src={this.props.selectedProject.video_documentation_url} width="100%" height="400px" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen>
-        </iframe>}
+        <p className="project__desc">
+          {ReactHtmlParser(this.props.selectedProject.project_question)}
+        </p>
+        {
+          this.props.selectedProject.video_documentation_url &&
+          <iframe
+            className="project__vimeo"
+            src={this.props.selectedProject.further_reading}
+            width="100%"
+            height="400px"
+            frameBorder="0"
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+            allowFullScreen="true"
+          >
+          </iframe>
+        }
 
         <div className="project__further">{ReactHtmlParser(this.props.selectedProject.further_reading)}</div>
         <button
@@ -77,7 +97,19 @@ class Project extends React.Component {
 }
 
 Project.propTypes = {
-  selectedProject: PropTypes.shape.isRequired
+  history: PropTypes.object.isRequired,
+  selectedProject: PropTypes.shape({
+    project_url: PropTypes.string.isRequired,
+    project_title: PropTypes.string.isRequired,
+    advisor_name: PropTypes.string.isRequired,
+    student_name: PropTypes.string.isRequired,
+    topics: PropTypes.array.isRequired,
+    slide_show: PropTypes.array.isRequired,
+    project_question: PropTypes.string.isRequired,
+    short_description: PropTypes.string.isRequired,
+    video_documentation_url: PropTypes.string.isRequired,
+    further_reading: PropTypes.string.isRequired,
+  })
 };
 
 export default Project;

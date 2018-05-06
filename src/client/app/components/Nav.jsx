@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import $ from 'jquery';
+
 import Search from './Search.jsx';
 import TagCircle from './TagCircle.jsx';
-import { Link } from 'react-router-dom';
 
 class Nav extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class Nav extends React.Component {
             <img
               className="nav__image"
               src="logo.png"
+              alt="itp logo"
             />
           </a>
           <button
@@ -46,7 +48,6 @@ class Nav extends React.Component {
             <TagCircle
               history={this.props.history}
               selectedTag={this.props.selectedTag}
-              setSelectedTags={this.props.setSelectedTags}
               setSelectedTag={this.props.setSelectedTag}
               getTagProjects={this.props.getTagProjects}
               getTwoTagProjects={this.props.getTwoTagProjects}
@@ -103,12 +104,24 @@ class Nav extends React.Component {
 }
 
 Nav.propTypes = {
-  selectedStudent: PropTypes.string.isRequired,
-  setSelectedTags: PropTypes.func.isRequired,
-  setSelectedTag: PropTypes.func.isRequired,
+  getTagPairs: PropTypes.func.isRequired,
   getTagProjects: PropTypes.func.isRequired,
-  students: PropTypes.arrayOf.isRequired,
-  tags: PropTypes.arrayOf.isRequired,
+  getTwoTagProjects: PropTypes.func.isRequired,
+  getStudentProject: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  isDropDownOpen: PropTypes.bool.isRequired,
+  isTagCircleOpen: PropTypes.bool.isRequired,
+  selectedStudent: PropTypes.string.isRequired,
+  selectedTag: PropTypes.string.isRequired,
+  setIsDropDownOpen: PropTypes.func.isRequired,
+  setIsTagCircleOpen: PropTypes.func.isRequired,
+  setSelectedTag: PropTypes.func.isRequired,
+  setShowAboutPage: PropTypes.func.isRequired,
+  students: PropTypes.array.isRequired,
+  selectedProjects: PropTypes.array.isRequired,
+  showAboutPage: PropTypes.bool.isRequired,
+  setSelectedProjects: PropTypes.func.isRequired,
+  setSelectedStudent: PropTypes.func.isRequired,
 };
 
 export default Nav;

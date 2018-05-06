@@ -1,12 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { HashRouter as Router, Route, Switch, hashHistory } from 'react-router-dom';
+import { HashRouter as Router, Route, hashHistory } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 import App from './components/App.jsx';
-import About from './components/About.jsx';
 
 import rootReducer from './reducers/rootReducer.jsx';
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
-
-const axios = require('axios');
+import ReactHtmlParser from 'react-html-parser';
 
 class Projects extends React.Component {
   constructor(props) {
@@ -16,21 +14,22 @@ class Projects extends React.Component {
   componentDidMount() {
     if (this.props.selectedProjects.length > 0) {
       const tempArray = this.shuffleArray(this.props.selectedProjects);
-      this.setState({ studentArray: tempArray });
+      this.setState({ studentArray: tempArray }); //eslint-disable-line
     }
   }
 
   componentWillUpdate(nextProps) {
-    if (this.props.selectedProjects != nextProps.selectedProjects || this.props.selectedTag != nextProps.selectedTag) {
+    if ((this.props.selectedProjects !== nextProps.selectedProjects)
+    || (this.props.selectedTag !== nextProps.selectedTag)) {
       if (nextProps.selectedProjects && nextProps.selectedProjects.length > 0) {
         const tempArray = this.shuffleArray(nextProps.selectedProjects);
-        this.setState({ studentArray: tempArray });
+        this.setState({ studentArray: tempArray }); //eslint-disable-line
       }
     }
   }
 
   shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+    for (let i = array.length - 1; i > 0; i = -1) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
@@ -52,9 +51,14 @@ class Projects extends React.Component {
         {this.state.studentArray.map(project => (
           <div
             className="projects__container"
+            role="link"
             onClick={() => {
               this.props.history.push(`/student/${project.student_slug}`);
             }}
+            onKeyDown={() => {
+              this.props.history.push(`/student/${project.student_slug}`);
+            }}
+            tabIndex="0"
           >
             <ul className="projects__tags">
               {project.topics[0] &&
@@ -76,7 +80,10 @@ class Projects extends React.Component {
             </ul>
             <div
               className="projects__inside-container"
-              onMouseEnter={(e) => { this.setState({ hoveredName: e.target.parentElement.id }); this.props.setShowProjectText(true); }}
+              onMouseEnter={(e) => {
+                this.setState({ hoveredName: e.target.parentElement.id });
+                this.props.setShowProjectText(true);
+              }}
               onMouseLeave={() => { this.props.setShowProjectText(false); }}
             >
               <div id={project.student_slug}>
@@ -100,7 +107,9 @@ class Projects extends React.Component {
               </div>
 
               <div
-                className={`projects__inside${(this.props.showProjectText && this.state.hoveredName === project.student_slug) ? '--show' : '--hide'}`}
+                className={`projects__inside${(this.props.showProjectText
+                  && this.state.hoveredName === project.student_slug) ?
+                  '--show' : '--hide'}`}
               >
                 <p className="projects__inside-text">
                   {ReactHtmlParser(this.truncate(project.short_description))}
@@ -117,5 +126,13 @@ class Projects extends React.Component {
     );
   }
 }
+
+Projects.propTypes = {
+  history: PropTypes.object.isRequired,
+  selectedProjects: PropTypes.array.isRequired,
+  selectedTag: PropTypes.string.isRequired,
+  setShowProjectText: PropTypes.func.isRequired,
+  showProjectText: PropTypes.bool.isRequired
+};
 
 export default Projects;

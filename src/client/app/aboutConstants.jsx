@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const ABOUT_CREDITS = `
 <div class="about__credit-c">
 <h3 class="about__credit-h">THESIS ADVISORS:</h3>
