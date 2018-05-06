@@ -20,8 +20,10 @@ class TagCircle extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log('in update');
     if (!this.state.mousePressed) {
-      this.createD3();
+      // this.createD3();
+      console.log('in update loop');
       // debugger; //eslint-disable-line
       this.setState({ mousePressed: true });
     }
@@ -56,6 +58,7 @@ class TagCircle extends React.Component {
 
     let link = svg.append('svg').selectAll('.link');
     let node = svg.append('svg').selectAll('.node');
+    console.log(link);
 
     d3.json('flare.json', (error, classes) => {
       if (error) throw error;
