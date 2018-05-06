@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const d3 = require('d3');
-const axios = require('axios');
 const ReactFauxDOM = require('react-faux-dom');
 
 let svg;
@@ -37,20 +36,20 @@ class TagCircle extends React.Component {
     if (window.innerWidth <= 768) {
       diameter = 0.8 * window.innerWidth;
     } else if (window.innerWidth > 1200) {
-      diameter = 0.2 * window.innerWidth;
+      diameter = 0.24 * window.innerWidth;
     } else {
       diameter = 0.3 * window.innerWidth;
     }
     const radius = diameter / 2;
-    const innerRadius = radius - 150;
+    const innerRadius = radius - 180;
 
     const cluster = d3.cluster()
       .size([360, innerRadius]);
 
     const line = d3.radialLine()
       .curve(d3.curveBundle.beta(0))
-      .radius(d => radius / 2 - 15)
-      .angle(d => d.x / 180 * Math.PI);
+      .radius(d => ((radius / 2) - 30)) //eslint-disable-line
+      .angle(d => (d.x / 180) * Math.PI); //eslint-disable-line
 
     svg = d3.select(ReactFauxDOM.createElement('svg'))
       .attr('width', diameter)
@@ -71,13 +70,17 @@ class TagCircle extends React.Component {
       link = link
         .data(this.packageImports(root.leaves()))
         .enter().append('path')
-        .each((d) => { d.source = d[0]; d.target = d[d.length - 1]; })
+        .each((d) => {
+          d.source = d[0];
+          d.target = d[d.length - 1];
+        })
         .attr('transform', `translate(${radius},${radius})`)
         .attr('d', line)
         .attr('class', 'link')
         .classed('link--target', (l) => {
           if (l.target.data.name === this.props.selectedTag) {
-            return l.source.source = true;
+            l.source.source = true;
+            return l.source.source;
           }
         })
 
@@ -88,10 +91,11 @@ class TagCircle extends React.Component {
           const source = l.source.data.name;
           this.props.getTwoTagProjects(l.source.data.name, l.target.data.name);
           link = link
-            .classed('link--source', (l) => {
-              if (l.target.data.name === target && l.source.data.name === source) {
+            .classed('link--source', (l1) => {
+              if (l1.target.data.name === target && l1.source.data.name === source) {
                 return true;
               }
+              return false;
             });
         });
 
@@ -120,7 +124,10 @@ class TagCircle extends React.Component {
           // this.props.history.push('/');
           // this.props.setShowAboutPage(false);
           node
-            .each((n) => { n.target = n.source = false; });
+            .each((n) => {
+              n.target = false;
+              n.source = false;
+            });
           node.classed('node--target', (n) => {
             if (n.data.name === d.data.name) {
               return true;
@@ -129,8 +136,10 @@ class TagCircle extends React.Component {
           });
           link.classed('link--target', (l) => {
             if (l.target.data.name === d.data.name) {
-              return l.source.source = true;
+              l.source.source = true;
+              return l.source.source;
             }
+            return false;
           });
           link.classed('link--source', (l) => {
             if (l.target.data.name === d.data.name) {
@@ -213,6 +222,7 @@ class TagCircle extends React.Component {
 
 TagCircle.propTypes = {
   getTagPairs: PropTypes.func.isRequired,
+  getTwoTagProjects: PropTypes.func.isRequired,
   selectedTag: PropTypes.string.isRequired,
   setSelectedTag: PropTypes.func.isRequired
 };

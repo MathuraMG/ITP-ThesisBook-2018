@@ -11,12 +11,15 @@
     display: flex;
   }
   &-right{
-    width: 30%;
+    width: 40%;
     // margin-right: 4%; //5% of 80%
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
+  }
+  &-right-burger {
+    display: none;
   }
   &-about {
     text-transform: uppercase;
@@ -57,7 +60,6 @@
 .nav__image {
   max-width: 75%;
   max-height: 1.8rem;
-  // padding: 0.5rem 1rem;
   &-container {
     width: 35%;
     background: $dark-blue;
@@ -97,7 +99,23 @@
       margin: 0;
     }
     &-right {
+      width: 100%;
       display: none;
+      flex-direction: column;
+      background-color: #63a6ac;
+      padding-top: 0.5rem;  
+      &--show {
+        display: flex;
+      }
     }
+    &-right-burger {
+      width: 20%;
+      display: block;
+      line-height: $nav-height-mobile;
+    }
+  }
+  .nav__heading {
+    line-height: $nav-height-mobile;
+    height: $nav-height-mobile;
   }
 }

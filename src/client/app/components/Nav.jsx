@@ -58,6 +58,20 @@ class Nav extends React.Component {
               getTagPairs={this.props.getTagPairs}
             />
           }
+          <button
+            className="nav__container-right-burger"
+            onClick={() => {
+              if (this.props.isTagCircleOpen) {
+                this.props.setIsTagCircleOpen(false);
+                $('.nav__container-right').addClass('nav__container-right--show');
+              } else {
+                this.props.setIsTagCircleOpen(true);
+                $('.nav__container-right').removeClass('nav__container-right--show');
+              }
+            }}
+          >
+             &#9776;
+          </button>
         </div>
         <div className="nav__container-right">
           <button
@@ -81,6 +95,7 @@ class Nav extends React.Component {
             getStudentProject={this.props.getStudentProject}
           />
         </div>
+
 
       </nav>
     );

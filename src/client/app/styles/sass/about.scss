@@ -55,3 +55,25 @@
     flex-direction: column;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .about{
+    &__container {
+      height: calc(100% - #{$nav-height-mobile + 2*$about-padding +  $nav-top-padding-mobile});
+    }
+    &__content {
+      height: 100%;
+      width: 60%;
+      padding-left: 10%;
+    }
+    &__para {
+      flex-direction: column;
+    }
+    &__credit-c {
+      width: 100%;
+    }
+    &__arrow {
+      display: none;
+    }
+  }
+}

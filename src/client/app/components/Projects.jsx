@@ -38,7 +38,12 @@ class Projects extends React.Component {
   }
 
   truncate(desc) {
-    return (desc.length > 250) ? (`${desc.slice(0, 250)}...`) : desc;
+    if (window.innerWidth <= 768) {
+      return (desc.length > 250) ? (`${desc.slice(0, 250)}...`) : desc;
+    } else if (window.innerWidth > 1200) {
+      return (desc.length > 250) ? (`${desc.slice(0, 250)}...`) : desc;
+    }
+    return (desc.length > 150) ? (`${desc.slice(0, 150)}...`) : desc;
   }
 
   render() {

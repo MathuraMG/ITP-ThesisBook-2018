@@ -9,6 +9,7 @@
   height: calc(100% - #{$nav-top-padding + $nav-height});
   overflow-y: scroll;
   &__container {
+    height: fit-content;
     padding: 0;
     width: 30.33%;
     margin: 1.5%;
@@ -25,6 +26,7 @@
   }
   &__name {
     font-size: 0.8rem;
+    height: 1.6rem;
     text-align: center;
     padding: 0.5rem 1rem;
   }
@@ -45,14 +47,16 @@
     padding: 0;
     margin: 0;
     justify-content: flex-end;
-    font-size: 0.8rem;
+    height: 1.2rem;
+    align-items: flex-end;
   }
   &__tag {
+    font-size: 8px;
     letter-spacing: 1.5px;
     padding-bottom: 0.4rem;
     list-style: none;
     text-transform: uppercase;
-    padding-left: 0.8rem;
+    padding-left: 0.4rem;
     color: $dark-blue;
     &--selected {
       color: $white;

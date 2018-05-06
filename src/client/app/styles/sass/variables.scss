@@ -10,19 +10,20 @@ $dark-blue: #264f52;
 
 //paddings
 $about-padding: 5rem;
-$nav-top-padding: 5rem;
+$nav-top-padding: 3rem;
 $nav-height: 4rem;
 $student-side-width: 5rem;
 
 $nav-top-padding-mobile: 1rem;
+$nav-height-mobile: 3rem;
 
 @font-face {
   font-family: 'Cicle';
-  src: url('/thesis2018/fonts/CicleFina.ttf'); /* IE9 Compat Modes */
+  src: url('/fonts/CicleFina.ttf'); /* IE9 Compat Modes */
 }
 
 @font-face {
   font-family: 'Cicle';
-  src: url('/thesis2018/fonts/CicleGordita.ttf'); /* IE9 Compat Modes */
+  src: url('/fonts/CicleGordita.ttf'); /* IE9 Compat Modes */
   font-weight: bold;
 }
