@@ -336,7 +336,7 @@ export const STUDENT_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/Screen-Shot-2018-04-18-at-15.05.48.png', title: 'CCR, realization of lligam', alt: 'the face of a cat', caption: ''
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     },
     'hayeon-hwang': {
       student_id: '43',
@@ -348,7 +348,7 @@ export const STUDENT_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/thum.gif', title: 'Expressive Tactile Controls', alt: 'Expressive Tactile Controls', caption: 'Expressive Tactile Controls'
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     },
     'hayeon-kim': {
       student_id: '8',
@@ -732,7 +732,7 @@ export const STUDENT_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/KripchakThesisThumbnail.png', title: 'Kripchak Thesis Thumbnail', alt: 'Telepresence projection in VR.', caption: 'Screen-capture of holographic telepresence from within VR.'
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'VR\\AR', slug: 'vr-ar' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'VR\\AR', slug: 'vr-ar' }]
     },
     'michael-simpson': {
       student_id: '67',
@@ -792,7 +792,7 @@ export const STUDENT_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/quirk-bots-thumbnail.png', title: 'quirk bots-thumbnail', alt: 'smart objects', caption: ''
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     },
     'nouf-aljowaysir': {
       student_id: '68',
@@ -960,7 +960,7 @@ export const STUDENT_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/thumb2-size-2.jpg', title: '', alt: 'thumb', caption: ''
       },
-      topics: [{ name: 'Health', slug: 'health' }, { name: 'Tangiable', slug: 'tangiable' }]
+      topics: [{ name: 'Health', slug: 'health' }, { name: 'Tangible', slug: 'Tangible' }]
     },
     'scott-reitherman': {
       student_id: '33',
@@ -1200,7 +1200,7 @@ export const STUDENT_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/invisible_thumbnail-1.jpg', title: 'invisible_thumbnail', alt: 'thumbnail', caption: ''
       },
-      topics: [{ name: 'Installation', slug: 'installation' }, { name: 'Tangiable', slug: 'tangiable' }]
+      topics: [{ name: 'Installation', slug: 'installation' }, { name: 'Tangible', slug: 'Tangible' }]
     },
     'yihan-chen': {
       student_id: '36',
@@ -1236,7 +1236,7 @@ export const STUDENT_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/thumbnail-3.jpg', title: 'thumbnailaaa', alt: 'thumbnail', caption: 'thumbnail'
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     },
     'yueping-wang': {
       student_id: '38',
@@ -2090,7 +2090,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/Screen-Shot-2018-04-18-at-15.05.48.png', title: 'CCR, realization of lligam', alt: 'the face of a cat', caption: ''
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     }, {
       student_id: '43',
       student_name: 'Hayeon Hwang',
@@ -2101,7 +2101,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/thum.gif', title: 'Expressive Tactile Controls', alt: 'Expressive Tactile Controls', caption: 'Expressive Tactile Controls'
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     }, {
       student_id: '8',
       student_name: 'Hayeon Kim',
@@ -2211,7 +2211,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/quirk-bots-thumbnail.png', title: 'quirk bots-thumbnail', alt: 'smart objects', caption: ''
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     }, {
       student_id: '71',
       student_name: 'Pan Pan',
@@ -2288,7 +2288,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/thumbnail-3.jpg', title: 'thumbnailaaa', alt: 'thumbnail', caption: 'thumbnail'
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     }],
     'Identity': [{
       student_id: '40',
@@ -2576,7 +2576,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/KripchakThesisThumbnail.png', title: 'Kripchak Thesis Thumbnail', alt: 'Telepresence projection in VR.', caption: 'Screen-capture of holographic telepresence from within VR.'
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'VR\\AR', slug: 'vr-ar' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'VR\\AR', slug: 'vr-ar' }]
     }, {
       student_id: '29',
       student_name: 'Oriana Neidecker',
@@ -2929,7 +2929,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/invisible_thumbnail-1.jpg', title: 'invisible_thumbnail', alt: 'thumbnail', caption: ''
       },
-      topics: [{ name: 'Installation', slug: 'installation' }, { name: 'Tangiable', slug: 'tangiable' }]
+      topics: [{ name: 'Installation', slug: 'installation' }, { name: 'Tangible', slug: 'Tangible' }]
     }, {
       student_id: '36',
       student_name: 'Yihan Chen',
@@ -3640,7 +3640,7 @@ export const TAG_DATA =
       },
       topics: [{ name: 'Sound', slug: 'sound' }, { name: 'VR\\AR', slug: 'vr-ar' }]
     }],
-    'Tangiable': [{
+    'Tangible': [{
       student_id: '7',
       student_name: 'Grau Puche Recarens',
       student_slug: 'grau-puche-recarens',
@@ -3650,7 +3650,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/Screen-Shot-2018-04-18-at-15.05.48.png', title: 'CCR, realization of lligam', alt: 'the face of a cat', caption: ''
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     }, {
       student_id: '43',
       student_name: 'Hayeon Hwang',
@@ -3661,7 +3661,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/thum.gif', title: 'Expressive Tactile Controls', alt: 'Expressive Tactile Controls', caption: 'Expressive Tactile Controls'
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     }, {
       student_id: '15',
       student_name: 'Michael Kripchak',
@@ -3672,7 +3672,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/KripchakThesisThumbnail.png', title: 'Kripchak Thesis Thumbnail', alt: 'Telepresence projection in VR.', caption: 'Screen-capture of holographic telepresence from within VR.'
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'VR\\AR', slug: 'vr-ar' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'VR\\AR', slug: 'vr-ar' }]
     }, {
       student_id: '69',
       student_name: 'Nitish Wakalkar',
@@ -3683,7 +3683,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/quirk-bots-thumbnail.png', title: 'quirk bots-thumbnail', alt: 'smart objects', caption: ''
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     }, {
       student_id: '110',
       student_name: 'Samantha Schulman',
@@ -3694,7 +3694,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/thumb2-size-2.jpg', title: '', alt: 'thumb', caption: ''
       },
-      topics: [{ name: 'Health', slug: 'health' }, { name: 'Tangiable', slug: 'tangiable' }]
+      topics: [{ name: 'Health', slug: 'health' }, { name: 'Tangible', slug: 'Tangible' }]
     }, {
       student_id: '92',
       student_name: 'Yeseul Song',
@@ -3705,7 +3705,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/invisible_thumbnail-1.jpg', title: 'invisible_thumbnail', alt: 'thumbnail', caption: ''
       },
-      topics: [{ name: 'Installation', slug: 'installation' }, { name: 'Tangiable', slug: 'tangiable' }]
+      topics: [{ name: 'Installation', slug: 'installation' }, { name: 'Tangible', slug: 'Tangible' }]
     }, {
       student_id: '56',
       student_name: 'Yuan Chen',
@@ -3716,7 +3716,7 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/thumbnail-3.jpg', title: 'thumbnailaaa', alt: 'thumbnail', caption: 'thumbnail'
       },
-      topics: [{ name: 'Tangiable', slug: 'tangiable' }, { name: 'UX\\UI', slug: 'uxui' }]
+      topics: [{ name: 'Tangible', slug: 'Tangible' }, { name: 'UX\\UI', slug: 'uxui' }]
     }],
     'Health': [{
       student_id: '80',
@@ -3794,6 +3794,6 @@ export const TAG_DATA =
       portfolio_icon: {
         src: 'https://itp.nyu.edu/thesis2018/wp-content/uploads/2018/04/thumb2-size-2.jpg', title: '', alt: 'thumb', caption: ''
       },
-      topics: [{ name: 'Health', slug: 'health' }, { name: 'Tangiable', slug: 'tangiable' }]
+      topics: [{ name: 'Health', slug: 'health' }, { name: 'Tangible', slug: 'Tangible' }]
     }]
   };

@@ -45,10 +45,10 @@ class App extends React.Component {
   getStudentProjectAPI(student) {
     const id = this.state.sampleStudentData[student].student_id;
     const baseUrl =
-    'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=';
+    'https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=';
     axios.get(baseUrl + id)
       .then((res) => {
-        this.props.setSelectedProject(JSON.parse(res.data.contents));
+        this.props.setSelectedProject(res.data);
       });
   }
 
@@ -76,10 +76,10 @@ class App extends React.Component {
 
   getAllProject() {
     const baseUrl =
-    'http://allorigins.me/get?url=https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=-1';
+    'https://itp.nyu.edu/thesis2018/wp-content/themes/itpthesis/api.php?student_id=-1';
     axios.get(baseUrl)
       .then((res) => {
-        const data = JSON.parse(res.data.contents);
+        const data = res.data;
 
         this.props.setSelectedProjects(data);
       });

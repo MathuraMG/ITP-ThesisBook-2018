@@ -1,15 +1,15 @@
 [
-  {"name":"Health","imports":["Health","Identity","UX\\UI","Sound","Education","VR\\AR","Data","Tangiable"]},
+  {"name":"Health","imports":["Health","Identity","UX\\UI","Sound","Education","VR\\AR","Data","Tangible"]},
 
   {"name":"Machine Learning","imports":["Machine Learning","Tool\\Service","Education","Sound","VR\\AR","Culture","Performance","Narrative"]},
 
   {"name":"Narrative","imports":["Identity","Narrative","Data","Education","VR\\AR","Performance","Tool\\Service","Society","Installation","Machine Learning"]},
 
-  {"name":"UX\\UI","imports":["Play","UX\\UI","Tool\\Service","Tangiable","VR\\AR","Culture","Society","Health"]},
+  {"name":"UX\\UI","imports":["Play","UX\\UI","Tool\\Service","Tangible","VR\\AR","Culture","Society","Health"]},
 
   {"name":"Culture","imports":["Culture","Tool\\Service","UX\\UI","VR\\AR","Data","Machine Learning","Installation","Sound","Society"]},
 
-  {"name":"Installation","imports":["Education","Installation","Performance","Identity","VR\\AR","Sound","Data","Narrative","Culture","Tangiable","Society"]},
+  {"name":"Installation","imports":["Education","Installation","Performance","Identity","VR\\AR","Sound","Data","Narrative","Culture","Tangible","Society"]},
 
   {"name":"Identity","imports":["Identity","Narrative","VR\\AR","Installation","Performance","Health","Sound","Data"]},
 
@@ -22,11 +22,11 @@
   {"name":"Education","imports":["Education","Narrative","Installation","Machine Learning","Tool\\Service","VR\\AR","Play","Health"]},
 
 
-  {"name":"VR\\AR","imports":["Narrative","VR\\AR","Identity","Installation","UX\\UI","Culture","Performance","Education","Machine Learning","Society","Tangiable","Health","Sound","Play","Data"]},
+  {"name":"VR\\AR","imports":["Narrative","VR\\AR","Identity","Installation","UX\\UI","Culture","Performance","Education","Machine Learning","Society","Tangible","Health","Sound","Play","Data"]},
 
   {"name":"Society","imports":["Data","Society","Tool\\Service","UX\\UI","Play","Narrative","VR\\AR","Culture","Installation","Performance"]},
 
-  {"name":"Tangiable","imports":["Tangiable","UX\\UI","VR\\AR","Health","Installation"]},
+  {"name":"Tangible","imports":["Tangible","UX\\UI","VR\\AR","Health","Installation"]},
 
   {"name":"Tool\\Service","imports":["Culture","Tool\\Service","UX\\UI","Machine Learning","Narrative","Education","Data","Society","Performance"]},
 

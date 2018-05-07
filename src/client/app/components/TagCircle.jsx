@@ -16,24 +16,19 @@ class TagCircle extends React.Component {
 
   componentDidMount() {
     this.createD3();
-    // debugger; //eslint-disable-line
     setTimeout(() => {
       this.forceUpdate();
     }, 1000);
   }
 
   componentDidUpdate(prevProps) {
-    console.log('in update');
     if (!this.state.mousePressed) {
-      console.log('in update loop');
-      // debugger; //eslint-disable-line
       this.setState({ mousePressed: true });
     }
   }
 
 
   createD3() {
-    console.log('d3 was created');
     let diameter;
     if (window.innerWidth <= 768) {
       diameter = 0.8 * window.innerWidth;

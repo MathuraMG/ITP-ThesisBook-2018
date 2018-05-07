@@ -21,7 +21,7 @@
 .node {
   letter-spacing: 1.5px;
   font-size: 0.85rem;
-  fill: #a6a6a6;
+  fill: $dead-tag;
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -58,12 +58,13 @@
 }
 
 .link--target {
-  stroke-opacity: .8;
-  stroke-width: 1px;
+  stroke-opacity: 1;
+  stroke: $light-gray;
+  stroke-width: 1.7px;
 }
 
 .link--target {
-  stroke:black;
+  // stroke:black;
   &:hover {
     stroke: $black;
     cursor: pointer;

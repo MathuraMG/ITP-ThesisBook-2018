@@ -33,7 +33,6 @@ class Nav extends React.Component {
               this.props.setIsTagCircleOpen(true);
               this.props.history.push('/');
               this.props.setShowAboutPage(false);
-              debugger; //eslint-disable-line
             }}
             className="nav__heading"
           >
@@ -61,9 +60,11 @@ class Nav extends React.Component {
               if (this.props.isTagCircleOpen) {
                 this.props.setIsTagCircleOpen(false);
                 $('.nav__container-right').addClass('nav__container-right--show');
+                $('.projects').removeClass('projects__add-padding');
               } else {
                 this.props.setIsTagCircleOpen(true);
                 $('.nav__container-right').removeClass('nav__container-right--show');
+                $('.projects').addClass('projects__add-padding');
               }
             }}
           >

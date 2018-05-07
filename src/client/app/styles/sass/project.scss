@@ -182,8 +182,10 @@
       right:5%;
     }
     &__student-site {
-      width: $student-side-width;
-      text-align: right;
+      position: initial;
+      display: flex;
+      margin: 0;
+      justify-content: center;
     }
   }
 }

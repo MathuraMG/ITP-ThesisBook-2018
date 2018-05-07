@@ -42,7 +42,17 @@ class About extends React.Component {
         <div className="about__content">
 
           {(this.props.aboutTopic === 0) &&
-          <div>
+          <div className="about__thesis-2018">
+            <Carousel showArrows={false} emulateTouch>
+              <img
+                src="https://placebear.com/400/200"
+                alt="placeholder"
+              />
+              <img
+                src="https://placebear.com/400/200"
+                alt="placeholder"
+              />
+            </Carousel>
             <p className="about__para">
               {ReactHtmlParser(AboutDefs.ABOUT_ITP)}
             </p>
@@ -51,7 +61,7 @@ class About extends React.Component {
 
           {(this.props.aboutTopic === 1) &&
           <div className="about__thesis-2018">
-            <Carousel>
+            <Carousel showArrows={false} emulateTouch>
               <img
                 src="https://placebear.com/400/200"
                 alt="placeholder"

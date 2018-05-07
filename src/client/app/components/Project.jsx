@@ -48,8 +48,8 @@ class Project extends React.Component {
         <h1 className="project__title">{ReactHtmlParser(this.props.selectedProject.project_title)}</h1>
         <div className="project__details">
           <p className="project__tags">
-            {this.props.selectedProject.topics[0].name === 'Tangiable' ? 'Tangible' : this.props.selectedProject.topics[0].name},	&nbsp;
-            {this.props.selectedProject.topics[1].name === 'Tangiable' ? 'Tangible' : this.props.selectedProject.topics[1].name}
+            {this.props.selectedProject.topics[0].name === 'Tangible' ? 'Tangible' : this.props.selectedProject.topics[0].name},	&nbsp;
+            {this.props.selectedProject.topics[1].name === 'Tangible' ? 'Tangible' : this.props.selectedProject.topics[1].name}
           </p>
           <p className="project__advisor">
             Advisor:
@@ -62,7 +62,7 @@ class Project extends React.Component {
         </div>
         <p className="project__abstract">{ReactHtmlParser(this.props.selectedProject.short_description)}</p>
         {this.props.selectedProject.slide_show[0] &&
-          <Carousel>
+          <Carousel showArrows={false} emulateTouch>
             {renderArray}
           </Carousel>}
         <p className="project__desc">
